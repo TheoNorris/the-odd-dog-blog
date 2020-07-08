@@ -4,7 +4,7 @@
     
     {% for comment in comments %}
         <div class="container">
-        <p>{{comment.date}} {{comment.time}}</p> <p>({{comment.category_name}}) {{comment.title}}</p><br>
+        <p>{{comment.date_time}}</p> <p>({{comment.category_name}}) {{comment.title}}</p><br>
         <p>{{comment.username}}</p><br>
         <p>{{comment.comment}}</p>
         <div><button><i class="fas fa-heart"></i></button><p>{{comment.likes}}</p>
