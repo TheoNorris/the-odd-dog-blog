@@ -1,12 +1,16 @@
 {% extends 'base.html' %}{% block content %}
     {% for comment in comments %}
-        {{comment.category_name}}
-        {{comment.date}}
-        {{comment.time}}
-        {{comment.username}}
-        {{comment.title}}
-        {{comment.comment}}
-        {{comment.likes}}
-        {{comment.comments}}
+        <div class="container">
+        <p>{{comment.date}} {{comment.time}}</p> <p>({{comment.category_name}}) {{comment.title}}</p><br>
+        <p>{{comment.username}}</p><br>
+        <p>{{comment.comment}}</p>
+        <div><button><i class="fas fa-heart"></i></button><p>{{comment.likes}}</p>
+        <a href="#">comment</a> 
+        <a href="#">Edit</a>
+        <a href="#">Remove</a>
+        </div>
+
+        </div>
+     
     {% endfor %}
 {% endblock %}
