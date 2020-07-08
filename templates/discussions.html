@@ -1,7 +1,4 @@
-<html>
-<head>
-</head>
-<body>
+{% extends 'base.html' %}{% block content %}
     {% for comment in comments %}
         {{comment.category_name}}
         {{comment.date}}
@@ -12,5 +9,4 @@
         {{comment.likes}}
         {{comment.comments}}
     {% endfor %}
-</body>
-</html>
+{% endblock %}
