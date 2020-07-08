@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask,render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -14,8 +14,10 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-def hello():
-    return 'Hello, World'
+@app.route('/discussions')
+def discussions():
+    return render_template('discussions.html', comments=mongo.db.comments.find())
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

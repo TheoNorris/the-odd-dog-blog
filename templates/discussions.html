@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+    {% for comment in comments %}
+        {{comment.category_name}}
+        {{comment.date}}
+        {{comment.time}}
+        {{comment.username}}
+        {{comment.title}}
+        {{comment.comment}}
+        {{comment.likes}}
+        {{comment.comments}}
+    {% endfor %}
+</body>
+</html>
