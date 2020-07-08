@@ -1,4 +1,7 @@
 {% extends 'base.html' %}{% block content %}
+    
+    <p>Start a discussion here</p><button type="submit" formaction="#" class="btn btn-primary">Start discussion</button>
+    
     {% for comment in comments %}
         <div class="container">
         <p>{{comment.date}} {{comment.time}}</p> <p>({{comment.category_name}}) {{comment.title}}</p><br>
