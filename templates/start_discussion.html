@@ -1,14 +1,15 @@
 {% extends 'modal.html' %}{% block modal %}
     <div class="container">
       <h3>Start Discussion</h3>
-      <form>
-        <div
+      <form
           class="form-group"
-          action=""
+          action="{{ url_for('insert_discussion') }}"
           method="POST"
         >
-          <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1">
+        <textarea name="date_time" hidden>{{ now }}</textarea
+            >
+            <div class="form-group">
+            <select class="form-control" id="category_name" name="category_name" required>
               <option value="" disabled selected>Choose Category</option>
               {% for comment in comments %}
               <option value="{{comment.category_name}}"
@@ -24,6 +25,8 @@
               id="title"
               name="title"
               placeholder="Enter a title"
+              maxlength="50"
+              required
             />
           </div>
           <div class="form-group">
@@ -33,24 +36,22 @@
               id="username"
               name="username"
               placeholder="Enter Username"
+              required
+              maxlength="254"
             />
           </div>
           <div class="form-group">
-            <label for="comment"></label>
-            <textarea class="form-control" id="comment" name="comment" rows="3">
-Whats on your mind...?</textarea
+            <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="What's on your mind...?" required></textarea
             >
           </div>
           <div class="row">
             <button
               class="btn btn-primary"
               type="submit"
-              name="action"
             >
               Add Task
             </button>
           </div>
-        </div>
       </form>
     </div>
   {% endblock %}

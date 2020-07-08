@@ -21,8 +21,13 @@ def discussions():
 
 @app.route('/start_discussion')
 def start_discussion():
-    return render_template('start_discussion.html' , comments=mongo.db.comments.find())
+    return render_template('start_discussion.html', now = datetime.now().strftime("%D, %H:%M"), comments=mongo.db.comments.find())
 
+@app.route('/insert_discussion', methods=['POST'])
+def insert_discussion():
+    comments = mongo.db.comments
+    comments.insert_one(request.form.to_dict())
+    return redirect(url_for('discussions'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
