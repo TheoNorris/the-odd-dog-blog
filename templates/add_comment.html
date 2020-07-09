@@ -13,7 +13,7 @@
 
         <form
           class="form-group"
-          action="{{ url_for('insert_discussion') }}"
+          action="{{ url_for('reply', comment_id=comment._id) }}"
           method="POST"
         >
         <textarea name="date_time" hidden>{{ now }}</textarea

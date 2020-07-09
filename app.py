@@ -58,6 +58,18 @@ def add_comment(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
     return render_template('add_comment.html', comment=the_comment)
 
+@app.route('/reply/<comment_id>', methods=["POST"])
+def reply(comment_id):
+    comments = mongo.db.comments
+    comments.update({'_id': ObjectId(comment_id)},
+    {
+        '$push': {'comments': {
+        'date_time': request.form.get('date_time'),
+        'username': request.form.get('username'),
+        'comment': request.form.get('comment'),
+        }}
+    })
+    return redirect(request.referrer)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
