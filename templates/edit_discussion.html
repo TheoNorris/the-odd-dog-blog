@@ -7,13 +7,13 @@
           method="POST"
           enctype="multipart/form-data"
         >
-        <textarea name="date_time" hidden>{{ now }}</textarea
+        <textarea name="date_time" hidden>(edited){{ now }}</textarea
             >
             <div class="form-group">
             <select class="form-control" id="category_name" name="category_name" required>
-              <option value="" disabled selected>Choose Category</option>
+              <option value="" disabled>Choose Category</option>
               {% for comment in comments %}
-              <option value="{{comment.category_name}}"
+              <option disabled selected value="{{comment.category_name}}"
                 >{{comment.category_name}}</option
               >
               {% endfor %}

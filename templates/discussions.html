@@ -1,19 +1,25 @@
 {% extends 'base.html' %}{% block content %}
-    
-    <p>Start a discussion here</p><button type="submit" formaction="#" class="btn btn-primary">Start discussion</button>
-    
-    {% for comment in comments %}
-        <div class="container">
-        <p>{{comment.date_time}}</p> <p>({{comment.category_name}}) {{comment.title}}</p><br>
-        <p>{{comment.username}}</p><br>
-        <p>{{comment.comment}}</p>
-        <div><button><i class="fas fa-heart"></i></button><p>{{comment.likes}}</p>
-        <a href="#">comment</a> 
-        <a href="#">Edit</a>
-        <a href="#">Remove</a>
-        </div>
 
-        </div>
-     
-    {% endfor %}
+<label>Start a discussion here</label>
+
+<input type="button" onclick="window.location.href='{{ url_for('start_discussion') }}';" value="Enter" />
+ 
+{% for comment in comments %}
+<div class="container discussions-container">
+  <p>{{comment.date_time}}</p>
+  <p>({{comment.category_name}}) {{comment.title}}</p>
+  <br />
+  <p>{{comment.username}}</p>
+  <br />
+  <p>{{comment.comment}}</p>
+  <div>
+    <button><i class="fas fa-heart"></i></button>
+    <label>{{comment.likes}}</label>
+    <a href="#">comment</a>
+    <a href="{{ url_for('start_discussion'), comments_id=comments._id }}">Edit</a>
+    <a href="#">Remove</a>
+  </div>
+</div>
+
+{% endfor %} 
 {% endblock %}
