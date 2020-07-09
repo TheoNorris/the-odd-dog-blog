@@ -3,7 +3,7 @@
       <h3>Edit Discussion</h3>
       <form
           class="form-group"
-          action="url_for('update_discussion', comment_id=comment._id)}}"
+          action="{{ url_for('update_discussion', comment_id=comment._id)}}"
           method="POST"
         >
         <textarea name="date_time" hidden>(edited){{ now }}</textarea

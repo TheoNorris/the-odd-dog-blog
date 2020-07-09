@@ -26,7 +26,7 @@ def start_discussion():
 @app.route('/insert_discussion', methods=['POST'])
 def insert_discussion():
     comments = mongo.db.comments
-    comments.insert_one(request.FILES.form.to_dict())  
+    comments.insert_one(request.form.to_dict())  
     return redirect(url_for('discussions'))
 
 @app.route('/edit_discussion/<comment_id>')
@@ -38,13 +38,19 @@ def edit_discussion(comment_id):
 @app.route('/update_discussion/<comment_id>', methods=["POST"])
 def update_discussion(comment_id):
     comments = mongo.db.comments
-    comments.update({'_id': ObjectId(comment_id)}, 
+    comments.update({'_id': ObjectId(comment_id)},
     {
         'category_name': request.form.get('category_name'),
         'date_time': request.form.get('date_time'),
+        'username': request.form.get('username'),
         'title': request.form.get('title'),
         'comment': request.form.get('comment'),
     })
+    return redirect(url_for('discussions'))
+
+@app.route('/delete_discussion/<comment_id>')
+def delete_discussion(comment_id):
+    mongo.db.comments.remove({'_id': ObjectId(comment_id)})
     return redirect(url_for('discussions'))
 
 
