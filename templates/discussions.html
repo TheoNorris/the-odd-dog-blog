@@ -16,7 +16,7 @@
     <button><i class="fas fa-heart"></i></button>
     <label>{{comment.likes}}</label>
     <a href="#">comment</a>
-    <a href="{{ url_for('start_discussion'), comments_id=comments._id }}">Edit</a>
+    <a href="{{ url_for('edit_discussion', comment_id=comment._id )}}">Edit</a>
     <a href="#">Remove</a>
   </div>
 </div>

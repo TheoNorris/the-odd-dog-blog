@@ -1,21 +1,27 @@
 {% extends 'base.html' %}{% block content %}
     <div class="container">
-      <h3>Start Discussion</h3>
+      <h3>Edit Discussion</h3>
       <form
           class="form-group"
-          action="{{ url_for('insert_discussion') }}"
+          action="url_for('update_discussion', comment_id=comment._id)}}"
           method="POST"
-          enctype="multipart/form-data"
         >
         <textarea name="date_time" hidden>(edited){{ now }}</textarea
             >
             <div class="form-group">
             <select class="form-control" id="category_name" name="category_name" required>
               <option value="" disabled>Choose Category</option>
-              {% for comment in comments %}
-              <option disabled selected value="{{comment.category_name}}"
-                >{{comment.category_name}}</option
-              >
+              {% for cat in categories %}
+              {% if cat.category_name == comment.category_name %}
+ 
+               <option value="{{cat.category_name}}" selected>
+               {{cat.category_name}}</option>
+   
+                {% else %}
+          
+                 <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+          
+                {% endif %}
               {% endfor %}
             </select>
           </div>
@@ -25,7 +31,7 @@
               class="form-control"
               id="title"
               name="title"
-              placeholder="Enter a title"
+              value="{{ comment.title }}"
               maxlength="50"
               required
             />
@@ -36,19 +42,20 @@
               class="form-control"
               id="username"
               name="username"
-              placeholder="Enter Username"
+              value="{{ comment.username }}"
               required
               maxlength="10"
             />
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="What's on your mind...?" required maxlength="254"></textarea
+            <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="" required maxlength="254">{{ comment.comment }}</textarea
             >
           </div>
           <div class="row">
+            <input type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
             <button
               class="btn btn-primary"
-              type="submit"
+              type="Edit"
             >
               Add Task
             </button>

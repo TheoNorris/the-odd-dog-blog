@@ -5,16 +5,15 @@
           class="form-group"
           action="{{ url_for('insert_discussion') }}"
           method="POST"
-          enctype="multipart/form-data"
         >
         <textarea name="date_time" hidden>{{ now }}</textarea
             >
             <div class="form-group">
             <select class="form-control" id="category_name" name="category_name" required>
               <option value="" disabled selected>Choose Category</option>
-              {% for comment in comments %}
-              <option value="{{comment.category_name}}"
-                >{{comment.category_name}}</option
+              {% for cat in categories %}
+              <option value="{{cat.category_name}}"
+                >{{cat.category_name}}</option
               >
               {% endfor %}
             </select>
