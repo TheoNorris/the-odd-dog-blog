@@ -53,6 +53,11 @@ def delete_discussion(comment_id):
     mongo.db.comments.remove({'_id': ObjectId(comment_id)})
     return redirect(url_for('discussions'))
 
+@app.route('/add_comment/<comment_id>')
+def add_comment(comment_id):
+    the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
+    return render_template('add_comment.html', comment=the_comment)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
