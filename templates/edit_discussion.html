@@ -1,110 +1,106 @@
 {% extends 'base.html' %}{% block content %}
-<div class="container">
-  <h3>Edit Discussion</h3>
 
+<h3>Edit Discussion</h3>
 
-  <form
-    class="needs-validation"
-    action="{{ url_for('update_discussion', comment_id=comment._id )}}"
-    method="POST"
-    novalidate
-  >
-      <textarea name="date_time" hidden>(edited){{ now }}</textarea>
-      <div class="form-group">
-        <select
+<form
+  class="needs-validation"
+  action="{{ url_for('update_discussion', comment_id=comment._id )}}"
+  method="POST"
+  novalidate
+>
+  <textarea name="date_time" hidden>(edited){{ now }}</textarea>
+  <div class="form-group">
+    <select
+      class="form-control"
+      id="category_name"
+      name="category_name"
+      required
+    >
+      <option value="" disabled>Choose Category</option>
+      {% for cat in categories %} {% if cat.category_name ==
+      comment.category_name %}
+
+      <option value="{{cat.category_name}}" selected>
+        {{cat.category_name}}</option
+      >
+
+      {% else %}
+
+      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+
+      {% endif %} {% endfor %}
+    </select>
+
+    <div class="col">
+      <label for="validationCustom01">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        placeholder="Enter a Title..."
+        value="{{ comment.title }}"
+        name="title"
+        minlength="3"
+        maxlength="50"
+        required
+      />
+
+      <div class="invalid-feedback">
+        The title must be 3-50 characters long.
+      </div>
+    </div>
+    <div class="col">
+      <label for="validationCustom02">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom02"
+        placeholder="Username"
+        value="{{ comment.username }}"
+        name="username"
+        minlength="3"
+        maxlength="10"
+        required
+      />
+      <div class="invalid-feedback">
+        Your username must be 3-10 characters long.
+      </div>
+    </div>
+    <div class="col">
+      <label for="validationCustomUsername">Username</label>
+      <div class="input-group">
+        <div class="input-group-prepend"></div>
+        <textarea
+          type="text"
           class="form-control"
-          id="category_name"
-          name="category_name"
+          id="validationCustomUsername"
+          aria-describedby="inputGroupPrepend"
+          name="comment"
+          rows="3"
+          placeholder=""
+          maxlength="254"
           required
         >
-          <option value="" disabled>Choose Category</option>
-          {% for cat in categories %} {% if cat.category_name ==
-          comment.category_name %}
-
-          <option value="{{cat.category_name}}" selected>
-            {{cat.category_name}}</option
-          >
-
-          {% else %}
-
-          <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-
-          {% endif %} {% endfor %}
-        </select>
-
-        <div class="col">
-          <label for="validationCustom01">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validationCustom01"
-            placeholder="Enter a Title..."
-            value="{{ comment.title }}"
-            name="title"
-            minlength="3"
-            maxlength="50"
-            required
-          />
-        
-          <div class="invalid-feedback">
-            The title must be 3-50 characters long.
-          </div>
-        </div>
-        <div class="col">
-          <label for="validationCustom02">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validationCustom02"
-            placeholder="Username"
-            value="{{ comment.username }}"
-            name="username"
-            minlength="3"
-            maxlength="10"
-            required
-          />
-          <div class="invalid-feedback">
-            Your username must be 3-10 characters long.
-          </div>
-        </div>
-        <div class="col">
-          <label for="validationCustomUsername">Username</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-            </div>
-            <textarea
-              type="text"
-              class="form-control"
-              id="validationCustomUsername"
-              aria-describedby="inputGroupPrepend"
-              name="comment"
-              rows="3"
-              placeholder=""
-              maxlength="254"
-              required
-            >
 {{ comment.comment }}</textarea
-            >
-            <div class="invalid-feedback">
-              Enter Comment
-            </div>
-          </div>
+        >
+        <div class="invalid-feedback">
+          Enter Comment
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="row">
-        <input
-          type="button"
-          class="btn btn-primary"
-          onclick="window.location.href='{{ url_for('discussions') }}';"
-          value="Cancel"
-        />
-        <button class="btn btn-primary" type="Edit">
-          Edit
-        </button>
-      </div>
-    </form>
+  <div class="row">
+    <input
+      type="button"
+      class="btn btn-primary"
+      onclick="window.location.href='{{ url_for('discussions') }}';"
+      value="Cancel"
+    />
+    <button class="btn btn-primary" type="Edit">
+      Edit
+    </button>
+  </div>
+</form>
 
-    {% endblock %}
-  
-</div>
+{% endblock %}

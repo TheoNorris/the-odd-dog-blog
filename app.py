@@ -15,6 +15,9 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/discussions')
 def discussions():
     all_categories = mongo.db.categories.find()

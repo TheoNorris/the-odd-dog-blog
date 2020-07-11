@@ -26,7 +26,7 @@
   </head>
   <body>
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light dog-nav">
   <a class="navbar-brand" href="#"><h1 class="head-text">The Odd Dog Blog</h1></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -45,27 +45,32 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
+      <select class="form-control mr-sm-2" name="discussion-search" id="discussion-search" onchange="location = this.value;">
+  <option value="" disabled selected>Select Discussion</option>
+  <option value="health.html">Health</option>
+  <option value="lifestyle.htm">Lifestyle</option>
+  <option value="story.html">Story</option>
+  <option value="food.html">Food</option>
+</select>
   </div>
 </nav>
   
   </header>
     <section>
-    <div class="picture-div">
 
-    <img class="hero-image" src="{{url_for('static', filename='images/smiling-woman.jpg')}}" alt="Smiling woman with dog">
-    </div>
-      <div class="container">
+    {% block homepage %}{% endblock %}
+    
+<div class="content-container">
         <div class="row">
-          <div class="col-9 col-md-12 base-div">
+          <div class="col-8 base-div">
+    
             {% block content %}{% endblock %}
+          
           </div>
-          <div class="col-3 ratings-div"></div>
+         <div class="col-4 ratings-div"></div>
         </div>
-      </div>
+
     </section>
     <footer></footer>
     <!--JQuery and javascript scripts-->

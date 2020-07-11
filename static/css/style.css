@@ -1,25 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Main body and base.html */
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-
 }
 
-h1.head-text{
+/* Header */
 
-font-family: 'Chelsea Market', sans-serif;
-font-size: 50px;
-letter-spacing: 1px;
-margin-left: 30px;
+nav.dog-nav {
+  letter-spacing: 2px;
 }
 
-.hero-image{
-width: 100%;
+h1.head-text {
+  font-family: "Chelsea Market", sans-serif;
+  font-size: 50px;
+  letter-spacing: 1px;
+  margin-left: 30px;
 }
 
-div.picture-div{
-width: 100%;
-padding: 30px 50px;
+#discussion-search{
+width: 200px;
+}
+
+div.base-div {
+  border: 2px solid #3b3a3a;
+  width: 100%;
+  text-align: center;
+}
+
+/* index.html */
+
+div.picture-div {
+  width: 100%;
+  padding: 30px 50px;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+/* discussions.html */
+
+image-plus-button-cont{
+text-align: center;
+}
+
+.discussions-image {
+  margin-top: 35px;
+}
+
+#discussion-label {
+  margin-top: 20px;
+  font-family: "Chelsea Market";
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.btn.btn-primary.discussion-button {
+  margin-left: 10px;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background-color: #000;
+  border: black;
+}
+
+.discussions-container{
+
+
+    background-color: #dedbdb;
+    margin: 20px 50px 0;
+    width: 90%;
+    border-radius: 30px;
+}
+
+.discussions-container{
+color: white;
 }

@@ -1,12 +1,31 @@
 {% extends 'base.html' %}{% block content %}
 
-<h2>{{ reply }} </h2>
+<h2>{{ reply }}</h2>
 
-<form id="search_form" action="{{url_for('update_reply', reply_comment=reply.comment)}}" method="post">
-                <div class="input-with-icon success-control">  
-                    <input type="text" class="form-control" id="form1Amount" name="username" value="{{ reply.username }}"><br/>
-                    <input type="text" class="form-control" id="form2Amount" name="comment" value="{{ reply.comment }}"><br/>
-                </div>  
-                <button onclick="form_submit()" class="btn btn-danger"><i class="fa fa-user"></i> User</button> 
+<form
+  id="search_form"
+  action="{{url_for('update_reply', reply_comment=reply.comment)}}"
+  method="post"
+>
+  <div class="input-with-icon success-control">
+    <input
+      type="text"
+      class="form-control"
+      id="form1Amount"
+      name="username"
+      value="{{ reply.username }}"
+    /><br />
+    <input
+      type="text"
+      class="form-control"
+      id="form2Amount"
+      name="comment"
+      value="{{ reply.comment }}"
+    /><br />
+  </div>
+  <button onclick="form_submit()" class="btn btn-danger">
+    <i class="fa fa-user"></i> User
+  </button>
+</form>
 
 {% endblock %}
