@@ -1,12 +1,21 @@
 {% extends 'base.html' %}{% block content %}
 
-<div><p>{{ comment.comment }}</p></div>
+<div><h5>{{ comment.username }}</h5><p>{{ comment.comment }}</p></div>
 
 {% for comm in comment.comments %}
 
 <div>
 <h5>{{ comm.username }}</h5>
 <p>{{ comm.comment }}</p>
+{% if comm.comment %}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+
+<a href="{{ url_for('edit_reply', reply_comment=comm.comment )}}">Edit</a>
+
+{% else %}
+{% endif %}
+
+
 </div>
 
 {% endfor %}
