@@ -1,12 +1,9 @@
-{% extends 'base.html' %}
-
-{% block homepage %}
+{% extends 'base.html' %} {% block homepage %}
 <div class="picture-div">
-<img class="hero-image" src="{{url_for('static', filename='images/smiling-woman.jpg')}}" alt="Smiling woman with dog">
+  <img
+    class="hero-image"
+    src="{{url_for('static', filename='images/smiling-woman.jpg')}}"
+    alt="Smiling woman with dog"
+  />
 </div>
-{% endblock %}
-
-{% block content %}
-
-
-{% endblock %}
+{% endblock %} {% block content %} {% endblock %}

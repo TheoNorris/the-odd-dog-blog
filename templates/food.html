@@ -1,184 +1,191 @@
 {% extends 'base.html' %}{% block content %}
 
 <div class="image-plus-button-cont">
-<img class="discussions-image" src="{{url_for('static', filename='images/frenchy.jpg')}}" alt="French Bulldog">
+  <img
+    class="discussions-image"
+    src="{{url_for('static', filename='images/black-and-white-dalmatian.jpg')}}"
+    alt="Dalmation"
+  />
 
-      <label id="discussion-label">Start a discussion here</label>
+  <label id="discussion-label">Start a discussion here</label>
 
-      <button
-        type="button"
-        class="btn btn-primary discussion-button"
-        data-toggle="modal"
-        data-target="#exampleModal"
-      >
-        Enter
-      </button>
+  <button
+    type="button"
+    class="btn btn-primary discussion-button"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    Enter
+  </button>
 </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Start discussion!
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Start discussion!
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          class="needs-validation"
+          action="{{ url_for('insert_discussion') }}"
+          method="POST"
+          novalidate
+        >
+          <textarea name="date_time" hidden>{{ now }}</textarea>
+          <div class="form-group">
+            <select
+              class="form-control"
+              id="category_name"
+              name="category_name"
+              required
+            >
+              <option value="Food" disabled selected>Food</option>
+            </select>
+
+            <div class="col">
+              <label for="validationCustom01">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="Enter a Title..."
+                name="title"
+                minlength="3"
+                maxlength="50"
+                required
+              />
+              <div class="valid-feedback">
+                The title must be 3-50 characters long.
+              </div>
             </div>
-            <div class="modal-body">
-              <form
-                class="needs-validation"
-                action="{{ url_for('insert_discussion') }}"
-                method="POST"
-                novalidate
-              >
-                <textarea name="date_time" hidden>{{ now }}</textarea>
-                <div class="form-group">
-                  <select
-                    class="form-control"
-                    id="category_name"
-                    name="category_name"
-                    required
-                  >
-                    <option value="" disabled selected>Choose Category</option>
-                    {% for cat in categories %}
-                    <option value="{{cat.category_name}}"
-                      >{{cat.category_name}}</option
-                    >
-                    {% endfor %}
-                  </select>
-
-                  <div class="col">
-                    <label for="validationCustom01">Title</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="validationCustom01"
-                      placeholder="Enter a Title..."
-                      name="title"
-                      minlength="3"
-                      maxlength="50"
-                      required
-                    />
-                    <div class="valid-feedback">
-                      The title must be 3-50 characters long.
-                    </div>
-                  </div>
-                  <div class="col">
-                    <label for="validationCustom02">Username</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="validationCustom02"
-                      placeholder="Username"
-                      name="username"
-                      maxlength="10"
-                      required
-                    />
-                    <div class="valid-feedback">
-                      Your username must be 3-10 characters long.
-                    </div>
-                  </div>
-                  <div class="col">
-                    <label for="validationCustomUsername">Thought's</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend"></div>
-                      <textarea
-                        type="text"
-                        class="form-control"
-                        id="validationCustomUsername"
-                        aria-describedby="inputGroupPrepend"
-                        name="comment"
-                        rows="3"
-                        placeholder="What's on your mind...?"
-                        maxlength="254"
-                        required
-                      ></textarea>
-                      <div class="invalid-feedback">
-                        Enter Comment
-                      </div>
-                    </div>
-                  </div>
+            <div class="col">
+              <label for="validationCustom02">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                placeholder="Username"
+                name="username"
+                maxlength="10"
+                required
+              />
+              <div class="valid-feedback">
+                Your username must be 3-10 characters long.
+              </div>
+            </div>
+            <div class="col">
+              <label for="validationCustomUsername">Thought's</label>
+              <div class="input-group">
+                <div class="input-group-prepend"></div>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="validationCustomUsername"
+                  aria-describedby="inputGroupPrepend"
+                  name="comment"
+                  rows="3"
+                  placeholder="What's on your mind...?"
+                  maxlength="254"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  Enter Comment
                 </div>
-
-                <div class="row">
-                  <input
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="window.location.href='{{ url_for('discussions') }}';"
-                    value="Cancel"
-                  />
-                  <button class="btn btn-primary" type="submit">
-                    Add Task
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <hr class="comment-break">
-
-      {% for comment in comments %}
-      <div class="row">
-      <div class="col-4">
-        <p class="comment-date">{{comment.date_time}}</p>  
-      </div>
-    
-        <div class="col-8">
-         <p class="comment-title">({{comment.category_name}}) <strong>{{comment.title}}</strong></p>
-        <p class="author-text">Author: {{comment.username}}</p>
-       
-        
-        <p>{{comment.comment}}</p>
-      </div>
-      
-        
-        <div class="comment-like-div">
-          <form
-            action="{{ url_for('update_likes', comment_id=comment._id)  }}"
-            method="POST"
-          >
-            <button value="1" name="likes" type="submit" class="like-button">
-              <i class="fas fa-heart"></i>
+          <div class="row">
+            <input
+              type="button"
+              class="btn btn-primary"
+              onclick="window.location.href='{{ url_for('discussions') }}';"
+              value="Cancel"
+            />
+            <button class="btn btn-primary" type="submit">
+              Add Task
             </button>
-          </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-          <label class="interactive-buttons">{{comment.likes}}</label>
+<hr class="comment-break" />
 
-          {% if comment.cant_delete %}
+{% for comment in comments %}
+<div class="row">
+  <div class="col-4 date-div">
+    <p class="comment-date">{{comment.date_time}}</p>
+  </div>
 
-          <a href="{{ url_for('add_comment', comment_id=comment._id )}}" class="interactive-buttons">comment</a>
+  <div class="col-8">
+    <p class="comment-title">
+      ({{comment.category_name}}) <strong>{{comment.title}}</strong>
+    </p>
+    <p class="author-text">Author: {{comment.username}}</p>
 
-          {% else %}
+    <p class="comments">{{comment.comment}}</p>
+  </div>
 
-          <a href="{{ url_for('add_comment', comment_id=comment._id )}}"
-             class="interactive-buttons">comment</a
-          >
-          <a href="{{ url_for('edit_discussion', comment_id=comment._id )}}"
-            class="interactive-buttons">Edit</a
-          >
-          <a href="{{ url_for('delete_discussion', comment_id=comment._id )}}"
-            class="interactive-buttons">Remove</a
-          >
-        </div>
-        </div>
+  <div class="comment-like-div">
+    <form
+      action="{{ url_for('update_likes', comment_id=comment._id)  }}"
+      method="POST"
+    >
+      <button value="1" name="likes" type="submit" class="like-button">
+        <i class="fas fa-heart heart"></i>
+      </button>
+    </form>
 
-        <hr class="comment-break">
+    <label class="interactive-buttons">{{comment.likes}}</label>
 
-          {% endif %} {% endfor %}
-    
-{% endblock %}
+    {% if comment.cant_delete %}
+
+    <a
+      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      class="interactive-buttons"
+      >Comment</a
+    >
+
+    {% else %}
+
+    <a
+      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      class="interactive-buttons"
+      >comment</a
+    >
+    <a
+      href="{{ url_for('edit_discussion', comment_id=comment._id )}}"
+      class="interactive-buttons"
+      >Edit</a
+    >
+    <a
+      href="{{ url_for('delete_discussion', comment_id=comment._id )}}"
+      class="interactive-buttons"
+      >Remove</a
+    >
+  </div>
+</div>
+
+<hr class="comment-break" />
+
+{% endif %} {% endfor %} {% endblock %}

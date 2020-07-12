@@ -6,12 +6,16 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  color: #383838
+  color: #383838;
 }
 
-a{
-text-decoration: none;
-color: black;
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(255, 59, 59, 0.911);
 }
 
 /* Header */
@@ -22,14 +26,14 @@ nav.dog-nav {
 
 h1.head-text {
   font-family: "Chelsea Market", sans-serif;
-  font-size: 250%;;
+  font-size: 250%;
   letter-spacing: 1px;
   margin-left: 60px;
   color: black;
 }
 
-#discussion-search{
-width: 200px;
+#discussion-search {
+  width: 200px;
 }
 
 div.base-div {
@@ -50,9 +54,8 @@ div.picture-div {
 
 /* discussions.html */
 
-.image-plus-button-cont{
-text-align: center;
-
+.image-plus-button-cont {
+  text-align: center;
 }
 
 .discussions-image {
@@ -77,44 +80,62 @@ text-align: center;
   border: black;
 }
 
-.discussions-container{
-
-
-   
-    margin: 20px 50px 0;
-    width: 90%;
-    border-radius: 30px;
+.btn.btn-primary.discussion-button:hover {
+  background-color: rgba(255, 59, 59, 0.911);
 }
 
-.comment-date{
-color: rgb(82, 82, 82);
-margin-top: 5px;
-margin-left: 20%
+.discussions-container {
+  margin: 20px 50px 0;
+  width: 90%;
+  border-radius: 30px;
 }
 
-p.comment-title{
+.comment-date {
+  color: rgb(82, 82, 82);
+  margin-top: 5px;
+  margin-left: 20%;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
 
+.date-div {
+  border-right: solid 1px black;
+}
+
+p.comment-title {
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.author-text {
+  letter-spacing: 1px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.comments{
 letter-spacing: 1px;
-font-size: 20px;
-margin-bottom: 0;
+    font-size: 18px;
+    font-style: italic;
+    margin: 35px 10px;
 }
 
-.author-text{
-    letter-spacing: 1px;
-    font-weight: 300;
-    margin-top: 10px;
+.comment-like-div {
+  display: inline-flex;
+  margin: 20px auto;
 }
 
-.comment-like-div{
-display: inline-flex;
-margin: 20px auto;
+.interactive-buttons {
+  margin: 0 5px;
+  letter-spacing: 1px;
 }
 
-.interactive-buttons{
-margin: 0 5px;
-letter-spacing: 1px;
+.like-button {
+  border: none;
+  background: #fff;
 }
 
-.like-button{
-    border: none;
+.heart {
+  color: red;
 }
