@@ -74,10 +74,10 @@ def update_discussion(comment_id):
 @app.route('/update_likes/<comment_id>', methods=["POST"])
 def update_likes(comment_id):
     comments = mongo.db.comments
-    comments.update({'_id': ObjectId(comment_id)},
-                       {
-                       'likes': request.form.get('likes'),
-                       })
+    comments.find_one_and_update({'_id': ObjectId(comment_id)},
+                    {
+                    '$inc': {'likes': 1},
+                    })
     return redirect(url_for('discussions'))
 
 

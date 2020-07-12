@@ -1,7 +1,7 @@
 {% extends 'base.html' %}{% block content %}
 
-<div>
-<img class="discussions-image" src="{{url_for('static', filename='images/white-short-coated-dog.jpg')}}" alt="Smiling woman with dog">
+<div class="image-plus-button-cont">
+<img class="discussions-image" src="{{url_for('static', filename='images/frenchy.jpg')}}" alt="French Bulldog">
 
       <label id="discussion-label">Start a discussion here</label>
 
@@ -130,45 +130,54 @@
         </div>
       </div>
 
+      <hr class="comment-break">
+
       {% for comment in comments %}
-      <div class="container discussions-container">
-        <p>{{comment.date_time}}    ({{comment.category_name}}) <strong>{{comment.title}}</strong></p>
-        <p>({{comment.category_name}}) {{comment.title}}</p>
-        <br />
-        <p>{{comment.username}}</p>
-        <br />
+      <div class="row">
+      <div class="col-4">
+        <p class="comment-date">{{comment.date_time}}</p>  
+      </div>
+    
+        <div class="col-8">
+         <p class="comment-title">({{comment.category_name}}) <strong>{{comment.title}}</strong></p>
+        <p class="author-text">Author: {{comment.username}}</p>
+       
+        
         <p>{{comment.comment}}</p>
-        <div>
+      </div>
+      
+        
+        <div class="comment-like-div">
           <form
             action="{{ url_for('update_likes', comment_id=comment._id)  }}"
             method="POST"
           >
-            <button value="1" name="likes" type="submit">
+            <button value="1" name="likes" type="submit" class="like-button">
               <i class="fas fa-heart"></i>
             </button>
           </form>
 
-          <label>{{comment.likes}}</label>
+          <label class="interactive-buttons">{{comment.likes}}</label>
 
           {% if comment.cant_delete %}
 
-          <a href="#">comment</a>
+          <a href="{{ url_for('add_comment', comment_id=comment._id )}}" class="interactive-buttons">comment</a>
 
           {% else %}
 
           <a href="{{ url_for('add_comment', comment_id=comment._id )}}"
-            >comment</a
+             class="interactive-buttons">comment</a
           >
           <a href="{{ url_for('edit_discussion', comment_id=comment._id )}}"
-            >Edit</a
+            class="interactive-buttons">Edit</a
           >
           <a href="{{ url_for('delete_discussion', comment_id=comment._id )}}"
-            >Remove</a
+            class="interactive-buttons">Remove</a
           >
         </div>
         </div>
 
-        <br class="comment-break">
+        <hr class="comment-break">
 
           {% endif %} {% endfor %}
     

@@ -6,6 +6,12 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  color: #383838
+}
+
+a{
+text-decoration: none;
+color: black;
 }
 
 /* Header */
@@ -16,9 +22,10 @@ nav.dog-nav {
 
 h1.head-text {
   font-family: "Chelsea Market", sans-serif;
-  font-size: 50px;
+  font-size: 250%;;
   letter-spacing: 1px;
-  margin-left: 30px;
+  margin-left: 60px;
+  color: black;
 }
 
 #discussion-search{
@@ -28,7 +35,6 @@ width: 200px;
 div.base-div {
   border: 2px solid #3b3a3a;
   width: 100%;
-  text-align: center;
 }
 
 /* index.html */
@@ -44,12 +50,15 @@ div.picture-div {
 
 /* discussions.html */
 
-image-plus-button-cont{
+.image-plus-button-cont{
 text-align: center;
+
 }
 
 .discussions-image {
   margin-top: 35px;
+  width: 90%;
+  margin: 50px 50px 0;
 }
 
 #discussion-label {
@@ -71,12 +80,41 @@ text-align: center;
 .discussions-container{
 
 
-    background-color: #dedbdb;
+   
     margin: 20px 50px 0;
     width: 90%;
     border-radius: 30px;
 }
 
-.discussions-container{
-color: white;
+.comment-date{
+color: rgb(82, 82, 82);
+margin-top: 5px;
+margin-left: 20%
+}
+
+p.comment-title{
+
+letter-spacing: 1px;
+font-size: 20px;
+margin-bottom: 0;
+}
+
+.author-text{
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.comment-like-div{
+display: inline-flex;
+margin: 20px auto;
+}
+
+.interactive-buttons{
+margin: 0 5px;
+letter-spacing: 1px;
+}
+
+.like-button{
+    border: none;
 }
