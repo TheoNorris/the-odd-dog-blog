@@ -52,6 +52,18 @@ div.picture-div {
   width: 100%;
 }
 
+.blog-div{
+    text-align: center;
+    margin: 30px 20px;
+    padding: 20px;
+    border: solid rgba(108, 206, 84, 0.5) 2px;
+   
+}
+
+.blog-image{
+    width: 90%;
+}
+
 /* discussions.html */
 
 .image-plus-button-cont {
