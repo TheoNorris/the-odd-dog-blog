@@ -48,10 +48,10 @@
     
       <select class="form-control mr-sm-2" name="discussion-search" id="discussion-search" onchange="location = this.value;">
   <option value="" disabled selected>Select Discussion</option>
-  <option value="health.html">Health</option>
-  <option value="lifestyle.htm">Lifestyle</option>
-  <option value="story.html">Story</option>
-  <option value="food.html">Food</option>
+  <option value="{{ url_for('health') }}">Health</option>
+  <option value="{{ url_for('lifestyle') }}">Lifestyle</option>
+  <option value="{{ url_for('story') }}">Story</option>
+  <option value="{{ url_for('food') }}">Food</option>
 </select>
   </div>
 </nav>

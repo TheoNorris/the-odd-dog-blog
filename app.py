@@ -18,6 +18,7 @@ mongo = PyMongo(app)
 def index():
     return render_template('index.html')
 
+
 @app.route('/discussions')
 def discussions():
     all_categories = mongo.db.categories.find()
@@ -27,11 +28,28 @@ def discussions():
                            categories=all_categories)
 
 
-@app.route('/search')
-def search():
-    comments = mongo.db.comments.find({"category_name": 
-                                      request.form.post("query")})
-    return render_template('discussions.html', comments=comments)
+@app.route('/health')
+def health():
+    comments = mongo.db.comments.find({'category_name': 'Health'})
+    return render_template('health.html', comments=comments)
+
+
+@app.route('/lifestyle')
+def lifestyle():
+    comments = mongo.db.comments.find({'category_name': 'Lifestyle'})
+    return render_template('lifestyle.html', comments=comments)
+
+
+@app.route('/story')
+def story():
+    comments = mongo.db.comments.find({'category_name': 'Story'})
+    return render_template('story.html', comments=comments)
+
+
+@app.route('/food')
+def food():
+    comments = mongo.db.comments.find({'category_name': 'Food'})
+    return render_template('food.html', comments=comments)
 
 
 @app.route('/start_discussion')
@@ -75,9 +93,9 @@ def update_discussion(comment_id):
 def update_likes(comment_id):
     comments = mongo.db.comments
     comments.find_one_and_update({'_id': ObjectId(comment_id)},
-                    {
-                    '$inc': {'likes': 1},
-                    })
+                                 {
+                                  '$inc': {'likes': 1},
+                                 })
     return redirect(url_for('discussions'))
 
 
