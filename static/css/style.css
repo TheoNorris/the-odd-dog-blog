@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap&family=Chelsea+Market&family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* Main body and base.html */
 
@@ -62,6 +62,21 @@ div.picture-div {
 
 .blog-image{
     width: 90%;
+}
+
+.blog-title{
+    margin: 15px 30px 5px;
+    letter-spacing: 1px;
+    font-size: 30px;
+    color: rgba(255, 59, 59, 0.911);
+    font-family: 'Indie Flower';
+    font-weight: 900;
+}
+
+.author-blog{
+font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 /* discussions.html */

@@ -51,6 +51,10 @@ def food():
     comments = mongo.db.comments.find({'category_name': 'Food'})
     return render_template('food.html', comments=comments)
 
+@app.route('/goodboy')
+def goodboy():
+    return render_template('goodboy.html')
+
 
 @app.route('/start_discussion')
 def start_discussion():

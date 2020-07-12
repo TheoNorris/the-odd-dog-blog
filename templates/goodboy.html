@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block homepage %}
+<div class="picture-div">
+  <img
+    class="hero-image"
+    src="{{url_for('static', filename='images/smiling-woman.jpg')}}"
+    alt="Smiling woman with dog"
+  />
+</div>
+{% endblock %} {% block content %} 
+<div class="blog-div">
+<img class="blog-image" src="{{url_for('static', filename='images/man-training-a-rottweiler.jpg')}}"/>
+<h2 class="blog-title">How to turn a bad pooch into a good boy.</h2>
+<h4 class="author-blog">By Bella Johnson</h4>
+<p>Is your dog bad to the bone? Does your sweet Jack Russel guard all doors from intruders — friends and family included? Or is it your Boxer puppy that won’t stop shredding socks and underwear? Some of the cutest pooches have the worst manners. Whether you’re at work or just in another room, their mischievous play may lead to anything from home repairs to staggering vet bills.
+Pooches and owners alike can relate to this common problem, and getting the magical, behavioral transformation you’ve always fantasized about is closer than you think — pet care authority Camp Bow Wow held a contest, “Bad to The Bone: Camp Bow Wow’s Worst Behaved Dog Contest,” to discover North America’s most ill-mannered dog. The winning pooch received a full year of free services ($3,000 value) at a local Camp or Home Buddies (an in-home care service offered by Camp Bow Wow) of their choice. Most importantly, the winning dog also received free dog training to correct those bad habits.
+If you are a frustrated pet owner who doesn’t have time to wait to win a contest like this, here are five dog-training tips straight from the Behavior Buddies experts at Camp Bow Wow to get you started:
+1. Proper exercise is key! A majority of behavior issues stem from a lack of proper exercise. At least one 30-minute walk per day is sufficient for most dogs. Playing in the backyard or in the house does not count as exercise.
+2. Buy a dog backpack for walks. This allows your dog to have a job and adds weight with objects like water bottles or hand weights so the dog expends more energy.
+3. Challenge your dog with brain puzzles. A mentally tired dog will not spend time thinking about how to get in the garbage or waste breath yipping at neighbors.
+4. Take a training class. Getting your dog to respect you is critical to having your dog listen to you.
+5. Send your dog to Camp Bow Wow or hire a Home Buddies Care Giver to take Fido on a walk. A tired dog is a good dog!
+If your beloved Fido is still opening cabinets and devouring furniture, enter him or her in Camp Bow Wow.
+For more information, visit www.campbowwow.com to see the location finder for the nearest Camp Bow Wow or Home Buddies near you.</p>
+</div>
+{% endblock %}
