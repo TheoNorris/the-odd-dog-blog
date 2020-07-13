@@ -113,6 +113,44 @@ width: 100%;
 
 /* discussions.html */
 
+#category_name{
+width: 93%;
+margin: auto
+}
+
+.modal-body{
+background-color: #f8f9fa;
+}
+
+.modal-title{
+margin: 0 auto;
+letter-spacing: 2px;
+}
+
+.close-button.close{
+margin: -1rem -1rem -1rem 0;
+}
+
+.modal-label{
+margin-top: 10px;
+letter-spacing: 2px;
+font-weight: 500;
+font-size: 18px;
+color: #383838;
+}
+
+.cancel-modal{
+margin-left: 55%;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.comment-modal{
+margin-left: 5%;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
 .image-plus-button-cont {
   text-align: center;
 }
