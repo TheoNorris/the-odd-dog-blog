@@ -55,6 +55,14 @@ def food():
 def goodboy():
     return render_template('goodboy.html')
 
+@app.route('/badbreath')
+def badbreath():
+    return render_template('badbreath.html')
+
+@app.route('/chewed_couch')
+def chewed_couch():
+    return render_template('chewed_couch.html')
+
 
 @app.route('/start_discussion')
 def start_discussion():

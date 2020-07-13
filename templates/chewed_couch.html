@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block homepage %}
+<div class="picture-div">
+  <img
+    class="hero-image"
+    src="{{url_for('static', filename='images/smiling-woman.jpg')}}"
+    alt="Smiling woman with dog"
+  />
+</div>
+{% endblock %} {% block content %}
+<div class="blog-div">
+  <img
+    class="blog-image"
+    src="{{url_for('static', filename='images/shih-tzu.jpg')}}"
+    alt="Shih-Tzu"
+  />
+  <h2 class="blog-title">Put a stop to the chewed up couch.</h2>
+  <h4 class="author-blog">By Nancy Smith</h4>
+  <p class="article-text">
+    While the season’s warmer weather offers great opportunity for games of
+    fetch with Fido, it also brings increased risk from exposure to pests,
+    particularly ticks, fleas, mosquitoes and stinging insects. Safeguarding
+    dogs and cats begins with discussions with your veterinarian, but in
+    addition to prescribed healthcare repellents and preventatives, there are
+    several things that can be done to make your yard inhospitable to the
+    stinging, biting troublemakers. “Ticks are certainly one of the most
+    concerning warm weather pests,” noted Missy Henriksen, vice president of
+    public affairs for the National Pest Management Association (NPMA). Ticks
+    are endemic with various species posing different health threats, such as
+    Rocky Mountain spotted fever, ehrlichiosis, babesia and Lyme disease.
+    Tick-borne illnesses generally present with lethargy, weakness, anemia and
+    even organ failure. Henriksen suggests pet owners minimize the risk of ticks
+    in yards by regularly trimming grass and other vegetation. As nuisance
+    wildlife and rodents are common tick carriers, seal trash cans, remove brush
+    piles and keep firewood two feet off of the ground to keep them away.
+    Mosquitoes also pose health risks to dogs and cats as their bites can
+    transmit heartworm, a parasitic roundworm that can infect a host and result
+    in a potentially serious disease. To help keep these pests at bay, Henriksen
+    advises homeowners to repair any torn screens and eliminate mosquito
+    breeding grounds by removing standing water in the yard. “Empty wading
+    pools, toys, grill covers flower pots, clogged gutters and other places that
+    tend to gather water. Bird baths should be changed every week to keep water
+    fresh,” Henriksen says. “Mosquitoes only need half an inch of stagnant water
+    to develop from eggs to pupae to adult mosquitoes that can then live out of
+    water, so a thorough check of the yard is essential.” Though fleas are tiny
+    pests, they cause big problems. Not only can they infest an entire home
+    quickly, flea saliva can cause anemia and dermatitis and transfer tapeworms
+    to dogs and cats. Avoid walking dogs in tall grass where there is a greater
+    chance of flea exposure, wash dogs after walks and puppy play dates, and
+    launder bedding, collars and stuffed toys. Stinging insects are another
+    potential problem for pets, especially if stung near the mouth or throat as
+    this may cause swelling that can restrict breathing. Inspect the yard for
+    evidence of hives or stinging insect colonies. If you see evidence of an
+    infestation, contact a pest professional who can safely remove nests and
+    control swarms.
+  </p>
+</div>
+{% endblock %}
