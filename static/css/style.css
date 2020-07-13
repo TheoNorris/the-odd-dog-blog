@@ -79,6 +79,38 @@ font-size: 20px;
     font-weight: 300;
 }
 
+.article-text{
+margin-top: 20px;
+font-size: 18px;
+letter-spacing: 1px;
+padding: 20px;
+background-color: #f8f9fa;
+font-style: italic;
+border-radius: 10px;
+}
+
+.reviews{
+
+margin-left: 15px;
+margin-top: 55px;
+margin-right: 50px;
+padding: 10px;
+border: solid gray 1px;
+position: relative;
+}
+
+.review-title{
+position: absolute;
+top: 20px;
+left: 20px;
+}
+
+
+
+.reviews-img{
+width: 100%;
+}
+
 /* discussions.html */
 
 .image-plus-button-cont {
@@ -128,6 +160,12 @@ font-size: 20px;
 
 .date-div {
   border-right: solid 1px black;
+  background-color: aliceblue;
+}
+
+.comments-box{
+background-color: #f8f9fa;
+padding-top: 20px;
 }
 
 p.comment-title {
@@ -150,7 +188,8 @@ letter-spacing: 1px;
 
 .comment-like-div {
   display: inline-flex;
-  margin: 20px auto;
+  margin: 20px auto 5px;
+
 }
 
 .interactive-buttons {

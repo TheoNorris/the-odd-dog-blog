@@ -11,16 +11,9 @@
   <h5>{{ comm.username }}</h5>
   <p>{{ comm.comment }}</p>
   {% if comm.comment %}
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#exampleModal"
-  >
-    Edit
-  </button>
+  
 
-  <a href="{{ url_for('edit_reply', reply_comment=comm.comment )}}">Edit</a>
+  <a class="btn btn-primary" href="{{ url_for('edit_reply', comment_id=comment._id, reply_comment=comm.comment )}}">Edit</a>
 
   {% else %} {% endif %}
 </div>

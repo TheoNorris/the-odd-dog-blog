@@ -132,9 +132,10 @@ def reply(comment_id):
     return redirect(request.referrer)
 
 
-@app.route('/edit_reply/<reply_comment>')
-def edit_reply(reply_comment):
-    the_reply = mongo.db.comments.find_one({"comments": reply_comment})
+@app.route('/edit_reply/<comment_id>, <reply_comment>')
+def edit_reply(comment_id, reply_comment):
+    the_reply = mongo.db.comments.find_one({'_id': ObjectId(comment_id),
+                                            "comments": reply_comment})
     return render_template('edit_reply.html', 
                            now=datetime.now().strftime("%D, %H:%M"), 
                            reply=the_reply)
@@ -154,7 +155,7 @@ def update_reply(reply_comment):
                                              request.form.get('comment'),
                                             }}
                     })
-    return redirect(url_for('add_comment'))
+    return redirect(url_for('discussions'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
