@@ -63,6 +63,22 @@ def badbreath():
 def chewed_couch():
     return render_template('chewed_couch.html')
 
+@app.route('/newpuppy')
+def newpuppy():
+    return render_template('newpuppy.html')
+
+@app.route('/better_life')
+def better_life():
+    return render_template('better_life.html')
+
+@app.route('/dog_bathing')
+def dog_bathing():
+    return render_template('dog_bathing.html')
+
+@app.route('/pet_allergies')
+def pet_allergies():
+    return render_template('pet_allergies.html')
+
 
 @app.route('/start_discussion')
 def start_discussion():

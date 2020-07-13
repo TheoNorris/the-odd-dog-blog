@@ -21,75 +21,124 @@
       href="{{url_for('static', filename='css/style.css')}}"
       type="text/css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Jua&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Jua&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light dog-nav">
-  <a class="navbar-brand" href="{{ url_for('index') }}"><h1 class="head-text">The Odd Dog Blog</h1></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light dog-nav">
+        <a class="navbar-brand" href="{{ url_for('index') }}"
+          ><h1 class="head-text">The Odd Dog Blog</h1></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('discussions') }}">Discussions</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">News</a>
-      </li>
-      
-    </ul>
-    
-      <select class="form-control mr-sm-2" name="discussion-search" id="discussion-search" onchange="location = this.value;">
-  <option value="" disabled selected>Select Discussion</option>
-  <option value="{{ url_for('health') }}">Health</option>
-  <option value="{{ url_for('lifestyle') }}">Lifestyle</option>
-  <option value="{{ url_for('story') }}">Story</option>
-  <option value="{{ url_for('food') }}">Food</option>
-</select>
-  </div>
-</nav>
-  
-  </header>
-    <section>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('discussions') }}"
+                >Discussions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News</a>
+            </li>
+          </ul>
 
-    {% block homepage %}{% endblock %}
-    
-<div class="content-container">
-        <div class="row">
-          <div class="col-8 base-div">
-    
-            {% block content %}{% endblock %}
-          
-          </div>
-         <div class="col-4 ratings-div">
-         <h3 class="articles-header">Articles</h3>
-         <div class="reviews">
-         <img class="reviews-img" src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}" alt="Puppy Sleeping">
-         <div class="review-title"><p>Are you ready for a new puppy?</p></div>
-         </div>
-         <div class="reviews">
-         <img class="reviews-img" src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}" alt="Puppy Sleeping">
-         <div class="review-title"><p>Are you ready for a new puppy?</p></div>
-         </div>
-         <div class="reviews">
-         <img class="reviews-img" src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}" alt="Puppy Sleeping">
-         <div class="review-title"><p>Are you ready for a new puppy?</p></div>
-         </div>
-         <div class="reviews">
-         <img class="reviews-img" src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}" alt="Puppy Sleeping">
-         <div class="review-title"><p>Are you ready for a new puppy?</p></div>
-         </div>
-         </div>
+          <select
+            class="form-control mr-sm-2"
+            name="discussion-search"
+            id="discussion-search"
+            onchange="location = this.value;"
+          >
+            <option value="" disabled selected>Select Discussion</option>
+            <option value="{{ url_for('health') }}">Health</option>
+            <option value="{{ url_for('lifestyle') }}">Lifestyle</option>
+            <option value="{{ url_for('story') }}">Story</option>
+            <option value="{{ url_for('food') }}">Food</option>
+          </select>
         </div>
+      </nav>
+    </header>
+    <section>
+      {% block homepage %}{% endblock %}
 
-  
+      <div class="content-container">
+        <div class="row">
+          <div class="col-8 col-md col-sm base-div">
+            {% block content %}{% endblock %}
+          </div>
+          <div class="col-4 ratings-div">
+            <h3 class="articles-header">Articles</h3>
+            <a href="{{ url_for('newpuppy') }}">
+              <div class="reviews">
+                <img
+                  class="reviews-img"
+                  src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}"
+                  alt="Puppy Sleeping"
+                />
+                <div class="review-title">
+                  <p>Are you ready for a new puppy?</p>
+                </div>
+              </div>
+            </a>
+            <a href="{{ url_for('better_life') }}">
+              <div class="reviews">
+                <img
+                  class="reviews-img"
+                  src="{{ url_for('static', filename='images/siberian-husky.jpg') }}"
+                  alt="Siberian Husky Puppy"
+                />
+                <div class="review-title">
+                  <p>Four tips for a better life.</p>
+                </div>
+              </div>
+            </a>
+            <a href="{{ url_for('dog_bathing') }}">
+              <div class="reviews">
+                <img
+                  class="reviews-img"
+                  src="{{ url_for('static', filename='images/chihuahua.jpg') }}"
+                  alt="Chihuahua"
+                />
+                <div class="review-title">
+                  <p>Tips For Easier Dog Bathing.</p>
+                </div>
+              </div>
+            </a>
+            <a href="{{ url_for('pet_allergies') }}">
+              <div class="reviews">
+                <img
+                  class="reviews-img"
+                  src="{{ url_for('static', filename='images/portuguese-water-dog.jpg') }}"
+                  alt="Portuguese Water Dog"
+                />
+                <div class="review-title">
+                  <p>6 Myths About Pet Allergies.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer></footer>
     <!--JQuery and javascript scripts-->
     <script
@@ -104,32 +153,40 @@
     ></script>
 
     <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName("needs-validation");
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (
+              form
+            ) {
+              form.addEventListener(
+                "submit",
+                function (event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add("was-validated");
+                },
+                false
+              );
+            });
+          },
+          false
+        );
+      })();
+    </script>
 
-<script type="text/javascript">
-  function form_submit() {
-    document.getElementById("search_form").submit();
-   }    
-  </script>
-
-</body>
+    <script type="text/javascript">
+      function form_submit() {
+        document.getElementById("search_form").submit();
+      }
+    </script>
+  </body>
 </html>
-

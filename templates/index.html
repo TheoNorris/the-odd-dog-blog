@@ -6,26 +6,37 @@
     alt="Smiling woman with dog"
   />
 </div>
-{% endblock %} {% block content %} 
+{% endblock %} {% block content %}
 <a href="{{url_for('goodboy')}}">
-<div class="blog-div">
-<img class="blog-image" src="{{url_for('static', filename='images/man-training-a-rottweiler.jpg')}}" alt="Rottweiler"/>
-<h2 class="blog-title">How to turn a bad pooch into a good boy.</h2>
-<h4 class="author-blog">By Bella Johnson</h4>
-</div>
+  <div class="blog-div">
+    <img
+      class="blog-image"
+      src="{{url_for('static', filename='images/man-training-a-rottweiler.jpg')}}"
+      alt="Rottweiler"
+    />
+    <h2 class="blog-title">How to turn a bad pooch into a good boy.</h2>
+    <h4 class="author-blog">By Bella Johnson</h4>
+  </div>
 </a>
 <a href="{{url_for('badbreath')}}">
-<div class="blog-div">
-<img class="blog-image" src="{{url_for('static', filename='images/english-bulldog.jpg')}}" alt="English Bulldog"/>
-<h2 class="blog-title">Is your dogs bad breath doggin' you?</h2>
-<h4 class="author-blog">By John Morris</h4>
-</div>
+  <div class="blog-div">
+    <img
+      class="blog-image"
+      src="{{url_for('static', filename='images/english-bulldog.jpg')}}"
+      alt="English Bulldog"
+    />
+    <h2 class="blog-title">Is your dogs bad breath doggin' you?</h2>
+    <h4 class="author-blog">By John Morris</h4>
+  </div>
 </a>
 <a href="{{url_for('chewed_couch')}}">
-<div class="blog-div">
-<img class="blog-image" src="{{url_for('static', filename='images/shih-tzu.jpg')}}"/>
-<h2 class="blog-title">Put a stop to the chewed up couch.</h2>
-<h4 class="author-blog">By Nancy Smith</h4>
-</div>
+  <div class="blog-div">
+    <img
+      class="blog-image"
+      src="{{url_for('static', filename='images/shih-tzu.jpg')}}"
+    />
+    <h2 class="blog-title">Put a stop to the chewed up couch.</h2>
+    <h4 class="author-blog">By Nancy Smith</h4>
+  </div>
 </a>
 {% endblock %}

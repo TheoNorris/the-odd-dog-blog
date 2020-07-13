@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block homepage %}
+<div class="picture-div">
+  <img
+    class="hero-image"
+    src="{{url_for('static', filename='images/smiling-woman.jpg')}}"
+    alt="Smiling woman with dog"
+  />
+</div>
+{% endblock %} {% block content %}
+<div class="blog-div">
+  <img
+    class="blog-image"
+    src="{{url_for('static', filename='images/chihuahua.jpg')}}"
+    alt="Chihuahua"
+  />
+  <h2 class="blog-title">Tips for easier dog bathing.</h2>
+  <p class="article-text">
+    American households keep 78.4 million dogs according to a survey conducted
+    by the American Pet Products Manufacturers Association. And every one of
+    those 78.4 million dogs, at some point…well…smells like a dog. “Washing your
+    dog doesn’t have to be an unpleasant experience for you or your pet,” says
+    Patty Mueller, pet care expert and founder of Rinse Ace brand pet products
+    (www.rinseace.com). “Bathing your pet indoors is an easy, less-stressful
+    alternative to a groomer -; or a backyard garden hose and bucket. All you
+    need are a few inexpensive items and a little planning.” How frequently you
+    bathe your dog depends on its lifestyle and breed. Bathing too often can
+    irritate the skin. A good guideline is to wash your dog only when its coat
+    gets dirty or begins smelling “doggy.” Here are some tips to make bath time
+    easier and less stressful for pet and owner: – Gather your supplies without
+    your pet present to reduce pre-bath anxiety. – Place a bath mat at the
+    bottom of the sink or tub to prevent your pet from slipping and to protect
+    the surface from nail scratches. – Place a screened cover over the drain to
+    catch pet hair. – Brush or comb the entire coat before bathing to remove
+    mats and tangles. – Attach bathing tethers to your dog’s collar to secure
+    them in the sink, tub or shower. This holds the dog in place and frees up
+    both your hands. – Use a shower hose with a sprayer that controls water
+    flow, such as the Rinse Ace Pet Shower Deluxe. This will save water and keep
+    you from “spooking” your pet. Hold it close to thoroughly soak the coat and
+    skin. Usually, cupfuls of water can’t fully saturate a pet, especially its
+    underbelly. – Always use shampoo and conditioner made specifically for dogs.
+    Never use products made for human use. – Instead of applying shampoo
+    directly to the dog, apply it to a shampoo mitt first for better
+    distribution throughout the coat. Work it into a deep lather, and rinse with
+    the shower hose until the water runs clear. Repeat process with conditioner.
+    Make sure to rinse well, since any shampoo or conditioner residue can cause
+    irritation. – Let your pet shake off initial water, then squeeze out any
+    excess water with your hands and finish by towel drying. Keep him or her
+    indoors, away from drafts, until its coat is completely dry.
+  </p>
+</div>
+{% endblock %}
