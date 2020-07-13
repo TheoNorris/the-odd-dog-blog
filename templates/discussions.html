@@ -171,15 +171,15 @@
     {% if comment.cant_delete %}
 
     <a
-      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
-      >comment</a
+      >Comment</a
     >
 
     {% else %}
 
     <a
-      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
       >Comment</a
     >

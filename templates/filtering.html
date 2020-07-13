@@ -4,7 +4,7 @@
   <img
     class="discussions-image"
     src="{{ image }}"
-    alt="Yorkshire-Terrier"
+    alt="Dog"
   />
 
   <label id="discussion-label">Start a discussion here</label>
@@ -161,7 +161,7 @@
     {% if comment.cant_delete %}
 
     <a
-      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
       >Comment</a
     >
@@ -169,7 +169,7 @@
     {% else %}
 
     <a
-      href="{{ url_for('add_comment', comment_id=comment._id )}}"
+      href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
       >comment</a
     >

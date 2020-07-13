@@ -23,7 +23,7 @@ def index():
 def discussions():
     all_categories = mongo.db.categories.find()
     comments = mongo.db.comments.find()
-    return render_template('health.html', comments=comments, 
+    return render_template('discussions.html', comments=comments, 
                            now=datetime.now().strftime("%D, %H:%M"),
                            categories=all_categories)
 
@@ -60,8 +60,9 @@ def food():
 def goodboy():
     image = url_for('static', filename='images/man-training-a-rottweiler.jpg')
     blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
-                                                 'How to turn a bad pooch into a good boy.'})
-    return render_template('blogpost.html', blog_articles=blog_articles, image=image)
+                                                     'How to turn a bad pooch into a good boy.'})
+    return render_template('blogpost.html', 
+                           blog_articles=blog_articles, image=image)
 
 
 @app.route('/badbreath')
@@ -69,8 +70,8 @@ def badbreath():
     image = url_for('static', filename='images/english-bulldog.jpg')
     blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
                                                      "Is your dogs bad breath doggin' you?"})
-    return render_template('blogpost.html', blog_articles=blog_articles, 
-                           image=image)
+    return render_template('blogpost.html', 
+                           blog_articles=blog_articles, image=image)
 
 
 @app.route('/chewed_couch')
@@ -78,25 +79,45 @@ def chewed_couch():
     image = url_for('static', filename='images/shih-tzu.jpg')
     blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
                                                      'Put a stop to the chewed up couch.'})
-    return render_template('blogpost.html', blog_articles=blog_articles, 
-                           image=image)
+    return render_template('blogpost.html', blog_articles=
+                           blog_articles, image=image)
 
 
 @app.route('/newpuppy')
 def newpuppy():
-    return render_template('newpuppy.html')
+    image = url_for('static', filename='images/puppy-sleeping.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     'Are you ready for a new puppy?'})
+    return render_template('articles.html', 
+                           blog_articles=blog_articles, image=image)
+
 
 @app.route('/better_life')
 def better_life():
-    return render_template('better_life.html')
+    image = url_for('static', filename='images/siberian-husky.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     'Four tips for a better life.'})
+    return render_template('articles.html', 
+                           blog_articles=blog_articles, image=image)
+
 
 @app.route('/dog_bathing')
 def dog_bathing():
-    return render_template('dog_bathing.html')
+    image = url_for('static', filename='images/chihuahua.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     'Tips for easier dog bathing.'})
+    return render_template('articles.html', 
+                           blog_articles=blog_articles, image=image)
+
 
 @app.route('/pet_allergies')
 def pet_allergies():
-    return render_template('pet_allergies.html')
+    image = url_for('static', filename='images/portuguese-water-dog.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     '6 Myths About Pet Allergies.'})
+    return render_template('articles.html', blog_articles=blog_articles, 
+                           image=image)
+
 
 
 @app.route('/start_discussion')
@@ -153,10 +174,10 @@ def delete_discussion(comment_id):
     return redirect(url_for('discussions'))
 
 
-@app.route('/add_comment/<comment_id>')
-def add_comment(comment_id):
+@app.route('/discussions_thread/<comment_id>')
+def discussions_thread(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
-    return render_template('add_comment.html',
+    return render_template('discussions_thread.html',
                            now=datetime.now().strftime("%D, %H:%M"),
                            comment=the_comment)
 
