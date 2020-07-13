@@ -32,40 +32,55 @@ def discussions():
 def health():
     image = url_for('static', filename='images/yorkshire-terrier.jpg')
     comments = mongo.db.comments.find({'category_name': 'Health'})
-    return render_template('health.html', comments=comments, image=image)
+    return render_template('filtering.html', comments=comments, image=image)
 
 
 @app.route('/lifestyle')
 def lifestyle():
     image = url_for('static', filename='images/man-with-dog.jpg')
     comments = mongo.db.comments.find({'category_name': 'Lifestyle'})
-    return render_template('health.html', comments=comments, image=image)
+    return render_template('filtering.html', comments=comments, image=image)
 
 
 @app.route('/story')
 def story():
     image = url_for('static', filename='images/dog-gang.jpg')
     comments = mongo.db.comments.find({'category_name': 'Story'})
-    return render_template('health.html', comments=comments, image=image)
+    return render_template('filtering.html', comments=comments, image=image)
 
 
 @app.route('/food')
 def food():
     image = url_for('static', filename='images/black-and-white-dalmatian.jpg')
     comments = mongo.db.comments.find({'category_name': 'Food'})
-    return render_template('health.html', comments=comments, image=image)
+    return render_template('filtering.html', comments=comments, image=image)
+
 
 @app.route('/goodboy')
 def goodboy():
-    return render_template('goodboy.html')
+    image = url_for('static', filename='images/man-training-a-rottweiler.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                 'How to turn a bad pooch into a good boy.'})
+    return render_template('blogpost.html', blog_articles=blog_articles, image=image)
+
 
 @app.route('/badbreath')
 def badbreath():
-    return render_template('badbreath.html')
+    image = url_for('static', filename='images/english-bulldog.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     "Is your dogs bad breath doggin' you?"})
+    return render_template('blogpost.html', blog_articles=blog_articles, 
+                           image=image)
+
 
 @app.route('/chewed_couch')
 def chewed_couch():
-    return render_template('chewed_couch.html')
+    image = url_for('static', filename='images/shih-tzu.jpg')
+    blog_articles = mongo.db.blog_articles.find_one({'blog_title': 
+                                                     'Put a stop to the chewed up couch.'})
+    return render_template('blogpost.html', blog_articles=blog_articles, 
+                           image=image)
+
 
 @app.route('/newpuppy')
 def newpuppy():
