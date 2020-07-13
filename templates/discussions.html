@@ -155,6 +155,7 @@
     <p class="comments">{{comment.comment}}</p>
   </div>
 
+
   <div class="comment-like-div">
     <form
       action="{{ url_for('update_likes', comment_id=comment._id)  }}"
@@ -192,9 +193,10 @@
       class="interactive-buttons"
       >Remove</a
     >
+    {% endif %}
   </div>
 </div>
 
 <hr class="comment-break" />
 
-{% endif %} {% endfor %} {% endblock %}
+{% endfor %} {% endblock %}

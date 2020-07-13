@@ -1,30 +1,56 @@
 {% extends 'base.html' %}{% block content %}
 
-<div>
-  <h5>{{ comment.username }}</h5>
-  <p>{{ comment.comment }}</p>
+<div class="image-plus-button-cont">
+  <img
+    class="discussions-image"
+    src="{{url_for('static', filename='images/frenchy.jpg')}}"
+    alt="French Bulldog"
+  />
+</div>
+
+<div class="reply-title-div">
+  <h2 class="reply-title">Reply</h2>
+</div>
+
+<div class="row">
+  <div class="col-4 date-div">
+    <p class="comment-date">{{comment.date_time}}</p>
+  </div>
+
+  <div class="col-8 comments-box">
+    <p class="comment-title">
+      <strong>{{comment.title}}</strong>
+    </p>
+    <p class="author-text">Author: {{ comment.username }}</p>
+
+    <p class="comments">{{comment.comment}}</p>
+  </div>
 </div>
 
 {% for comm in comment.comments %}
 
-<div>
-  <h5>{{ comm.username }}</h5>
+<div class="reply-comments-div">
+<div class="row">
+<div class="col-3">
+  <h5 class="reply-comment-user">{{ comm.username }}</h5>
+</div>
+<div class="col-8">
   <p>{{ comm.comment }}</p>
-  {% if comm.comment %}
-
+  </div>
+  <div class="col-1 reply-edit-button">
   <a
-    class="btn btn-primary"
+    class=""
     href="{{ url_for('edit_reply', comment_id=comment._id, reply_comment=comm.comment )}}"
     >Edit</a
   >
-
-  {% else %} {% endif %}
+</div>
+</div>
 </div>
 
 {% endfor %}
 
 <form
-  class="form-group"
+  class="form-group reply-form"
   action="{{ url_for('reply', comment_id=comment._id) }}"
   method="POST"
 >
@@ -52,9 +78,9 @@
     ></textarea>
   </div>
   <div class="row">
-    <input type="button" class="btn btn-primary" value="Cancel" />
-    <button class="btn btn-primary" type="submit">
-      Add Task
+    <input type="button" class="btn btn-primary reply-cancel" value="Cancel" />
+    <button class="btn btn-primary reply-reply" type="Reply">
+      Reply
     </button>
   </div>
 </form>

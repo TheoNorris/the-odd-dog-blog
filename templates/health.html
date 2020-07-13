@@ -3,7 +3,7 @@
 <div class="image-plus-button-cont">
   <img
     class="discussions-image"
-    src="{{url_for('static', filename='images/yorkshire-terrier.jpg')}}"
+    src="{{ image }}"
     alt="Yorkshire-Terrier"
   />
 
@@ -183,9 +183,10 @@
       class="interactive-buttons"
       >Remove</a
     >
+    {% endif %} 
   </div>
 </div>
 
 <hr class="comment-break" />
 
-{% endif %} {% endfor %} {% endblock %}
+{% endfor %} {% endblock %}

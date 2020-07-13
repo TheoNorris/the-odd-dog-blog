@@ -23,33 +23,37 @@ def index():
 def discussions():
     all_categories = mongo.db.categories.find()
     comments = mongo.db.comments.find()
-    return render_template('discussions.html', comments=comments, 
+    return render_template('health.html', comments=comments, 
                            now=datetime.now().strftime("%D, %H:%M"),
                            categories=all_categories)
 
 
 @app.route('/health')
 def health():
+    image = url_for('static', filename='images/yorkshire-terrier.jpg')
     comments = mongo.db.comments.find({'category_name': 'Health'})
-    return render_template('health.html', comments=comments)
+    return render_template('health.html', comments=comments, image=image)
 
 
 @app.route('/lifestyle')
 def lifestyle():
+    image = url_for('static', filename='images/man-with-dog.jpg')
     comments = mongo.db.comments.find({'category_name': 'Lifestyle'})
-    return render_template('lifestyle.html', comments=comments)
+    return render_template('health.html', comments=comments, image=image)
 
 
 @app.route('/story')
 def story():
+    image = url_for('static', filename='images/dog-gang.jpg')
     comments = mongo.db.comments.find({'category_name': 'Story'})
-    return render_template('story.html', comments=comments)
+    return render_template('health.html', comments=comments, image=image)
 
 
 @app.route('/food')
 def food():
+    image = url_for('static', filename='images/black-and-white-dalmatian.jpg')
     comments = mongo.db.comments.find({'category_name': 'Food'})
-    return render_template('food.html', comments=comments)
+    return render_template('health.html', comments=comments, image=image)
 
 @app.route('/goodboy')
 def goodboy():
@@ -117,6 +121,7 @@ def update_discussion(comment_id):
                     })
     return redirect(url_for('discussions'))
 
+
 @app.route('/update_likes/<comment_id>', methods=["POST"])
 def update_likes(comment_id):
     comments = mongo.db.comments
@@ -136,7 +141,9 @@ def delete_discussion(comment_id):
 @app.route('/add_comment/<comment_id>')
 def add_comment(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
-    return render_template('add_comment.html', comment=the_comment)
+    return render_template('add_comment.html',
+                           now=datetime.now().strftime("%D, %H:%M"),
+                           comment=the_comment)
 
 
 @app.route('/reply/<comment_id>', methods=["POST"])
@@ -145,11 +152,11 @@ def reply(comment_id):
     comments.update({'_id': ObjectId(comment_id)},
                     {
                       '$push': {'comments': {
-                                             'date_time': 
+                                             'date_time':
                                              request.form.get('date_time'),
-                                             'username': 
+                                             'username':
                                              request.form.get('username'),
-                                             'comment': 
+                                             'comment':
                                              request.form.get('comment'),
                                             }}
                      })
@@ -160,8 +167,8 @@ def reply(comment_id):
 def edit_reply(comment_id, reply_comment):
     the_reply = mongo.db.comments.find_one({'_id': ObjectId(comment_id),
                                             "comments": reply_comment})
-    return render_template('edit_reply.html', 
-                           now=datetime.now().strftime("%D, %H:%M"), 
+    return render_template('edit_reply.html',
+                           now=datetime.now().strftime("%D, %H:%M"),
                            reply=the_reply)
 
 
@@ -171,15 +178,16 @@ def update_reply(reply_comment):
     comments.update({'comments': reply_comment},
                     {
                      '$push': {'comments': {
-                                             'date_time': 
+                                             'date_time':
                                              request.form.get('date_time'),
-                                             'username': 
+                                             'username':
                                              request.form.get('username'),
-                                             'comment': 
+                                             'comment':
                                              request.form.get('comment'),
                                             }}
                     })
     return redirect(url_for('discussions'))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

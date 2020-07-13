@@ -233,7 +233,7 @@ p.comment-title {
 letter-spacing: 1px;
     font-size: 18px;
     font-style: italic;
-    margin: 35px 10px;
+    margin: 35px 10px 35px 0;
 }
 
 .comment-like-div {
@@ -254,6 +254,68 @@ letter-spacing: 1px;
 
 .heart {
   color: red;
+}
+
+.reply-title-div{
+text-align: center;
+}
+
+.reply-title{
+color: rgba(255, 59, 59, 0.911);
+font-family: 'Indie Flower';
+font-weight: 900;
+font-size: 40px;
+margin: 20px;
+}
+
+.reply-comments-div{
+margin: 30px auto;
+    width: 60%;
+    border: solid 2px rgba(108, 206, 84, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+}
+
+.col-1.reply-edit-button{
+padding: 0;
+}
+
+.reply-form{
+width: 60%;
+margin: 30px auto;
+}
+
+.reply-cancel{
+margin-left: 58%;
+border-radius: 30px;
+font-weight: 500;
+letter-spacing: 2px;
+background-color: #000;
+border: black;
+}
+
+.reply-cancel:hover{
+background-color: rgba(255, 59, 59, 0.911);
+}
+
+.reply-reply{
+margin-left: 5%;
+border-radius: 30px;
+font-weight: 500;
+letter-spacing: 2px;
+background-color: #000;
+border: black;
+}
+
+.reply-reply:hover{
+background-color: rgba(255, 59, 59, 0.911);
+}
+
+.reply-comment-user{
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 18px;
 }
 
 @media (max-width: 1023px){
