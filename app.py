@@ -119,6 +119,10 @@ def pet_allergies():
                            image=image)
 
 
+@app.route('/news')
+def news():
+    return render_template('news.html')
+
 
 @app.route('/start_discussion')
 def start_discussion():

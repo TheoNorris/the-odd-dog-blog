@@ -51,28 +51,43 @@
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Articles
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url_for('newpuppy') }}">Are you ready for a new puppy?</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('better_life') }}">Four tips for a better life.</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('dog_bathing') }}">Tips for easier dog bathing.</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('pet_allergies') }}">6 myths about pet allergies</a>
+        </div>
+      </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('discussions') }}"
                 >Discussions</a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Discussions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url_for('health') }}">Health</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('lifestyle') }}">Lifestyle</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('story') }}">Story</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('food') }}">Food</a>
+        </div>
+      </li>
+      <li class="nav-item">
               <a class="nav-link" href="#">News</a>
             </li>
           </ul>
-
-          <select
-            class="form-control mr-sm-2"
-            name="discussion-search"
-            id="discussion-search"
-            onchange="location = this.value;"
-          >
-            <option value="" disabled selected>Select Discussion</option>
-            <option value="{{ url_for('health') }}">Health</option>
-            <option value="{{ url_for('lifestyle') }}">Lifestyle</option>
-            <option value="{{ url_for('story') }}">Story</option>
-            <option value="{{ url_for('food') }}">Food</option>
-          </select>
         </div>
       </nav>
     </header>
@@ -81,7 +96,7 @@
 
       <div class="content-container">
         <div class="row">
-          <div class="col-8 col-md col-sm base-div">
+          <div class="col-lg-8 col-md col-sm base-div">
             {% block content %}{% endblock %}
           </div>
           <div class="col-4 ratings-div">
@@ -139,7 +154,21 @@
       </div>
     </section>
 
-    <footer></footer>
+    <footer>
+    <div>
+    <ul class="social-general">
+                <li>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                </li>
+            </ul>
+    </div>
+    </footer>
     <!--JQuery and javascript scripts-->
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
@@ -153,7 +182,8 @@
     ></script>
 
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
+       // Javascript taken from W3schools to enable form submission on a modal
+      //  starter JavaScript for disabling form submissions if there are invalid fields
       (function () {
         "use strict";
         window.addEventListener(

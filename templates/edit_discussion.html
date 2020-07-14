@@ -1,9 +1,20 @@
 {% extends 'base.html' %}{% block content %}
 
-<h3>Edit Discussion</h3>
+
+<div class="image-plus-button-cont">
+  <img
+    class="discussions-image"
+    src="{{url_for('static', filename='images/dog-inside-mailbox.jpg')}}"
+    alt="French Bulldog"
+  />
+</div>
+
+<div class="edit-discussion-div">
+
+<h3 class="edit-discussion-header">Edit Discussion</h3>
 
 <form
-  class="needs-validation"
+  class="needs-validation reply-form"
   action="{{ url_for('update_discussion', comment_id=comment._id )}}"
   method="POST"
   novalidate
@@ -32,7 +43,7 @@
     </select>
 
     <div class="col">
-      <label for="validationCustom01">Title</label>
+      <label class="general-label" for="validationCustom01">Title</label>
       <input
         type="text"
         class="form-control"
@@ -50,7 +61,7 @@
       </div>
     </div>
     <div class="col">
-      <label for="validationCustom02">Username</label>
+      <label class="general-label" for="validationCustom02">Username</label>
       <input
         type="text"
         class="form-control"
@@ -67,7 +78,7 @@
       </div>
     </div>
     <div class="col">
-      <label for="validationCustomUsername">Username</label>
+      <label class="general-label" for="validationCustomUsername">Username</label>
       <div class="input-group">
         <div class="input-group-prepend"></div>
         <textarea
@@ -93,14 +104,16 @@
   <div class="row">
     <input
       type="button"
-      class="btn btn-primary"
+      class="btn btn-primary edit-cancel"
       onclick="window.location.href='{{ url_for('discussions') }}';"
       value="Cancel"
     />
-    <button class="btn btn-primary" type="Edit">
+    <button class="btn btn-primary edit-edit" type="Edit">
       Edit
     </button>
   </div>
 </form>
+
+</div>
 
 {% endblock %}
