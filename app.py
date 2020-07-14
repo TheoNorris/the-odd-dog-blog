@@ -181,51 +181,43 @@ def delete_discussion(comment_id):
 @app.route('/discussions_thread/<comment_id>')
 def discussions_thread(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
+    reply_comment = mongo.db.comment_replies.find({'comment_id': comment_id})
     return render_template('discussions_thread.html',
                            now=datetime.now().strftime("%D, %H:%M"),
-                           comment=the_comment)
+                           comment=the_comment,
+                           reply_comment=reply_comment)
 
 
-@app.route('/reply/<comment_id>', methods=["POST"])
+@app.route('/reply/<comment_id>', methods=['POST'])
 def reply(comment_id):
-    comments = mongo.db.comments
-    comments.update({'_id': ObjectId(comment_id)},
-                    {
-                      '$push': {'comments': {
-                                             'date_time':
-                                             request.form.get('date_time'),
-                                             'username':
-                                             request.form.get('username'),
-                                             'comment':
-                                             request.form.get('comment'),
-                                            }}
-                     })
+    comments = mongo.db.comment_replies
+    comments.insert_one({ 
+                         'comment_id': comment_id,
+                         'date_time': request.form.get('date_time'),
+                         'username': request.form.get('username'),
+                         'comment': request.form.get('comment'),
+                         })
     return redirect(request.referrer)
 
 
-@app.route('/edit_reply/<comment_id>, <reply_comment>')
-def edit_reply(comment_id, reply_comment):
-    the_reply = mongo.db.comments.find_one({'_id': ObjectId(comment_id),
-                                            "comments": reply_comment})
+@app.route('/edit_reply/<comment_id>')
+def edit_reply(comment_id):
+    the_reply = mongo.db.comment_replies.find_one({'_id': ObjectId(comment_id)})
     return render_template('edit_reply.html',
                            now=datetime.now().strftime("%D, %H:%M"),
                            reply=the_reply)
 
 
-@app.route('/update_reply/<reply_comment>', methods=["POST"])
-def update_reply(reply_comment):
-    comments = mongo.db.comments
-    comments.update({'comments': reply_comment},
-                    {
-                     '$push': {'comments': {
-                                             'date_time':
-                                             request.form.get('date_time'),
-                                             'username':
-                                             request.form.get('username'),
-                                             'comment':
-                                             request.form.get('comment'),
-                                            }}
-                    })
+@app.route('/update_reply/<reply_id>', methods=["POST"])
+def update_reply(reply_id):
+    reply = mongo.db.comment_replies
+    reply.update({'_id': ObjectId(reply_id)},
+                 {
+                  'comment_id': request.form.get('comment_id'),
+                  'date_time': request.form.get('date_time'),
+                  'username': request.form.get('username'),
+                  'comment': request.form.get('comment'),
+                 })
     return redirect(url_for('discussions'))
 
 
