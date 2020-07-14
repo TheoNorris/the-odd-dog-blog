@@ -9,6 +9,10 @@
   color: #383838;
 }
 
+p {
+  margin: 0;
+}
+
 a {
   color: black;
 }
@@ -16,6 +20,11 @@ a {
 a:hover {
   text-decoration: none;
   color: rgba(255, 59, 59, 0.911);
+}
+
+.content-row {
+  width: 100%;
+  margin: 0;
 }
 
 /* Header */
@@ -32,8 +41,8 @@ h1.head-text {
   color: black;
 }
 
-h1.head-text:hover{
-color: rgba(167, 167, 167, 0.5);
+h1.head-text:hover {
+  color: rgba(167, 167, 167, 0.5);
 }
 
 #discussion-search {
@@ -103,7 +112,7 @@ div.picture-div {
 }
 
 .reviews {
-  margin: 20px 50px 50px 15px;
+  margin: 20px 35px 50px 20px;
   padding: 10px;
   border: solid gray 1px;
   position: relative;
@@ -319,20 +328,20 @@ p.comment-title {
   font-size: 18px;
 }
 
-.edit-discussion-div{
-padding: 0 0 40px;
-border: solid  rgba(108, 206, 84, 0.5) 2px;
-margin: 30px auto;
-width: 90%;
-background-color: #f8f9fa;
+.edit-discussion-div {
+  padding: 0 0 40px;
+  border: solid rgba(108, 206, 84, 0.5) 2px;
+  margin: 30px auto;
+  width: 90%;
+  background-color: #f8f9fa;
 }
 
-.edit-discussion-header{
-font-family: 'Chelsea Market';
-font-size: 30px;
-letter-spacing: 2px;
-margin-top: 25px;
-text-align: center;
+.edit-discussion-header {
+  font-family: "Chelsea Market";
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .edit-cancel {
@@ -346,7 +355,7 @@ text-align: center;
 }
 
 .edit-cancel:hover {
-background-color: rgba(255, 59, 59, 0.911);
+  background-color: rgba(255, 59, 59, 0.911);
 }
 
 .edit-edit {
@@ -360,13 +369,49 @@ background-color: rgba(255, 59, 59, 0.911);
 }
 
 .edit-edit:hover {
-background-color: rgba(255, 59, 59, 0.911);
+  background-color: rgba(255, 59, 59, 0.911);
 }
 
-@media (max-width: 1023px) {
-  .ratings-div {
+footer {
+  background-color: #f8f9fa;
+  height: 130px;
+  text-align: center;
+}
+
+.social-links {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  padding: 5px;
+  color: rgba(104, 104, 104, 0.911);
+}
+
+.copyright-text {
+  color: rgba(104, 104, 104, 0.911);
+  font-size: 70%;
+  letter-spacing: 1px;
+  padding: 0 15px;
+}
+
+.theo-tag {
+  color: rgba(255, 59, 59, 0.911);
+  font-family: "Indie Flower", sans-serif;
+  font-size: 15px;
+}
+
+@media (min-width: 993px) {
+  .mobile-nav-options {
     display: none;
   }
+}
+
+@media (max-width: 993px) {
+ 
+/* Base and index page */
+
+.nav-select{
+display: none;
+}
 
   div.picture-div {
     padding: 30px 50px 20px;
@@ -375,15 +420,64 @@ background-color: rgba(255, 59, 59, 0.911);
   div.base-div {
     border: none;
   }
+
+  .blog-div {
+    margin: 30px 0px;
+  }
+
+  h1.head-text {
+    font-size: 25px;
+    margin-left: 0;
+  }
+
+  .ratings-div {
+    display: none;
+  }
+  .article-text {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 20px 10px;
+  }
+
+/* Discussions page */
+
+  .comment-date {
+    font-size: 15px;
+    margin-left: 0;
+    padding-top: 20px;
+  }
+
+.comments {
+    font-size: 15px;
+    margin: 10px 10px 20px 0;
+  }
+
+p.comment-title{
+font-size: 18px;
+}
+
+.author-text{
+margin-top: 5px;
+}
+
+.discussions-image{
+margin: 30px 0 0;
+}
+
 }
 
 @media (max-width: 767px) {
   div.picture-div {
     padding: 20px 10px 20px;
   }
-
   h1.head-text {
     font-size: 25px;
     margin-left: 0;
+  }
+}
+
+@media (max-width: 322px) {
+  h1.head-text {
+    font-size: 16px;
   }
 }

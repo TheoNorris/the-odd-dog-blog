@@ -51,43 +51,80 @@
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Articles
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ url_for('newpuppy') }}">Are you ready for a new puppy?</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('better_life') }}">Four tips for a better life.</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('dog_bathing') }}">Tips for easier dog bathing.</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('pet_allergies') }}">6 myths about pet allergies</a>
-        </div>
-      </li>
+            <li class="nav-item dropdown mobile-nav-options">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Articles
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('newpuppy') }}"
+                  >Are you ready for a new puppy?</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('better_life') }}"
+                  >Four tips for a better life.</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('dog_bathing') }}"
+                  >Tips for easier dog bathing.</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('pet_allergies') }}"
+                  >6 myths about pet allergies</a
+                >
+              </div>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('discussions') }}"
                 >Discussions</a
               >
             </li>
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Discussions
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ url_for('health') }}">Health</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('lifestyle') }}">Lifestyle</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('story') }}">Story</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url_for('food') }}">Food</a>
-        </div>
-      </li>
-      <li class="nav-item">
+            <li class="nav-item dropdown mobile-nav-options">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown2"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Select Discussions
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('health') }}"
+                  >Health</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('lifestyle') }}"
+                  >Lifestyle</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('story') }}">Story</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('food') }}">Food</a>
+              </div>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#">News</a>
             </li>
           </ul>
+          <form class="form-inline my-2 my-lg-0">
+  <select id="selectbox" class="form-control mr-sm-2 nav-select" onchange="javascript:location.href = this.value;">
+   <option value="" disabled selected>Select Discussion</option>
+   <option value="{{ url_for('health') }}">Health</option>
+  <option value="{{ url_for('lifestyle') }}">Lifestyle</option>
+  <option value="{{ url_for('story') }}">Story</option>
+  <option value="{{ url_for('food') }}">Food</option>
+</select>
+    </form>
         </div>
       </nav>
     </header>
@@ -95,8 +132,8 @@
       {% block homepage %}{% endblock %}
 
       <div class="content-container">
-        <div class="row">
-          <div class="col-lg-8 col-md col-sm base-div">
+        <div class="row content-row">
+          <div class="col-lg-8 base-div">
             {% block content %}{% endblock %}
           </div>
           <div class="col-4 ratings-div">
@@ -155,19 +192,22 @@
     </section>
 
     <footer>
-    <div>
-    <ul class="social-general">
-                <li>
-                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                </li>
-            </ul>
-    </div>
+    
+      <a href="https://www.instagram.com/" target="_blank"
+        ><i class="fab fa-instagram social-links"></i
+      ></a>
+
+      <a href="https://www.facebook.com/" target="_blank"
+        ><i class="fab fa-facebook-square social-links"></i
+      ></a>
+
+      <a href="https://www.twitter.com/" target="_blank"
+        ><i class="fab fa-twitter-square social-links"></i
+      ></a>
+      <p class="copyright-text">
+      © The Odd Dog Blog. All rights reserved. Website designed by
+      <a target="_blank" class="theo-tag" href="https://github.com/TheoNorris">Theo Norris</a>
+                </p>
     </footer>
     <!--JQuery and javascript scripts-->
     <script
@@ -182,7 +222,7 @@
     ></script>
 
     <script>
-       // Javascript taken from W3schools to enable form submission on a modal
+      // Javascript taken from W3schools to enable form submission on a modal
       //  starter JavaScript for disabling form submissions if there are invalid fields
       (function () {
         "use strict";
@@ -217,6 +257,15 @@
       function form_submit() {
         document.getElementById("search_form").submit();
       }
+    </script>
+
+    <script>
+    $grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px
+);
     </script>
   </body>
 </html>
