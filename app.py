@@ -220,6 +220,21 @@ def update_reply(reply_id):
                  })
     return redirect(url_for('discussions'))
 
+@app.route('/delete_reply/<reply_id>')
+def delete_reply(reply_id):
+    mongo.db.comment_replies.remove({'_id': ObjectId(reply_id)})
+    return redirect(request.referrer)
+
+
+@app.route('/update_likes_for_reply/<reply_id>', methods=["POST"])
+def update_likes_for_reply(reply_id):
+    comments = mongo.db.comment_replies
+    comments.find_one_and_update({'_id': ObjectId(reply_id)},
+                                 {
+                                  '$inc': {'likes': 1},
+                                 })
+    return redirect(request.referrer)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

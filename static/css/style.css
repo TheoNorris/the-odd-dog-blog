@@ -217,12 +217,12 @@ div.picture-div {
 }
 
 .comment-date {
-  color: rgb(82, 82, 82);
-  margin-top: 5px;
-  margin-left: 20%;
+  color: rgb(125, 125, 125);
+  margin: 20px 10%;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: 400;
+  text-align: center;
 }
 
 .date-div {
@@ -246,11 +246,12 @@ p.comment-title {
   font-weight: 300;
   margin-top: 10px;
 }
+
 .comments {
   letter-spacing: 1px;
   font-size: 18px;
   font-style: italic;
-  margin: 35px 10px 35px 0;
+  margin: 25px 10px 35px 0;
 }
 
 .comment-like-div {
@@ -302,32 +303,6 @@ p.comment-title {
   margin: 30px auto;
 }
 
-.reply-cancel {
-  margin-left: 58%;
-  border-radius: 30px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  background-color: #000;
-  border: black;
-}
-
-.reply-cancel:hover {
-  background-color: rgba(255, 59, 59, 0.911);
-}
-
-.reply-reply {
-  margin-left: 5%;
-  border-radius: 30px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  background-color: #000;
-  border: black;
-}
-
-.reply-reply:hover {
-  background-color: rgba(255, 59, 59, 0.911);
-}
-
 .reply-comment-user {
   font-weight: 300;
   letter-spacing: 1px;
@@ -376,9 +351,10 @@ border: black;
   background-color: rgba(255, 59, 59, 0.911);
 }
 
+/* footer */
+
 footer {
   background-color: #f8f9fa;
-  height: 130px;
   text-align: center;
 }
 
@@ -401,6 +377,33 @@ footer {
   color: rgba(255, 59, 59, 0.911);
   font-family: "Indie Flower", sans-serif;
   font-size: 15px;
+}
+
+/* Discussions Thread */
+
+div.edit-reply-button-div{
+margin-top: 20px;
+display: inline-flex;
+letter-spacing: 2px;
+}
+
+.thread-edit{
+margin: 0 10px;
+}
+
+.thread-user-time{
+text-align: center;
+}
+
+.thread-date-time{
+font-size: 13px;
+color: #9a9292;
+letter-spacing: 1px;
+}
+
+.thread-reply-comment{
+letter-spacing: 1px;
+font-style: italic;
 }
 
 @media (min-width: 993px) {
@@ -476,6 +479,10 @@ width: 90%;
 padding-bottom: 0;
 }
 
+.reply-comments-div{
+margin: 30px auto;
+width: 90%;
+}
 }
 
 @media (max-width: 767px) {
