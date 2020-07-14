@@ -22,6 +22,13 @@ a:hover {
   color: rgba(255, 59, 59, 0.911);
 }
 
+.buttons{
+display: flex; 
+justify-content: flex-end; 
+width: 100%;  
+padding:0;
+}
+
 .content-row {
   width: 100%;
   margin: 0;
@@ -163,7 +170,6 @@ div.picture-div {
 }
 
 .cancel-button {
-  margin-left: 55%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -344,9 +350,7 @@ p.comment-title {
   text-align: center;
 }
 
-.edit-cancel {
-  position: absolute;
-  right: 26%;
+.no-button {
   border-radius: 30px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -354,21 +358,21 @@ p.comment-title {
   border: black;
 }
 
-.edit-cancel:hover {
+.no-button:hover {
   background-color: rgba(255, 59, 59, 0.911);
 }
 
-.edit-edit {
-  position: absolute;
-  right: 38%;
-  border-radius: 30px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  background-color: #000;
-  border: black;
+.yes-button {
+margin-left: 5%;
+margin-right: 5%;
+border-radius: 30px;
+font-weight: 500;
+letter-spacing: 2px;
+background-color: #000;
+border: black;
 }
 
-.edit-edit:hover {
+.yes-button:hover {
   background-color: rgba(255, 59, 59, 0.911);
 }
 
@@ -464,6 +468,14 @@ margin-top: 5px;
 margin: 30px 0 0;
 }
 
+.reply-form{
+width: 90%;
+}
+
+.edit-discussion-div{
+padding-bottom: 0;
+}
+
 }
 
 @media (max-width: 767px) {
@@ -480,4 +492,7 @@ margin: 30px 0 0;
   h1.head-text {
     font-size: 16px;
   }
+.edit-discussion-header{
+font-size: 20px;
+}
 }
