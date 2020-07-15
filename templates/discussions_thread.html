@@ -1,5 +1,5 @@
 {% extends 'base.html' %}{% block content %}
-
+<!-- image for discussions_thread -->
 <div class="image-plus-button-cont">
   <img
     class="discussions-image"
@@ -7,28 +7,26 @@
     alt="French Bulldog"
   />
 </div>
-
+<!-- col-8 header -->
 <div class="reply-title-div">
   <h2 class="reply-title">Reply</h2>
 </div>
-
+<!-- Discussions comments div -->
 <div class="row">
   <div class="col-4 date-div">
     <p class="comment-date">{{comment.date_time}}</p>
   </div>
-
   <div class="col-8 comments-box">
     <p class="comment-title">
       <strong>{{comment.title}}</strong>
     </p>
     <p class="author-text">Author: {{ comment.username }}</p>
-
     <p class="comments">{{comment.comment}}</p>
   </div>
 </div>
 
 {% for reply in reply_comment %}
-
+<!-- Reply comments bubble/div -->
 <div class="reply-comments-div">
   <div class="row">
     <div class="col-3 thread-user-time">
@@ -38,6 +36,7 @@
     <div class="col-8">
       <p class="thread-reply-comment">{{ reply.comment }}</p>
       <div class="edit-reply-button-div">
+         <!-- like button action -->
         <form
           action="{{ url_for('update_likes_for_reply', reply_id=reply._id)  }}"
           method="POST"
@@ -46,12 +45,15 @@
             <i class="fas fa-heart heart"></i>
           </button>
         </form>
+        <!-- like-button counter -->
         <label class="interactive-buttons">{{reply.likes}}</label>
+         <!-- edit-button -->
         <a
           class="thread-edit"
-          href="{{ url_for('edit_reply', comment_id=reply._id)}}"
+          href="{{ url_for('edit_reply', reply_id=reply._id)}}"
           >Edit</a
         >
+         <!-- Remove/delete button -->
         <a class="" href="{{ url_for('delete_reply', reply_id=reply._id)}}"
           >Remove</a
         >
@@ -62,6 +64,7 @@
 
 {% endfor %}
 
+<!-- Reply to discussion comment form -->
 <form
   class="needs-validation form-group reply-form"
   action="{{ url_for('reply', comment_id=comment._id) }}"

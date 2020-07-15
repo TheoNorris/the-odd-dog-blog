@@ -406,6 +406,21 @@ letter-spacing: 1px;
 font-style: italic;
 }
 
+.news-headline-div{
+width: 100%;
+text-align: center; 
+}
+
+.news-title{
+margin: 30px 0;
+}
+
+.link-news-title{
+font-family: 'Indie Flower';
+letter-spacing: 3px;
+font-weight: 700;
+}
+
 @media (min-width: 993px) {
   .mobile-nav-options {
     display: none;
@@ -483,6 +498,16 @@ padding-bottom: 0;
 margin: 30px auto;
 width: 90%;
 }
+
+.news-title{
+margin: 10px 0 20px;
+}
+
+.link-news-title{
+letter-spacing: 2px;
+font-size: 15px;
+}
+
 }
 
 @media (max-width: 767px) {
@@ -501,5 +526,14 @@ width: 90%;
   }
 .edit-discussion-header{
 font-size: 20px;
+}
+
+.link-news-title{
+letter-spacing: 2px;
+font-size: 10px;
+}
+
+.news-title{
+margin: 0 0 10px;
 }
 }

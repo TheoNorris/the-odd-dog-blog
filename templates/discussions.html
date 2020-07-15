@@ -8,7 +8,7 @@
   />
 
   <label id="discussion-label">Start a discussion here</label>
-
+ <!-- Modal button to open start a discussion modal -->
   <button
     type="button"
     class="btn btn-primary discussion-button"
@@ -18,6 +18,7 @@
     Enter
   </button>
 </div>
+ <!-- Discussion modal taken from stack overflow the modal has form posting abilities -->
 <div
   class="modal fade"
   id="exampleModal"
@@ -42,6 +43,7 @@
         </button>
       </div>
       <div class="modal-body">
+       <!-- Discussion comment form taken from stack overflow the form has validation verifiers -->
         <form
           class="needs-validation"
           action="{{ url_for('insert_discussion') }}"
@@ -65,7 +67,9 @@
             </select>
 
             <div class="col">
-              <label class="general-label" for="validationCustom01">Title</label>
+              <label class="general-label" for="validationCustom01"
+                >Title</label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -140,6 +144,7 @@
 
 <hr class="comment-break" />
 
+ <!-- For loop to display all Discussion comments in seperate divs -->
 {% for comment in comments %}
 <div class="row">
   <div class="col-4 date-div">
@@ -154,9 +159,8 @@
 
     <p class="comments">{{comment.comment}}</p>
   </div>
-
-
   <div class="comment-like-div">
+     <!-- Discussion comment like button -->
     <form
       action="{{ url_for('update_likes', comment_id=comment._id)  }}"
       method="POST"
@@ -165,9 +169,11 @@
         <i class="fas fa-heart heart"></i>
       </button>
     </form>
-
+    <!-- Discussion comment like counter -->
     <label class="interactive-buttons">{{comment.likes}}</label>
 
+     <!-- If statement saying that if the comment has cant delete = true value and key in database,
+    then to remove the delete and edit buttons -->
     {% if comment.cant_delete %}
 
     <a
@@ -177,7 +183,7 @@
     >
 
     {% else %}
-
+    <!-- comment edit and remove buttons for for the discussion comments -->
     <a
       href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
