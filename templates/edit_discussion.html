@@ -1,120 +1,61 @@
 {% extends 'base.html' %}{% block content %}
 <!-- Edit discussion image -->
 <div class="image-plus-button-cont">
-  <img
-    class="discussions-image"
-    src="{{url_for('static', filename='images/dog-inside-mailbox.jpg')}}"
-    alt="French Bulldog"
-  />
+    <img class="discussions-image" src="{{url_for('static', filename='images/dog-inside-mailbox.jpg')}}" alt="French Bulldog" />
 </div>
-
 <div class="edit-discussion-div">
-  <h3 class="edit-discussion-header">Edit Discussion</h3>
-  <!-- Edit discussion form. Taken from stack overflow the form has validation verifiers -->
-  <form
-    class="needs-validation reply-form"
-    action="{{ url_for('update_discussion', comment_id=comment._id )}}"
-    method="POST"
-    novalidate
-  >
-    <textarea name="date_time" hidden>(Edited) {{ now }}</textarea>
-    <div class="form-group">
-      <select
-        class="form-control"
-        id="category_name"
-        name="category_name"
-        required
-      >
-        <option value="" disabled>Choose Category</option>
-        <!-- For and if statements in relation to having the correct category chosen in the edit_discussion form -->
-        {% for cat in categories %} {% if cat.category_name ==
-        comment.category_name %}
+    <h3 class="edit-discussion-header">Edit Discussion</h3>
+    <!-- Edit discussion form. Taken from stack overflow the form has validation verifiers -->
+    <form class="needs-validation reply-form" action="{{ url_for('update_discussion', comment_id=comment._id )}}" method="POST" novalidate>
+        <textarea name="date_time" hidden>(Edited) {{ now }}</textarea>
+        <div class="form-group">
+            <select class="form-control" id="category_name" name="category_name" required>
+                <option value="" disabled>Choose Category</option>
+                <!-- For and if statements in relation to having the correct category chosen in the edit_discussion form -->
+                {% for cat in categories %} {% if cat.category_name == comment.category_name %}
 
-        <option value="{{cat.category_name}}" selected>
-          {{cat.category_name}}</option
-        >
+                <option value="{{cat.category_name}}" selected> {{cat.category_name}}</option>
 
-        {% else %}
+                {% else %}
 
-        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                <option value="{{cat.category_name}}">{{cat.category_name}}</option>
 
-        {% endif %} {% endfor %}
-      </select>
+                {% endif %} {% endfor %}
+            </select>
+            <div class="col">
+                <label class="general-label" for="validationCustom01">Title</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Enter a Title..." value="{{ comment.title }}" name="title" minlength="3" maxlength="50" pattern="\S(.*\S)?" required />
 
-      <div class="col">
-        <label class="general-label" for="validationCustom01">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="validationCustom01"
-          placeholder="Enter a Title..."
-          value="{{ comment.title }}"
-          name="title"
-          minlength="3"
-          maxlength="50"
-          pattern="\S(.*\S)?"
-          required
-        />
-
-        <div class="invalid-feedback">
-          The title must be 3-50 characters long.
+                <div class="invalid-feedback">
+                    The title must be 3-50 characters long.
+                </div>
+            </div>
+            <div class="col">
+                <label class="general-label" for="validationCustom02">Username</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Username" value="{{ comment.username }}" name="username" minlength="3" maxlength="10" pattern="\S(.*\S)?" required />
+                <div class="invalid-feedback">
+                    Your username must be 3-10 characters long.
+                </div>
+            </div>
+            <div class="col">
+                <label class="general-label" for="validationCustomUsername">Comment</label>
+                <div class="input-group">
+                    <textarea class="form-control blank-checker" id="validationCustomUsername" name="comment" rows="3" placeholder="" maxlength="254" required>{{ comment.comment }}</textarea>
+                    <div class="invalid-feedback">
+                        Enter Comment
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col">
-        <label class="general-label" for="validationCustom02">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="validationCustom02"
-          placeholder="Username"
-          value="{{ comment.username }}"
-          name="username"
-          minlength="3"
-          maxlength="10"
-          pattern="\S(.*\S)?"
-          required
-        />
-        <div class="invalid-feedback">
-          Your username must be 3-10 characters long.
+        <div class="buttons">
+            <!-- Cancel button returning to discussions form -->
+            <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+            <!-- Edit button -->
+            <button class="btn btn-primary yes-button" type="submit">
+                Edit
+            </button>
         </div>
-      </div>
-      <div class="col">
-        <label class="general-label" for="validationCustomUsername"
-          >Username</label
-        >
-        <div class="input-group">
-          <textarea
-            class="form-control"
-            id="validationCustomUsername"
-            name="comment"
-            rows="3"
-            placeholder=""
-            maxlength="254"
-            required
-          >
-{{ comment.comment }}</textarea
-          >
-          <div class="invalid-feedback">
-            Enter Comment
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="buttons">
-      <!-- Cancel button returning to discussions form -->
-      <input
-        type="button"
-        class="btn btn-primary no-button"
-        onclick="window.location.href='{{ url_for('discussions') }}';"
-        value="Cancel"
-      />
-      <!-- Edit button -->
-      <button class="btn btn-primary yes-button" type="submit">
-        Edit
-      </button>
-    </div>
-  </form>
+    </form>
 </div>
 
 {% endblock %}

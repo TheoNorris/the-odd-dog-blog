@@ -27,7 +27,9 @@ def index():
 def health():
     image = url_for('static', filename='images/yorkshire-terrier.jpg')
     comments = mongo.db.comments.find({'category_name': 'Health'})
-    return render_template('filtering.html', comments=comments, image=image)
+    categories = mongo.db.categories.find({'category_name': 'Health'})
+    return render_template('filtering.html', categories=categories, 
+                           comments=comments, image=image)
 
 
 # Route that receives a category from my search bar in my navbar and searches 
@@ -36,7 +38,9 @@ def health():
 def lifestyle():
     image = url_for('static', filename='images/man-with-dog.jpg')
     comments = mongo.db.comments.find({'category_name': 'Lifestyle'})
-    return render_template('filtering.html', comments=comments, image=image)
+    categories = mongo.db.categories.find({'category_name': 'Lifestyle'})
+    return render_template('filtering.html', categories=categories,
+                           comments=comments, image=image)
 
 
 # Route that receives a category from my search bar in my navbar and searches
@@ -45,7 +49,9 @@ def lifestyle():
 def story():
     image = url_for('static', filename='images/dog-gang.jpg')
     comments = mongo.db.comments.find({'category_name': 'Story'})
-    return render_template('filtering.html', comments=comments, image=image)
+    categories = mongo.db.categories.find({'category_name': 'Story'})
+    return render_template('filtering.html', categories=categories,
+                           comments=comments, image=image)
 
 
 # # Route that receives a category from my search bar in my navbar and searches 
@@ -54,7 +60,9 @@ def story():
 def food():
     image = url_for('static', filename='images/black-and-white-dalmatian.jpg')
     comments = mongo.db.comments.find({'category_name': 'Food'})
-    return render_template('filtering.html', comments=comments, image=image)
+    categories = mongo.db.categories.find({'category_name': 'Food'})
+    return render_template('filtering.html', categories=categories,
+                           comments=comments, image=image)
 
 # Route to find and import specific blogpost for my blogposts.html page when 
 # someone selects an article on the index.html page.
@@ -181,7 +189,6 @@ def update_discussion(comment_id):
                      'username': request.form.get('username'),
                      'title': request.form.get('title'),
                      'comment': request.form.get('comment'),
-                     'likes': request.form.get('likes'),
                     })
     return redirect(url_for('discussions'))
 

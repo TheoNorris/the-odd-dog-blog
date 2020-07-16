@@ -1,143 +1,99 @@
 {% extends 'base.html' %}{% block content %}
 <!-- image for discussions_thread -->
 <div class="image-plus-button-cont">
-  <img
-    class="discussions-image"
-    src="{{url_for('static', filename='images/frenchy.jpg')}}"
-    alt="French Bulldog"
-  />
+    <img class="discussions-image" src="{{url_for('static', filename='images/frenchy.jpg')}}" alt="French Bulldog" />
 </div>
 <!-- col-8 header -->
 <div class="reply-title-div">
-  <h2 class="reply-title">Reply</h2>
+    <h2 class="reply-title">Reply</h2>
 </div>
 <!-- Discussions comments div -->
 <div class="row">
-  <div class="col-4 date-div">
-    <p class="comment-date">{{comment.date_time}}</p>
-  </div>
-  <div class="col-8 comments-box">
-    <p class="comment-title">
-      <strong>{{comment.title}}</strong>
-    </p>
-    <p class="author-text">Author: {{ comment.username }}</p>
-    <p class="comments">{{comment.comment}}</p>
-  </div>
+    <div class="col-4 date-div">
+        <p class="comment-date">{{comment.date_time}}</p>
+    </div>
+    <div class="col-8 comments-box">
+        <p class="comment-title">
+            <strong>{{comment.title}}</strong>
+        </p>
+        <p class="author-text">Author: {{ comment.username }}</p>
+        <p class="comments">{{comment.comment}}</p>
+    </div>
 </div>
 
 {% for reply in reply_comment %}
 <!-- Reply comments bubble/div -->
 <div class="reply-comments-div">
-  <div class="row">
-    <div class="col-3 thread-user-time">
-      <h5 class="reply-comment-user">{{ reply.username }}</h5>
-      <p class="thread-date-time">{{ reply.date_time }}</p>
+    <div class="row">
+        <div class="col-3 thread-user-time">
+            <h5 class="reply-comment-user">{{ reply.username }}</h5>
+            <p class="thread-date-time">{{ reply.date_time }}</p>
+        </div>
+        <div class="col-8">
+            <p class="thread-reply-comment">{{ reply.comment }}</p>
+        </div>
+        <div class="edit-reply-button-div">
+            <!-- like button action -->
+            <form action="{{ url_for('update_likes_for_reply', reply_id=reply._id)  }}" method="POST">
+                <button value="1" name="likes" type="submit" class="like-button-replies">
+                    <i class="fas fa-heart heart"></i>
+                </button>
+            </form>
+            <!-- like-button counter -->
+            <label class="interactive-buttons">{{reply.likes}}</label>
+            <!-- edit-button -->
+            <a class="thread-edit" href="{{ url_for('edit_reply', reply_id=reply._id)}}">Edit</a>
+            <!-- Remove/delete button -->
+            <a href="#" class="interactive-buttons" data-toggle="modal" data-target="#modal2">Remove</a>
+            <!--Modal taken from bootstrap-->
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel2">Remove Discussion</h5>
+                            <button type="button" class="close-button close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body-remove">
+                            Are you sure you want to remove this discussion?
+                        </div>
+                        <form action="{{ url_for('delete_reply', reply_id=reply._id)}}">
+                            <div class="modal-footer buttons">
+                                <button type="button" class="btn btn-secondary no-button-modal" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary yes-button-modal">Remove</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-8">
-      <p class="thread-reply-comment">{{ reply.comment }}</p>
-      
-    </div>
-    <div class="edit-reply-button-div">
-         <!-- like button action -->
-        <form
-          action="{{ url_for('update_likes_for_reply', reply_id=reply._id)  }}"
-          method="POST"
-        >
-          <button value="1" name="likes" type="submit" class="like-button-replies">
-            <i class="fas fa-heart heart"></i>
-          </button>
-        </form>
-        <!-- like-button counter -->
-        <label class="interactive-buttons">{{reply.likes}}</label>
-         <!-- edit-button -->
-        <a
-          class="thread-edit"
-          href="{{ url_for('edit_reply', reply_id=reply._id)}}"
-          >Edit</a
-        >
-         <!-- Remove/delete button -->
-        <a
-      href="#"
-      class="interactive-buttons"
-      data-toggle="modal"
-      data-target="#modal2"
-      type="button"
-      >Remove</a
-    >
-  <!--Modal taken from bootstrap-->
-  <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel2">Remove Discussion</h5>
-        <button type="button" class="close-button close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body-remove">
-        Are you sure you want to remove this discussion?
-      </div>
-      <form action="{{ url_for('delete_reply', reply_id=reply._id)}}">
-      <div class="modal-footer buttons">
-        <button type="button" class="btn btn-secondary no-button-modal" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary yes-button-modal">Remove</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-      </div>
-  </div>
 </div>
 
 {% endfor %}
 
 <!-- Reply to discussion comment form taken from stack overflow the form has validation verifiers -->
-<form
-  class="needs-validation form-group discussions-thread-form"
-  action="{{ url_for('reply', comment_id=comment._id) }}"
-  method="POST"
-  novalidate
->
-  <textarea name="date_time" hidden>{{ now }}</textarea>
-  <div class="form-group">
-    <input
-      type="text"
-      class="form-control"
-      id="username"
-      name="username"
-      placeholder="Enter Username"
-      pattern="\S(.*\S)?"
-      required
-      maxlength="10"
-    />
-    <div class="invalid-feedback">
-        Your username must be 3-10 characters long.
-      </div>
-  </div>
-  <div class="form-group">
-    <textarea
-      class="form-control"
-      id="comment"
-      name="comment"
-      rows="3"
-      placeholder="Your reply...."
-      required
-      maxlength="254"
-    ></textarea>
-    <div class="invalid-feedback">
-        Enter Comment
-      </div>
-  </div>
-  <div class="buttons">
-    <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
-    <button
-      class="btn btn-primary yes-button"
-      type="submit"
-    >
-      Reply
-    </button>
-  </div>
+<form class="needs-validation form-group discussions-thread-form" action="{{ url_for('reply', comment_id=comment._id) }}" method="POST" novalidate>
+    <textarea name="date_time" hidden>{{ now }}</textarea>
+    <div class="form-group">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" pattern="\S(.*\S)?" required maxlength="10" />
+        <div class="invalid-feedback">
+            Your username must be 3-10 characters long.
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control blank-checker" id="comment" name="comment" rows="3" placeholder="Your reply...." required maxlength="254"></textarea>
+        <div class="invalid-feedback">
+            Enter Comment
+        </div>
+    </div>
+    <div class="buttons">
+        <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+        <button class="btn btn-primary yes-button" type="submit">
+            Reply
+        </button>
+    </div>
 </form>
 
 {% endblock %}

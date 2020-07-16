@@ -1,19 +1,13 @@
 {% extends 'base.html' %} {% block homepage %}
 <!-- Image injected into 'block homepage' -->
 <div class="picture-div">
-  <img
-    class="hero-image"
-    src="{{url_for('static', filename='images/smiling-woman.jpg')}}"
-    alt="Smiling woman with dog"
-  />
+    <img class="hero-image" src="{{url_for('static', filename='images/smiling-woman.jpg')}}" alt="Smiling woman with dog" />
 </div>
 {% endblock %} {% block content %}
 <!--Blog articles dependent on users choice-->
 <div class="blog-div">
-  <img class="blog-image" src="{{ image }}" alt="Dog" />
-  <h2 class="blog-title">{{ blog_articles.blog_title }}</h2>
-  <p class="article-text">
-    {{ blog_articles.article }}
-  </p>
+    <img class="blog-image" src="{{ image }}" alt="Dog" />
+    <h2 class="blog-title">{{ blog_articles.blog_title }}</h2>
+    <p class="article-text">{{ blog_articles.article }}</p>
 </div>
 {% endblock %}
