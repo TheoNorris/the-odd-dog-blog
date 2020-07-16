@@ -62,6 +62,34 @@ a:hover {
   background-color: rgba(255, 59, 59, 0.911);
 }
 
+.no-button-modal {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background-color: #000;
+  border: black;
+}
+
+.no-button-modal:hover {
+  background-color: rgba(255, 59, 59, 0.911);
+}
+
+.yes-button-modal {
+  margin: 20px 5% 20px 3%;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background-color: rgba(255, 59, 59, 0.911);
+  border: black;
+}
+
+.yes-button-modal:hover {
+  background-color: rgba(255, 0, 0, 0.911);
+}
+
+
 /* general form classes */
 
 .general-label {
@@ -90,10 +118,20 @@ h1.head-text:hover {
   color: rgba(167, 167, 167, 0.5);
 }
 
+.head-select{
+color: rgba(0,0,0,.5);
+letter-spacing: 1px;
+}
+
+.select-bar-form{
+margin-right: 40px;
+}
+
 /* col-8 and col-4(articles section) on base.html */
 
 div.eight-base-div {
-  border: 2px solid #3b3a3a;
+  border: 2px solid #b1b1b1;
+  border-left: none;
   width: 100%;
 }
 
@@ -194,6 +232,14 @@ div.picture-div {
 .close-button.close {
   margin: -1rem -1rem -1rem 0;
 }
+
+.modal-body-remove{
+letter-spacing: 1px;
+padding: 20px;
+background-color: #f8f9fa;
+text-align: center;
+}
+
 
 /* Discussions.html/ filtering.html */
 
@@ -466,6 +512,17 @@ color: rgba(108, 206, 84, 0.5);
 }
 
 /* Media Queries */
+
+@media (max-width: 1026px){
+.select-bar-form{
+margin-right: 0px;
+}
+
+h1.head-text{
+margin-left: 20px;
+}
+
+}
 
 @media (min-width: 993px) {
   .mobile-nav-options {

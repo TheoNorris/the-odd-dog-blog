@@ -120,10 +120,10 @@
             </li>
           </ul>
           <!--Select bar for filtering specific discussions-->
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline my-2 my-lg-0 select-bar-form">
             <select
               id="selectbox"
-              class="form-control mr-sm-2 nav-select"
+              class="form-control mr-sm-2 nav-select head-select"
               onchange="javascript:location.href = this.value;"
             >
               <option value="" disabled selected>Select Discussion</option>
@@ -269,6 +269,39 @@
       function form_submit() {
         document.getElementById("search_form").submit();
       }
+    </script>
+
+    <script>
+      // Javascript from stack overflow to check text areas for blank spaces
+      $(document).ready(function () {
+        $(this)
+          .find("textarea")
+          .on("input change propertychange", function () {
+            var pattern = $(this).attr("pattern");
+
+            if (typeof pattern !== typeof undefined && pattern !== false) {
+              var patternRegex = new RegExp(
+                "^" + pattern.replace(/^\^|\$$/g, "") + "$",
+                "g"
+              );
+
+              hasError = !$(this).val().match(patternRegex);
+
+              if (typeof this.setCustomValidity === "function") {
+                this.setCustomValidity(hasError ? errorMessage : "");
+              } else {
+                $(this).toggleClass("error", !!hasError);
+                $(this).toggleClass("ok", !hasError);
+
+                if (hasError) {
+                  $(this).attr("title");
+                } else {
+                  $(this).removeAttr("title");
+                }
+              }
+            }
+          });
+      });
     </script>
   </body>
 </html>

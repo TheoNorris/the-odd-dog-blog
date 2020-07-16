@@ -39,7 +39,7 @@
         </button>
       </div>
       <div class="modal-body">
-       <!-- Discussion comment form taken from stack overflow the form has validation verifiers -->
+        <!-- Discussion comment form taken from stack overflow the form has validation verifiers -->
         <form
           class="needs-validation"
           action="{{ url_for('insert_discussion') }}"
@@ -54,12 +54,9 @@
               name="category_name"
               required
             >
-              <option value="" disabled selected>Choose Category</option>
-              {% for cat in categories %}
-              <option value="{{cat.category_name}}"
-                >{{cat.category_name}}</option
+              <option value="{{ comments.category_name }}" disabled selected
+                >{{ comments.category_name }}</option
               >
-              {% endfor %}
             </select>
 
             <div class="col">
@@ -74,6 +71,7 @@
                 name="title"
                 minlength="3"
                 maxlength="50"
+                pattern="\S(.*\S)?"
                 required
               />
               <div class="valid-feedback">
@@ -91,6 +89,7 @@
                 placeholder="Username"
                 name="username"
                 maxlength="10"
+                pattern="\S(.*\S)?"
                 required
               />
               <div class="valid-feedback">
@@ -174,7 +173,7 @@
     >
 
     {% else %}
-     <!-- comment edit and remove buttons for for the discussion comments -->
+    <!-- comment edit and remove buttons for for the discussion comments -->
     <a
       href="{{ url_for('discussions_thread', comment_id=comment._id )}}"
       class="interactive-buttons"
@@ -186,10 +185,59 @@
       >Edit</a
     >
     <a
-      href="{{ url_for('delete_discussion', comment_id=comment._id )}}"
+      href="#"
       class="interactive-buttons"
+      data-toggle="modal"
+      data-target="#modal2"
+      type="button"
       >Remove</a
     >
+    <!--Modal taken from bootstrap-->
+    <div
+      class="modal fade"
+      id="modal2"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">
+              Remove Discussion
+            </h5>
+            <button
+              type="button"
+              class="close-button close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body-remove">
+            Are you sure you want to remove this discussion?
+          </div>
+          <form
+            action="{{ url_for('delete_discussion', comment_id=comment._id )}}"
+          >
+            <div class="modal-footer buttons">
+              <button
+                type="button"
+                class="btn btn-secondary no-button-modal"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary yes-button-modal">
+                Remove
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     {% endif %}
   </div>
 </div>
