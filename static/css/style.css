@@ -22,16 +22,54 @@ a:hover {
   color: rgba(255, 59, 59, 0.911);
 }
 
-.buttons{
-display: flex; 
-justify-content: flex-end; 
-width: 100%;  
-padding:0;
-}
-
 .content-row {
   width: 100%;
   margin: 0;
+}
+
+/* buttons */
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0;
+}
+
+.no-button {
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background-color: #000;
+  border: black;
+}
+
+.no-button:hover {
+  background-color: rgba(255, 59, 59, 0.911);
+}
+
+.yes-button {
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background-color: #000;
+  border: black;
+}
+
+.yes-button:hover {
+  background-color: rgba(255, 59, 59, 0.911);
+}
+
+/* general form classes */
+
+.general-label {
+  margin-top: 10px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #383838;
 }
 
 /* Header */
@@ -52,11 +90,9 @@ h1.head-text:hover {
   color: rgba(167, 167, 167, 0.5);
 }
 
-#discussion-search {
-  width: 200px;
-}
+/* col-8 and col-4(articles section) on base.html */
 
-div.base-div {
+div.eight-base-div {
   border: 2px solid #3b3a3a;
   width: 100%;
 }
@@ -70,6 +106,40 @@ div.base-div {
   color: #383838;
 }
 
+.article-text {
+  margin-top: 20px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  font-style: italic;
+  border-radius: 10px;
+  line-height: 30px;
+}
+
+.articles-div {
+  margin: 20px 35px 50px 20px;
+  padding: 10px;
+  border: solid gray 1px;
+  position: relative;
+}
+
+.articles-div:hover {
+  border: solid rgba(255, 59, 59, 0.911) 1px;
+}
+
+.article-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.articles-img {
+  width: 100%;
+}
+
 /* index.html */
 
 div.picture-div {
@@ -80,6 +150,8 @@ div.picture-div {
 .hero-image {
   width: 100%;
 }
+
+/* Classes used on articles. blogpost.html, articles.html, news.html */
 
 .blog-div {
   text-align: center;
@@ -105,48 +177,10 @@ div.picture-div {
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 300;
+  margin-top: 8px;
 }
 
-.article-text {
-  margin-top: 20px;
-  font-size: 18px;
-  letter-spacing: 1px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  font-style: italic;
-  border-radius: 10px;
-  line-height: 30px;
-}
-
-.reviews {
-  margin: 20px 35px 50px 20px;
-  padding: 10px;
-  border: solid gray 1px;
-  position: relative;
-}
-
-.reviews:hover {
-  border: solid rgba(255, 59, 59, 0.911) 1px;
-}
-
-.review-title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  letter-spacing: 1px;
-  font-weight: 300;
-}
-
-.reviews-img {
-  width: 100%;
-}
-
-/* discussions.html */
-
-#category_name {
-  width: 93%;
-  margin: auto;
-}
+/* Discussions.html Modal */
 
 .modal-body {
   background-color: #f8f9fa;
@@ -161,23 +195,11 @@ div.picture-div {
   margin: -1rem -1rem -1rem 0;
 }
 
-.general-label {
-  margin-top: 10px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: 18px;
-  color: #383838;
-}
+/* Discussions.html/ filtering.html */
 
-.cancel-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.comment-button {
-  margin-left: 5%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+#category_name {
+  width: 93%;
+  margin: auto;
 }
 
 .image-plus-button-cont {
@@ -190,9 +212,13 @@ div.picture-div {
   margin: 50px 0 0;
 }
 
+.image-plus-button-cont {
+  text-align: center;
+}
+
 #discussion-label {
   margin-top: 20px;
-  font-family: "Chelsea Market";
+  font-family: "Chelsea Market", sans-serif;
   font-size: 20px;
   letter-spacing: 1px;
 }
@@ -216,6 +242,8 @@ div.picture-div {
   border-radius: 30px;
 }
 
+/* Discussion and discussions_thread comments container */
+
 .comment-date {
   color: rgb(125, 125, 125);
   margin: 20px 10%;
@@ -233,6 +261,7 @@ div.picture-div {
 .comments-box {
   background-color: #f8f9fa;
   padding-top: 20px;
+  padding-right: 20px;
 }
 
 p.comment-title {
@@ -254,6 +283,8 @@ p.comment-title {
   margin: 25px 10px 35px 0;
 }
 
+/* Discussion comments interactivity buttons */
+
 .comment-like-div {
   display: inline-flex;
   margin: 20px auto 5px;
@@ -273,6 +304,8 @@ p.comment-title {
   color: red;
 }
 
+/* Discussions_thread.html */
+
 .reply-title-div {
   text-align: center;
 }
@@ -285,22 +318,20 @@ p.comment-title {
   margin: 20px;
 }
 
+.discussions-thread-form{
+width: 80%;
+margin: 30px auto;
+}
+
+/* comments reply div/bubble */
+
 .reply-comments-div {
   margin: 30px auto;
-  width: 60%;
+  width: 80%;
   border: solid 2px rgba(108, 206, 84, 0.5);
   padding: 20px;
   border-radius: 20px;
   background-color: #f8f9fa;
-}
-
-.col-1.reply-edit-button {
-  padding: 0;
-}
-
-.reply-form {
-  width: 60%;
-  margin: 30px auto;
 }
 
 .reply-comment-user {
@@ -308,6 +339,45 @@ p.comment-title {
   letter-spacing: 1px;
   font-size: 18px;
 }
+
+.thread-edit {
+  margin: 0 10px;
+}
+
+.thread-user-time {
+  text-align: center;
+}
+
+.thread-date-time {
+  font-size: 13px;
+  color: #9a9292;
+  letter-spacing: 1px;
+}
+
+.thread-reply-comment {
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.like-button-replies {
+  background: #f8f9fa;
+  border: none;
+}
+
+div.edit-reply-button-div {
+  margin: 20px auto 0;
+  display: inline-flex;
+  letter-spacing: 2px;
+}
+
+/* reply-form */
+
+.reply-form {
+  width: 60%;
+  margin: 30px auto;
+}
+
+/* edit_reply.html */
 
 .edit-discussion-div {
   padding: 0 0 40px;
@@ -325,30 +395,21 @@ p.comment-title {
   text-align: center;
 }
 
-.no-button {
-  border-radius: 30px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  background-color: #000;
-  border: black;
+/* News.html */
+
+.news-headline-div {
+  width: 100%;
+  text-align: center;
 }
 
-.no-button:hover {
-  background-color: rgba(255, 59, 59, 0.911);
+.news-title {
+  margin: 30px 0;
 }
 
-.yes-button {
-margin-left: 5%;
-margin-right: 5%;
-border-radius: 30px;
-font-weight: 500;
-letter-spacing: 2px;
-background-color: #000;
-border: black;
-}
-
-.yes-button:hover {
-  background-color: rgba(255, 59, 59, 0.911);
+.link-news-title {
+  font-family: "Indie Flower";
+  letter-spacing: 3px;
+  font-weight: 700;
 }
 
 /* footer */
@@ -366,6 +427,10 @@ footer {
   color: rgba(104, 104, 104, 0.911);
 }
 
+.social-links:hover{
+color: rgba(0,0,0,.7)
+}
+
 .copyright-text {
   color: rgba(104, 104, 104, 0.911);
   font-size: 70%;
@@ -379,47 +444,28 @@ footer {
   font-size: 15px;
 }
 
-/* Discussions Thread */
-
-div.edit-reply-button-div{
-margin-top: 20px;
-display: inline-flex;
-letter-spacing: 2px;
+.theo-tag:hover{
+color: rgba(108, 206, 84, 0.5);
 }
 
-.thread-edit{
-margin: 0 10px;
+/* News.html */
+
+.news-headline-div {
+  width: 100%;
+  text-align: center;
 }
 
-.thread-user-time{
-text-align: center;
+.news-title {
+  margin: 30px 0;
 }
 
-.thread-date-time{
-font-size: 13px;
-color: #9a9292;
-letter-spacing: 1px;
+.link-news-title {
+  font-family: "Indie Flower";
+  letter-spacing: 3px;
+  font-weight: 700;
 }
 
-.thread-reply-comment{
-letter-spacing: 1px;
-font-style: italic;
-}
-
-.news-headline-div{
-width: 100%;
-text-align: center; 
-}
-
-.news-title{
-margin: 30px 0;
-}
-
-.link-news-title{
-font-family: 'Indie Flower';
-letter-spacing: 3px;
-font-weight: 700;
-}
+/* Media Queries */
 
 @media (min-width: 993px) {
   .mobile-nav-options {
@@ -428,112 +474,149 @@ font-weight: 700;
 }
 
 @media (max-width: 993px) {
- 
-/* Base and index page */
+  /* Base and index page */
 
-.nav-select{
-display: none;
-}
+  div.eight-base-div {
+    border: none;
+  }
 
   div.picture-div {
-    padding: 30px 50px 20px;
+    padding: 20px 20px 0px;
+  }
+  h1.head-text {
+    font-size: 25px;
+    margin-left: 0;
+  }
+
+  form.form-inline {
+    display: none;
   }
 
   div.base-div {
     border: none;
   }
 
+  /* Blog, articles, news.html */
+
   .blog-div {
     margin: 30px 0px;
   }
 
-  h1.head-text {
-    font-size: 25px;
-    margin-left: 0;
-  }
-
-  .ratings-div {
+  .articles-container {
     display: none;
   }
+
   .article-text {
     font-size: 13px;
     line-height: 20px;
     padding: 20px 10px;
   }
 
-/* Discussions page */
+  /* Discussions, discussions_thread.html */
+
+  .comments-box {
+    padding-right: 10px;
+  }
 
   .comment-date {
     font-size: 15px;
     margin-left: 0;
-    padding-top: 20px;
+    padding-top: 5px;
   }
 
-.comments {
+  .comments {
     font-size: 15px;
     margin: 10px 10px 20px 0;
   }
 
-p.comment-title{
-font-size: 18px;
-}
+  p.comment-title {
+    font-size: 18px;
+  }
 
-.author-text{
-margin-top: 5px;
-}
+  .author-text {
+    margin-top: 5px;
+  }
 
-.discussions-image{
-margin: 30px 0 0;
-}
+  .discussions-image {
+    margin: 30px 0 0;
+  }
 
-.reply-form{
-width: 90%;
-}
+  .reply-form {
+    width: 90%;
+  }
 
-.edit-discussion-div{
-padding-bottom: 0;
-}
+  /* edit_discussions.html */
 
-.reply-comments-div{
-margin: 30px auto;
-width: 90%;
-}
+  .edit-discussion-div {
+    padding-bottom: 0;
+  }
 
-.news-title{
-margin: 10px 0 20px;
-}
+  /* News.html */
 
-.link-news-title{
-letter-spacing: 2px;
-font-size: 15px;
-}
+  .news-title {
+    margin: 10px 0 20px;
+  }
 
+  .link-news-title {
+    letter-spacing: 2px;
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 767px) {
-  div.picture-div {
-    padding: 20px 10px 20px;
-  }
   h1.head-text {
     font-size: 25px;
     margin-left: 0;
   }
+
+  /* Discussions_thread*/
+
+  .reply-comments-div {
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  .reply-comment-user {
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  .thread-date-time {
+    font-size: 10px;
+  }
+
+  .thread-reply-comment {
+    font-size: 13px;
+  }
+
+  .edit-reply-button-div {
+    font-size: 10px;
+    margin: 10px auto;
+  }
+
+  .thread-edit {
+    margin: 0 3px;
+  }
+
+.discussions-thread-form{
+width: 90%
+}
 }
 
 @media (max-width: 322px) {
   h1.head-text {
     font-size: 16px;
   }
-.edit-discussion-header{
-font-size: 20px;
-}
+  .edit-discussion-header {
+    font-size: 20px;
+  }
 
-.link-news-title{
-letter-spacing: 2px;
-font-size: 10px;
-}
+  .link-news-title {
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
 
-.news-title{
-margin: 0 0 10px;
-}
+  .news-title {
+    margin: 0 0 10px;
+  }
 }

@@ -35,13 +35,15 @@
     </div>
     <div class="col-8">
       <p class="thread-reply-comment">{{ reply.comment }}</p>
-      <div class="edit-reply-button-div">
+      
+    </div>
+    <div class="edit-reply-button-div">
          <!-- like button action -->
         <form
           action="{{ url_for('update_likes_for_reply', reply_id=reply._id)  }}"
           method="POST"
         >
-          <button value="1" name="likes" type="submit" class="like-button">
+          <button value="1" name="likes" type="submit" class="like-button-replies">
             <i class="fas fa-heart heart"></i>
           </button>
         </form>
@@ -58,15 +60,14 @@
           >Remove</a
         >
       </div>
-    </div>
   </div>
 </div>
 
 {% endfor %}
 
-<!-- Reply to discussion comment form -->
+<!-- Reply to discussion comment form taken from stack overflow the form has validation verifiers -->
 <form
-  class="needs-validation form-group reply-form"
+  class="needs-validation form-group discussions-thread-form"
   action="{{ url_for('reply', comment_id=comment._id) }}"
   method="POST"
   novalidate
@@ -104,7 +105,7 @@
     <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
     <button
       class="btn btn-primary yes-button"
-      type="Reply"
+      type="submit"
     >
       Reply
     </button>

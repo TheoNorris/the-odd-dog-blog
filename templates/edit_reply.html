@@ -42,12 +42,9 @@
           >Username</label
         >
         <div class="input-group">
-          <div class="input-group-prepend"></div>
           <textarea
-            type="text"
             class="form-control"
             id="validationCustomUsername"
-            aria-describedby="inputGroupPrepend"
             name="comment"
             rows="3"
             placeholder=""
@@ -64,7 +61,6 @@
     </div>
     <div class="buttons">
     <!-- Cancel button returns user to discussions_thread -->
-      request.referrer
       <input
         type="button"
         class="btn btn-primary no-button"
@@ -73,8 +69,7 @@
       />
       <!-- Buttons edits reply -->
       <button class="btn btn-primary yes-button" 
-      onclick="window.location.href='{{ request.referrer }}';"
-      type="Edit">
+      type="submit">
         Edit
       </button>
     </div>

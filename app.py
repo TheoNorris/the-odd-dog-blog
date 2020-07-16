@@ -21,7 +21,6 @@ def index():
     return render_template('index.html')
 
 
-
 # Route that receives a category from my search bar in my navbar and searches 
 # for the specific category for the filtering.html page.
 @app.route('/health')

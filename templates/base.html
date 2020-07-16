@@ -143,57 +143,57 @@
 
       <div class="content-container">
         <div class="row content-row">
-          <div class="col-lg-8 base-div">
+          <div class="col-lg-8 eight-base-div">
             <!--block for injecting all other pages into base html-->
             {% block content %}{% endblock %}
           </div>
           <!--Article div with links to articles received from blog_articles database-->
-          <div class="col-4 ratings-div">
+          <div class="col-4 articles-container">
             <h3 class="articles-header">Articles</h3>
             <a href="{{ url_for('newpuppy') }}">
-              <div class="reviews">
+              <div class="articles-div">
                 <img
-                  class="reviews-img"
+                  class="articles-img"
                   src="{{ url_for('static', filename='images/puppy-sleeping.jpg') }}"
                   alt="Puppy Sleeping"
                 />
-                <div class="review-title">
+                <div class="article-title">
                   <p>Are you ready for a new puppy?</p>
                 </div>
               </div>
             </a>
             <a href="{{ url_for('better_life') }}">
-              <div class="reviews">
+              <div class="articles-div">
                 <img
-                  class="reviews-img"
+                  class="articles-img"
                   src="{{ url_for('static', filename='images/siberian-husky.jpg') }}"
                   alt="Siberian Husky Puppy"
                 />
-                <div class="review-title">
+                <div class="article-title">
                   <p>Four tips for a better life.</p>
                 </div>
               </div>
             </a>
             <a href="{{ url_for('dog_bathing') }}">
-              <div class="reviews">
+              <div class="articles-div">
                 <img
-                  class="reviews-img"
+                  class="articles-img"
                   src="{{ url_for('static', filename='images/chihuahua.jpg') }}"
                   alt="Chihuahua"
                 />
-                <div class="review-title">
+                <div class="article-title">
                   <p>Tips For Easier Dog Bathing.</p>
                 </div>
               </div>
             </a>
             <a href="{{ url_for('pet_allergies') }}">
-              <div class="reviews">
+              <div class="articles-div">
                 <img
-                  class="reviews-img"
+                  class="articles-img"
                   src="{{ url_for('static', filename='images/portuguese-water-dog.jpg') }}"
                   alt="Portuguese Water Dog"
                 />
-                <div class="review-title">
+                <div class="article-title">
                   <p>6 Myths About Pet Allergies.</p>
                 </div>
               </div>
@@ -264,7 +264,7 @@
       })();
     </script>
 
-    <script type="text/javascript">
+    <script>
       // Javascript taken from stack overflow to enable modal form submission
       function form_submit() {
         document.getElementById("search_form").submit();
