@@ -188,6 +188,33 @@ div.eight-base-div {
   width: 100%;
 }
 
+/* 404 */
+
+.four-a{
+text-decoration: none;
+}
+
+.four-container{
+text-align: center;
+}
+
+.four-head-text{
+font-family: "Chelsea Market", sans-serif;
+font-size: 250%;
+letter-spacing: 1px;
+margin-top: 20px;
+margin-bottom: 30px;
+color: #b243b9;
+}
+
+.four-head-text:hover{
+color: black;
+}
+
+.four-image{
+width: 700px;
+}
+
 /* index.html */
 
 div.picture-div {
