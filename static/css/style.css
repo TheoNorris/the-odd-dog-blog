@@ -277,6 +277,26 @@ div.picture-div {
   text-align: center;
 }
 
+.pagination-page-info{
+text-align: center;
+margin: 20px;
+color: rgba(255, 59, 59, 0.911);
+letter-spacing: 1px;
+}
+
+b{
+margin: 5px;
+}
+
+.page-item.active .page-link {
+background-color: rgba(104, 104, 104, 0.911);
+border-color: rgba(104, 104, 104, 0.911);
+}
+
+.page-link {
+color: #000000;
+}
+
 /* Discussions.html/ filtering.html */
 
 #category_name {
@@ -638,6 +658,10 @@ margin-top: 75px;
     padding-top: 18px;
   }
 
+  .comment-break {
+  margin-bottom: 0;
+  }
+
   .date-div{
     padding: 0 5px 20px;
   }
@@ -675,6 +699,10 @@ margin-top: 75px;
 
   .reply-form {
     width: 90%;
+  }
+
+  .justify-content-center{
+  margin-top: 15px;
   }
 
   /* edit_discussions.html */
@@ -716,6 +744,15 @@ margin-top: 10px;
   .news-article-title{
     margin: 15px 0 0;
    font-size: 13px;
+  }
+
+  .pagination-page-info{
+  font-size: 13px;
+  margin: 10px;
+  }
+
+  b{
+  font-size: 13px;
   }
 
   /* Discussions_thread*/
@@ -771,6 +808,15 @@ margin-top: 10px;
 
 .news-article-title{
    font-size: 10px;
+  }
+
+.pagination-page-info{
+  font-size: 10px;
+  margin: 10px;
+  }
+
+  b{
+  font-size: 10px;
   }
 
 }

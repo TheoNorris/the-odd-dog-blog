@@ -4,6 +4,8 @@ from datetime import datetime
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask import Blueprint
+from flask_paginate import Pagination, get_page_parameter
 if os.path.exists("env.py"):
     import env 
 
@@ -157,14 +159,22 @@ def news():
 
 
 # Route that finds and imports all my discussion starters/comments for my
-# discussions.html page.
+# discussions.html page. Thank you to Cormac for help with pagination.
 @app.route('/discussions')
 def discussions():
+    per_page = 6
+    page = request.args.get(get_page_parameter(), type=int, default=1)
     all_categories = mongo.db.categories.find()
     comments = mongo.db.comments.find()
+    pagination = Pagination(page=page, total=comments.count(),
+                            per_page=per_page, search=False,
+                            record_name='comments',
+                            css_framework='bootstrap4', alignment='center')
+    discussions_page = comments.skip((page - 1) * per_page).limit(per_page)
     return render_template('discussions.html', comments=comments,
                            now=datetime.now().strftime("%D, %H:%M"),
-                           categories=all_categories)
+                           categories=all_categories, pagination=pagination,
+                           discussion=discussions_page)
 
 
 # Route that receives a new discussion from my modal on my discussions.html

@@ -22,7 +22,7 @@
             </div>
             <div class="modal-body">
                 <!-- Discussion comment form taken from stack overflow the form has validation verifiers -->
-                <form class="needs-validation" action="{{ url_for('insert_discussion') }}" method="POST" novalidate>
+                <form class="needs-validation" action="{{ url_for('insert_discussion') }}" pattern="[a-z]{1,30}(,[a-z]{1,30})*" method="POST" novalidate>
                     <textarea name="date_time" hidden>{{ now }}</textarea>
                     <div class="form-group">
                         <select class="form-control" id="category_name" name="category_name" required>
@@ -49,7 +49,7 @@
                         <div class="col">
                             <label class="general-label" for="validationCustomUsername">Thought's</label>
                             <div class="input-group">
-                                <textarea class="form-control blank-checker" id="validationCustomUsername" name="comment" rows="3" placeholder="What's on your mind...?" maxlength="254" required></textarea>
+                                <textarea class="form-control"  name="comment" rows="3" placeholder="What's on your mind...?" maxlength="254" required></textarea>
                                 <div class="invalid-feedback">
                                     Enter Comment
                                 </div>
@@ -72,6 +72,7 @@
 <hr class="comment-break" />
 
 <!-- For loop to display all Discussion comments in seperate divs -->
+{{ pagination.info}}
 {% for comment in comments %}
 <div class="row">
     <div class="col-4 date-div">
@@ -79,7 +80,6 @@
         <p class="author-text">User: {{comment.username}}</p>
         <p class="comment-date">{{comment.date_time}}</p>
     </div>
-
     <div class="col-8 comments-box">
         <p class="comment-title">
             <strong>{{comment.title}}</strong>
@@ -136,7 +136,9 @@
         {% endif %}
     </div>
 </div>
-
 <hr class="comment-break" />
 
-{% endfor %} {% endblock %}
+{% endfor %} 
+{{ pagination.links }}
+{% endblock %}
+
