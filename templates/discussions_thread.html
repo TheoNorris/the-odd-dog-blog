@@ -10,13 +10,14 @@
 <!-- Discussions comments div -->
 <div class="row">
     <div class="col-4 date-div">
+        <p class="comment-category">({{comment.category_name}})</p>
+        <p class="author-text">User: {{comment.username}}</p>
         <p class="comment-date">{{comment.date_time}}</p>
     </div>
     <div class="col-8 comments-box">
         <p class="comment-title">
             <strong>{{comment.title}}</strong>
         </p>
-        <p class="author-text">Author: {{ comment.username }}</p>
         <p class="comments">{{comment.comment}}</p>
     </div>
 </div>

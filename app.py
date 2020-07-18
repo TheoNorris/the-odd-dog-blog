@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from flask import Blueprint
 from flask_paginate import Pagination, get_page_parameter
 if os.path.exists("env.py"):
-    import env 
+    import env
 
 app = Flask(__name__)
 
@@ -37,6 +37,7 @@ def health():
     comments = mongo.db.comments.find({'category_name': 'Health'})
     categories = mongo.db.categories.find({'category_name': 'Health'})
     return render_template('filtering.html', categories=categories,
+                           now=datetime.now().strftime("%D, %H:%M"),
                            comments=comments, image=image)
 
 
@@ -48,6 +49,7 @@ def lifestyle():
     comments = mongo.db.comments.find({'category_name': 'Lifestyle'})
     categories = mongo.db.categories.find({'category_name': 'Lifestyle'})
     return render_template('filtering.html', categories=categories,
+                           now=datetime.now().strftime("%D, %H:%M"),
                            comments=comments, image=image)
 
 
@@ -59,6 +61,7 @@ def story():
     comments = mongo.db.comments.find({'category_name': 'Story'})
     categories = mongo.db.categories.find({'category_name': 'Story'})
     return render_template('filtering.html', categories=categories,
+                           now=datetime.now().strftime("%D, %H:%M"),
                            comments=comments, image=image)
 
 
@@ -71,6 +74,15 @@ def food():
     categories = mongo.db.categories.find({'category_name': 'Food'})
     return render_template('filtering.html', categories=categories,
                            comments=comments, image=image)
+
+
+# Route that receives a new discussion from my modal on my discussions.html
+# then inserts it into my MongoDB comments library
+@app.route('/insert_select_discussion', methods=['POST'])
+def insert_select_discussion():
+    comments = mongo.db.comments
+    comments.insert_one(request.form.to_dict())
+    return redirect(request.referrer)
 
 
 # Route to find and import specific blogpost for my blogposts.html page when
@@ -195,7 +207,7 @@ def edit_discussion(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
     all_categories = mongo.db.categories.find()
     return render_template('edit_discussion.html',
-                           now=datetime.now().strftime("%D, %H:%M"), 
+                           now=datetime.now().strftime("%D, %H:%M"),
                            comment=the_comment, categories=all_categories)
 
 

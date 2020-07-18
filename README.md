@@ -34,7 +34,31 @@ dog owners looking for tips or advice or those who just want to brighten their d
 - As a user I will able to view the website in a range of screen sizes.
 ![Responsive Sizes](/readme-documents/responsive-sizes.png)
 
-My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/wireframes/the-odd-dog-wires.pdf)
+My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/wireframes/the-odd-dog-blog-wires.pdf)
+
+## Schema
+
+My Database is divided into four sections. 
+
+- The first and most simple is categories. This is just the four categories that users can select to
+start a discussion.
+
+![Schema Categories](/readme-documents/schema-categories.png)
+
+- The second manages articles and blog posts on the main page.
+
+![Schema Articles](/readme-documents/schema-articles.png)
+
+- The third database contains users discussions accompanied by the category, date, time, user and the amount of likes they have on their comment. I have also added a 
+can't delete boolean to some of the articles as there is no user authentication this way all the discussions will not to be deleted.
+
+![Schema Articles](/readme-documents/schema-discussions.png)
+
+- The fourth database contains discussions thread comments. Comments that a user has added to a discussion. This database contains a comment_id which is an
+id that matches the object_id of the particular comment the user has commented on in the discussion database. It also contains the user, date, time and if anyone has liked this
+comment.
+
+![Schema Articles](/readme-documents/schema-discussions-thread.png)
 
 ## Existing Features
 
@@ -112,54 +136,143 @@ having tested it on chrome developer tools across ipad, various iphones, samsung
 
 ### User stories Testing
 
-- As a user I will be able to search different artists.
+- As a user I can see what the main focus of the website is.
 
-I have been through each individual artist and checked that there is the correct bio,
-photo, albums and social links and these are responsive on all platforms.
+This is apparent in the name in the navbar.
 
-- As a user I can see a small discography of the artist with spotify links to the artists music.
+- As a user I can navigate through the website efficiently without questioning how to return.
 
-I have checked if each album link goes to the correct album on spotify by clicking upon each link.
+I have been through every link on the website, always being able to return to the home page if necessary. The navbar is also fixed so there is an option
+to return whenever seen fit.
 
-- As a user I can navigate myself to any social media the artist has.
+- As a user I will be able to view an array of different blogs and articles.
 
-I have checked that each social media link goes to the correct artists social media account by clicking on each of the links.
-I acknowledge that the artist Kojey Radical's twitter link is not correct. I believe the API has the incorrect information.
+I have clicked on each of the links to each of the articles and made sure that each link is going to the correct article and picture.
+
+- As a user I will be able to view any social media the company has.
+
+These are always visible in the footer of each page. I have clicked on each link to ensure they go to the correct platform in a new window.
+
+- As a user I will be able to start a discussion of varying categories.
+
+There are four different categories on the discussions page, in the start a discussion modal. These are all apparent in the select bar. I have been through each category
+and checked they work correctly. 
+If a user has selected a category from the search discussions select bar, they are only able to start a discussion in the selected category, from the start a discussion modal in that category.
+I have been to the different categories and tested this. 
+Either way of starting a discussion I have added validation. I have been throught each input area and tested whether or not these areas need validation. I have started discussions and
+ensured these discussions are posted correctly.
+
+- As a user I will be able to search individual categories.
+
+I have tested that the select discussion category goes to the correct category each choice by clicking on each individual category. 
+
+- As a user I will be able to like, edit, and delete discussions.
+
+I have been to each page, pages being, discussions, edit_discussion and filtering and have checked that all these functions work correctly.
+I have done this by clicking the like button, I have also edited and deleted discussions.
+
+- As a user I will be able to view the discussions thread.
+
+I been to the discussions thread by clicking on comments. I have checked that the discussion and the comments are displayed correctly.
+
+- As a user I will be able to comment on a discussion.
+
+On the discussions thread there is a form to add comments I have been through the form, checked that the validation is working correctly and submitted the form.
+On submission the comment pops up above the form. This displays the form is working correctly.
+
+- As a user I will be able to like, edit and delete comments.
+
+I have been to each page, pages being, discussions_thread and edit_reply and have checked that all these functions work correctly.
+I have done this by clicking the like button, I have also edited and deleted discussions. I acknowledge that on the edit_reply page you are returned to the discussions page, not the correct discussions_thread when the 
+comment is edited. This is because the discussions_thread has a particular object id in it's address and I had difficulty entering it into the redirect route from update_reply.
+
+- As a user I will be able to view news stories on the news page.
+
+I have been to the news page and checked each news story. I have checked that the collapsible function is working effectively and that the news story is matching the correct headline.
+
+- As a user I will able to view the website in a range of screen sizes.
+
+I have been through the whole range of views on the chrome developer tools ensuring that the apllication looks just as stylish and modern on each size. I have also viewed the application
+on laptop, desktop and a variation of phones.
 
 ### Problems Encountered
 
 During the project I encountered some small problems,
 
-- The first problem I had was how to put multiple album covers and album links into a div using a for loop.
-  I solved this by placing the elements into a variable first, but the next problem was that the new variable output some text stating undefined at the beginning of the variables.
-  I removed this text with another variable then placed the variable into the div.
+- The first problem was I couldn't have two loops on the same html page for the same category.
 
-- Another problem I encountered was while viewing my website on my mobile, the description texts of the artists weren't so clear.
-  I hadn't experienced this problem in chrome developer tools. It must be something involving screen resolution so I adjusted the font weight.
+I solved this by splitting categories into it's own database. This way I was able to have two loops in the same form.
 
-- I also witnessed some problems with image scalability when recieving artist images from the API's which I found relatively difficult to adjust.
-  I overcame the problem with zoom and media queries.
+- The second problem I encountered was having form submission on a modal
+  
+I looked to stack overflow for this problem as people before me had faced the same issue. Here I found the code I needed to make this modal function
+correctly.
 
-- On the iphone 5/SE on developer tools I discovered that my texts for one artist was overflowing it's div.
-  I adjusted the font sizes in media queries for this sized screen.
+- The biggest problem which consumed most of my time on this project was being able to edit and delete comments which were made on a discussion.
+
+I overcame this issue by seperating my discussion_thread comments to a different database. This was a great lesson in database structure because once I had done this
+I could make the function work almost instantaneously.
+
+- The next issue I had difficulty with was pagination. My tutor helped me with this and this was very important to learn. Once you understand the structure it is very straight
+forward.
+
+- I currently have one existing problem which is the submit button in edit_reply.
+
+When a user submits the edit_reply form they are directed to the discussions page. This is not the correct page they should be directed to. They should be directed back to the 
+discussions_thread. I had a lot of difficulty with this because the discussions thread also has object id in it's address. I found it challenging to formulate a way to redirect the page
+back to the the discussions thread from the update_reply route.
 
 ## Deployment
 
-This site is hosted by GitHub pages deployed directly from the master branch. To deploy the website you must first go to your repository on
-GitHub pages. You then click on settings, scroll down to GitHub pages. Select 'master branch' in source, then after a couple of minutes your website
-will be deployed. You can then follow the link given in the GitHub pages section (https://theonorris.github.io/UK-Stand-Up/)
+This site is hosted by Heroku deployed directly from the master branch. To deploy the website you must first create a Heroku account.
 
-![GitHub pages example](/readme-documents/github-pages-example.png)
+- Next you will create an app on Heroku
+
+![Creat Heroku App](/readme-documents/heroku-create-app.png)
+
+-After this you will want to add your configuration variables. You can do this inside settings of your Heroku app. You want to add IP address, Port, and your 
+environment variables of the application. In this case my variable examples are stored in my env_sample.py file. You will have to create your own based on the examples of what
+you need. I would highly recommend you store your environment variables in their own file which is ignored when being push to a server.
+
+![Configuration variables](/readme-documents/environment-variables.png)
+
+- You will need to ensure you have a Procfile. You do this by entering by entering the following into the bash terminal.
+
+![Procfile](/readme-documents/procfile.png)
+
+- You will also need a requirements.txt file.
+
+![Requirements.txt](/readme-documents/requirements.png)
+
+- git add . and git commit with a meaningful commit
+
+![Git Commit](/readme-documents/git-commit.png)
+
+- Once these requirements are done you can login to your Heroku in the bash terminal.
+
+![Heroku Login](/readme-documents/heroku-login.png)
+
+- Next push the application to heroku using.
+
+![Heroku push](/readme-documents/git-push.png)
+
+- Finally command Heroku to start running the application 
+
+![Heroku Run](/readme-documents/heroku-run.png)
+
+- Now, inside Your Heroku dashboard in the top right of the window you can now open the the application.
+
+![Open App](/readme-documents/open-app.png)
 
 **To run locally you can clone this repository directly into the editor of your choice by firstly,**
 
 - copying the link from clone or download on my GitHub page.
 
-![git copy](/readme-documents/gitclone-example.png)
+![git copy](/readme-documents/git-clone-example.png)
 
 - then, pasting git clone https://github.com/TheoNorris/UK-Stand-Up.git into your terminal.
 
-![git clone](/readme-documents/gitclone.png)
+![git clone](/readme-documents/git-clone.png)
 
 - To cut ties with this GitHub repository, type `git remote rm origin`into the terminal.
 

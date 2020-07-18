@@ -22,7 +22,7 @@
             </div>
             <div class="modal-body">
                 <!-- Discussion comment form taken from stack overflow the form has validation verifiers -->
-                <form class="needs-validation" action="{{ url_for('insert_discussion') }}" pattern="[a-z]{1,30}(,[a-z]{1,30})*" method="POST" novalidate>
+                <form class="needs-validation" action="{{ url_for('insert_discussion') }}" method="POST" novalidate>
                     <textarea name="date_time" hidden>{{ now }}</textarea>
                     <div class="form-group">
                         <select class="form-control" id="category_name" name="category_name" required>
@@ -100,12 +100,12 @@
     then to remove the delete and edit buttons -->
         {% if comment.cant_delete %}
 
-        <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comment</a>
+        <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
 
         {% else %}
         <!-- comment edit and remove buttons for for the discussion comments -->
         <div>
-            <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comment</a>
+            <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
             <a href="{{ url_for('edit_discussion', comment_id=comment._id )}}" class="interactive-buttons">Edit</a>
 
             <a href="#" class="interactive-buttons" data-toggle="modal" data-target="#modal2">Remove</a>
