@@ -1,8 +1,8 @@
 ![The Odd Blog](/assets/readme-documents/odd-dog-header.png)
 
-The Odd Dog Blog is a project for enthusiasts of all things dog shaped. Through the use of the MongoDB atlas database users will be able to start discussions of varying categories.
+The Odd Dog Blog is a project for enthusiasts of all things dog shaped. Through the use of the MongoDB atlas database, users will be able to start discussions of varying categories.
 They will also be able to like, comment on, edit and delete said discussions. The database will also contain varying articles which the user can access from the home
-page. The website is a multi-faceted website using flask template technology. The three pages are the index page, which contains blogs and articles. The discussions page, where
+page. The website is a multi-faceted website using flask template technology. The three main pages are the index page, which contains blogs and articles. The discussions page, where
 people can start discussions on a variation of categories. And the news page which has dog-related news-articles.
 
 ## UX
@@ -72,7 +72,7 @@ start a discussion.
 ![Schema Articles](/assets/readme-documents/schema-articles.png)
 
 - The third database contains users discussions accompanied by the category, date, time, user and the amount of likes they have on their comment. I have also added a 
-can't delete boolean to some of the articles as there is no user authentication this way all the discussions will not to be deleted.
+can't delete boolean to some of the articles as there is no user authentication. This way all the discussions will not to be deleted.
 
 ![Schema Articles](/assets/readme-documents/schema-discussions.png)
 
@@ -181,7 +181,7 @@ There are four different categories on the discussions page, in the 'start a dis
 and checked they work correctly. 
 If a user has selected a category from the search discussions select bar, they are only able to start a discussion in the selected category, from the 'start a discussion modal' in that category.
 I have been to the different categories and tested this. 
-Either way of starting a discussion I have added validation. I have been throught each input area and tested whether or not these areas need validation. I have started discussions and
+Either way of starting a discussion I have added validation. I have been through each input area and tested whether or not these areas need validation. I have started discussions and
 ensured these discussions are posted correctly.
 
 - As a user I will be able to search individual categories.
@@ -195,7 +195,7 @@ I have done this by clicking the like button, I have also edited and deleted dis
 
 - As a user I will be able to view the discussions thread.
 
-I been to the discussions thread by clicking on comments. I have checked that the discussion and the comments are displayed correctly.
+I have been to the discussions thread by clicking on comments. I have checked that the discussion and the comments are displayed correctly.
 
 - As a user I will be able to comment on a discussion.
 
@@ -241,7 +241,7 @@ forward.
 - I currently have one existing problem which is the submit button in edit_reply.
 
 When a user submits the edit_reply form they are directed to the discussions page. This is not the correct page they should be directed to. They should be directed back to the 
-discussions_thread. I had a lot of difficulty with this because the discussions thread also has object id in it's address. I found it challenging to formulate a way to redirect the page
+discussions_thread. I had a lot of difficulty with this because the discussions thread also has an object id in it's address. I found it challenging to formulate a way to redirect the page
 back to the the discussions thread from the update_reply route.
 
 ## Deployment
@@ -288,7 +288,7 @@ you need. I would highly recommend you store your environment variables in their
 
 **To run locally you can clone this repository directly into the editor of your choice by firstly,**
 
-- copying the link from clone or download on my GitHub page.
+- copying the link from clone or download on my [GitHub page](https://github.com/TheoNorris/the-odd-dog-blog).
 
 ![git copy](/assets/readme-documents/git-clone-example.png)
 

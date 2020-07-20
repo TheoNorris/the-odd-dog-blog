@@ -17,18 +17,19 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 
+# Error handler.
 @app.errorhandler(404)
 def errorhandler(e):
     return render_template('404.html'), 404
 
 
-# Route or index page.
+# Route for index page.
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-# Route that receives a category from my search bar in my navbar and searches
+# Route that receives a category from the search bar in the navbar and searches
 # for the specific category for the filtering.html page.
 @app.route('/health')
 def health():
@@ -40,7 +41,7 @@ def health():
                            comments=comments, image=image)
 
 
-# Route that receives a category from my search bar in my navbar and searches
+# Route that receives a category from the search bar in the navbar and searches
 # for the specific category for the filtering.html page.
 @app.route('/lifestyle')
 def lifestyle():
@@ -52,7 +53,7 @@ def lifestyle():
                            comments=comments, image=image)
 
 
-# Route that receives a category from my search bar in my navbar and searches
+# Route that receives a category from the search bar in the navbar and searches
 # for the specific category for the filtering.html page.
 @app.route('/story')
 def story():
@@ -64,7 +65,7 @@ def story():
                            comments=comments, image=image)
 
 
-# # Route that receives a category from my search bar in my navbar and searches
+# # Route that receives a category from the search bar in the navbar and searches
 # for the specific category for the filtering.html page.
 @app.route('/food')
 def food():
@@ -75,8 +76,8 @@ def food():
                            comments=comments, image=image)
 
 
-# Route that receives a new discussion from my modal on my discussions.html
-# then inserts it into my MongoDB comments library
+# Route that receives a new discussion from the modal on the discussions.html
+# then inserts it into the MongoDB comments library
 @app.route('/insert_select_discussion', methods=['POST'])
 def insert_select_discussion():
     comments = mongo.db.comments
@@ -84,8 +85,8 @@ def insert_select_discussion():
     return redirect(request.referrer)
 
 
-# Route to find and import specific blogpost for my blogposts.html page when
-# someone selects an article on the index.html page.
+# Route to find and import specific blogpost for blogposts.html page when
+# the user selects an article on the index.html page.
 @app.route('/goodboy')
 def goodboy():
     image = url_for('static',
@@ -96,8 +97,8 @@ def goodboy():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific blogpost for my blogposts.html page when
-# someone selects an article on the index.html page.
+# Route to find and import specific blogpost for blogposts.html page when
+# the user selects an article on the index.html page.
 @app.route('/badbreath')
 def badbreath():
     image = url_for('static',
@@ -108,8 +109,8 @@ def badbreath():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific blogpost for my blogposts.html page when
-# someone selects an article on the index.html page.
+# Route to find and import specific blogpost for blogposts.html page when
+# the user selects an article on the index.html page.
 @app.route('/chewed_couch')
 def chewed_couch():
     image = url_for('static', filename='images/shih-tzu.jpg')
@@ -119,7 +120,7 @@ def chewed_couch():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific article for my articles.html when someone
+# Route to find and import specific article for articles.html when the user
 # selects an article on the index.html page.
 @app.route('/newpuppy')
 def newpuppy():
@@ -130,7 +131,7 @@ def newpuppy():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific article for my articles.html when someone
+# Route to find and import specific article for articles.html when the user
 # selects an article on the index.html page.
 @app.route('/better_life')
 def better_life():
@@ -141,7 +142,7 @@ def better_life():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific article for my articles.html when someone
+# Route to find and import specific article for articles.html when the user
 # selects an article on the index.html page.
 @app.route('/dog_bathing')
 def dog_bathing():
@@ -152,7 +153,7 @@ def dog_bathing():
                            blog_articles=blog_articles, image=image)
 
 
-# Route to find and import specific article for my articles.html when someone
+# Route to find and import specific article for articles.html when the user
 # selects an article on the index.html page.
 @app.route('/pet_allergies')
 def pet_allergies():
@@ -163,14 +164,15 @@ def pet_allergies():
                            image=image)
 
 
-# Route for my news html page.
+# Route for news html page.
 @app.route('/news')
 def news():
     return render_template('news.html')
 
 
-# Route that finds and imports all my discussion starters/comments for my
-# discussions.html page. Thank you to Cormac for help with pagination.
+# Route that finds and imports all the discussion starters/comments for
+# discussions.html page from MongoDB Atlas. Thank you to my tutor Cormac for
+# help with pagination.
 @app.route('/discussions')
 def discussions():
     per_page = 6
@@ -188,8 +190,8 @@ def discussions():
                            discussion=discussions_page)
 
 
-# Route that receives a new discussion from my modal on my discussions.html
-# then inserts it into my MongoDB comments library
+# Route that receives a new discussion from the modal on discussions.html
+# then inserts it into the MongoDB Atlas comments library
 @app.route('/insert_discussion', methods=['POST'])
 def insert_discussion():
     comments = mongo.db.comments
@@ -197,10 +199,10 @@ def insert_discussion():
     return redirect(url_for('discussions'))
 
 
-# Route that renders my edit.html and finds the correct discussion comment
-# to edit from my comments library. The comment to edit has been selected on
-# the discussions.html and it's id has been passed into the edit route.
-# I also pass in the date and time from datetime.
+# Route that renders edit.html and finds the correct discussion comment
+# to edit from the MongoDB comments library. The comment to edit has been
+# selected on the discussions.html and it's id has been passed into the edit
+#  route. I also pass in the date and time from datetime.
 @app.route('/edit_discussion/<comment_id>')
 def edit_discussion(comment_id):
     the_comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
@@ -211,7 +213,7 @@ def edit_discussion(comment_id):
 
 
 # Route that updates a comment using the comment id passed in from edit.html.
-# It then gets the form information from my edit.html form.
+# It also gets the form information from edit.html form.
 @app.route('/update_discussion/<comment_id>', methods=["POST"])
 def update_discussion(comment_id):
     comments = mongo.db.comments
