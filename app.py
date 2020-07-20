@@ -65,8 +65,8 @@ def story():
                            comments=comments, image=image)
 
 
-# # Route that receives a category from the search bar in the navbar and searches
-# for the specific category for the filtering.html page.
+# # Route that receives a category from the search bar in the navbar and
+# searches for the specific category for the filtering.html page.
 @app.route('/food')
 def food():
     image = url_for('static', filename='images/black-and-white-dalmatian.jpg')

@@ -1,4 +1,4 @@
-![The Odd Blog](/assets/readme-documents/odd-dog-header.png)
+![The Odd Blog](/readme-files/readme-documents/odd-dog-header.png)
 
 The Odd Dog Blog is a project for enthusiasts of all things dog shaped. Through the use of the MongoDB atlas database, users will be able to start discussions of varying categories.
 They will also be able to like, comment on, edit and delete said discussions. The database will also contain varying articles which the user can access from the home
@@ -14,47 +14,47 @@ dog owners looking for tips or advice or those who just want to brighten their d
 
 - As a user I can navigate through the website efficiently without questioning how to return.
 
-![Navbar](/assets/readme-documents/navbar.png)
+![Navbar](/readme-files/readme-documents/navbar.png)
 
 - As a user I will be able to view an array of different blogs and articles.
 
-![Article](/assets/readme-documents/doggin-you.png)
+![Article](/readme-files/readme-documents/doggin-you.png)
 
 - As a user I will be able to view any social media the company has.
 
-![Socials](/assets/readme-documents/socials.png)
+![Socials](/readme-files/readme-documents/socials.png)
 
 - As a user I will be able to start a discussion of varying categories.
 
-![Discussions](/assets/readme-documents/discussions.png)
+![Discussions](/readme-files/readme-documents/discussions.png)
 
 - As a user I will be able to search individual categories.
 
-![Select Discussion](/assets/readme-documents/select-discussion.png)
+![Select Discussion](/readme-files/readme-documents/select-discussion.png)
 
 - As a user I will be able to like, edit, and delete discussions.
 
-![Like, Edit, Delete](/assets/readme-documents/like-edit.png)
+![Like, Edit, Delete](/readme-files/readme-documents/like-edit.png)
 
 - As a user I will be able to view the discussions thread.
 
-![Discussion Thread](/assets/readme-documents/d-thread.png)
+![Discussion Thread](/readme-files/readme-documents/d-thread.png)
 
 - As a user I will be able to comment on a discussion.
 
-![Comment, Like, Edit, Delete](/assets/readme-documents/like-edit.png)
+![Comment, Like, Edit, Delete](/readme-files/readme-documents/like-edit.png)
 
 - As a user I will be able to like, edit and delete comments.
 
-![Comments Like, Edit, Delete](/assets/readme-documents/comment-like-edit.png)
+![Comments Like, Edit, Delete](/readme-files/readme-documents/comment-like-edit.png)
 
 - As a user I will be able to view news stories on the news page.
 
-![Comments Like, Edit, Delete](/assets/readme-documents/news.png)
+![Comments Like, Edit, Delete](/readme-files/readme-documents/news.png)
 
 - As a user I will able to view the website in a range of screen sizes.
 
-![Responsive Sizes](/assets/readme-documents/responsive-sizes.png)
+![Responsive Sizes](/readme-files/readme-documents/responsive-sizes.png)
 
 My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/assets/wireframes/the-odd-dog-blog-wires.pdf)
 
@@ -65,22 +65,22 @@ My Database is divided into four sections.
 - The first and most simple is categories. This is just the four categories that users can select to
 start a discussion.
 
-![Schema Categories](/assets/readme-documents/schema-categories.png)
+![Schema Categories](/readme-files/readme-documents/schema-categories.png)
 
 - The second manages articles and blog posts on the main page.
 
-![Schema Articles](/assets/readme-documents/schema-articles.png)
+![Schema Articles](/readme-files/readme-documents/schema-articles.png)
 
 - The third database contains users discussions accompanied by the category, date, time, user and the amount of likes they have on their comment. I have also added a 
 can't delete boolean to some of the articles as there is no user authentication. This way all the discussions will not to be deleted.
 
-![Schema Articles](/assets/readme-documents/schema-discussions.png)
+![Schema Articles](/readme-files/readme-documents/schema-discussions.png)
 
 - The fourth database contains discussions thread comments. Comments that a user has added to a discussion. This database contains a comment_id which is an
 id that matches the object_id of the particular comment the user has commented on in the discussion database. It also contains the user, date, time and if anyone has liked this
 comment.
 
-![Schema Articles](/assets/readme-documents/schema-discussions-thread.png)
+![Schema Articles](/readme-files/readme-documents/schema-discussions-thread.png)
 
 ## Existing Features
 
@@ -104,46 +104,46 @@ comment.
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 
-HTML5 is a markup language used for structuring and presenting content on the World Wide Web.
+    - HTML5 is a markup language used for structuring and presenting content on the World Wide Web.
 
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 
-Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.
+    - Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.
 
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 
-JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+    - JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
 
 - [J. Query (3.4.1)](https://jquery.com/download/)
 
-jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
+    - jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
 
 - [Google Fonts](https://fonts.google.com/)
 
-Google Fonts (previously called Google Web Fonts) is a library of 991 free licensed font families, an interactive web directory for browsing the library,
-and APIs for conveniently using the fonts via CSS[1] and Android.
+    - Google Fonts (previously called Google Web Fonts) is a library of 991 free licensed font families, an interactive web directory for browsing the library,
+      and APIs for conveniently using the fonts via CSS[1] and Android.
 
 - [Bootstrap (4.4.1)](https://getbootstrap.com/)
 
-An open source toolkit for developing with HTML, CSS, and JS.
+    - An open source toolkit for developing with HTML, CSS, and JS.
 
 - [Font Awesome (V5.6.3)](https://fontawesome.com/)
 
-A toolkit for icons.
+    - A toolkit for icons.
 
 - [Python](https://www.python.org/)
 
-Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, 
-Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
+    - Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, 
+      Python's design philosophy emphasizes code readability with its notable use of significant whitespace.
 
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
-Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. 
-It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. 
+    - Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. 
+     It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. 
 
 - [MongoDB](https://www.mongodb.com/)
 
-MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License (SSPL).
+    - MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License (SSPL).
 
 ## Testing
 
@@ -223,26 +223,26 @@ During the project I encountered some small problems,
 
 - The first problem was I couldn't have two loops on the same html page for the same category.
 
-I solved this by splitting categories into it's own database. This way I was able to have two loops in the same form.
+    - I solved this by splitting categories into it's own database. This way I was able to have two loops in the same form.
 
 - The second problem I encountered was having form submission on a modal
   
-I looked to stack overflow for this problem as people before me had faced the same issue. Here I found the code I needed to make this modal function
-correctly.
+    - I looked to stack overflow for this problem as people before me had faced the same issue. Here I found the code I needed to make this modal function
+      correctly.
 
 - The biggest problem which consumed most of my time on this project was being able to edit and delete comments which were made on a discussion.
 
-I overcame this issue by seperating my discussion_thread comments to a different database. This was a great lesson in database structure because once I had done this
-I could make the function work almost instantaneously.
+    - I overcame this issue by seperating my discussion_thread comments to a different database. This was a great lesson in database structure because once I had done this
+      I could make the function work almost instantaneously.
 
 - The next issue I had difficulty with was pagination. My tutor, Cormac helped me with this and this was very important to learn. Once you understand the structure it is very straight
 forward.
 
 - I currently have one existing problem which is the submit button in edit_reply.
 
-When a user submits the edit_reply form they are directed to the discussions page. This is not the correct page they should be directed to. They should be directed back to the 
-discussions_thread. I had a lot of difficulty with this because the discussions thread also has an object id in it's address. I found it challenging to formulate a way to redirect the page
-back to the the discussions thread from the update_reply route.
+    - When a user submits the edit_reply form they are directed to the discussions page. This is not the correct page they should be directed to. They should be directed back to the 
+      discussions_thread. I had a lot of difficulty with this because the discussions thread also has an object id in it's address. I found it challenging to formulate a way to redirect the page
+      back to the the discussions thread from the update_reply route.
 
 ## Deployment
 
@@ -250,55 +250,61 @@ This site is hosted on Heroku deployed directly from the master branch. To deplo
 
 - Next you will create an app on Heroku
 
-![Creat Heroku App](/assets/readme-documents/heroku-create-app.png)
+![Creat Heroku App](/readme-files/readme-documents/heroku-create-app.png)
 
 -After this you will want to add your configuration variables. You can do this inside settings of your Heroku app. You want to add IP address, Port, and your 
 environment variables of the application. In this case my variable examples are stored in my env_sample.py file. You will have to create your own based on the examples of what
 you need. I would highly recommend you store your environment variables in their own file which is ignored when being push to a server.
 
-![Configuration variables](/assets/readme-documents/environment-variables.png)
+![Configuration variables](/readme-files/readme-documents/environment-variables.png)
 
 - You will need to ensure you have a Procfile. You do this by entering the following into the bash terminal.
 
-![Procfile](/assets/readme-documents/procfile.png)
+![Procfile](/readme-files/readme-documents/procfile.png)
 
 - You will also need a requirements.txt file.
 
-![Requirements.txt](/assets/readme-documents/requirements.png)
+![Requirements.txt](/readme-files/readme-documents/requirements.png)
 
 - git add . and git commit with a meaningful commit
 
-![Git Commit](/assets/readme-documents/git-commit.png)
+![Git Commit](/readme-files/readme-documents/git-commit.png)
 
 - Once these requirements are done you can login to your Heroku in the bash terminal.
 
-![Heroku Login](/assets/readme-documents/heroku-login.png)
+![Heroku Login](/readme-files/readme-documents/heroku-login.png)
 
 - Next push the application to heroku using.
 
-![Heroku push](/assets/readme-documents/git-push.png)
+![Heroku push](/readme-files/readme-documents/git-push.png)
 
 - Finally command Heroku to start running the application 
 
-![Heroku Run](/assets/readme-documents/heroku-run.png)
+![Heroku Run](/readme-files/readme-documents/heroku-run.png)
 
 - Now, inside Your Heroku dashboard in the top right of the window you can now open the the application.
 
-![Open App](/assets/readme-documents/open-app.png)
+![Open App](/readme-files/readme-documents/open-app.png)
 
 **To run locally you can clone this repository directly into the editor of your choice by firstly,**
 
 - copying the link from clone or download on my [GitHub page](https://github.com/TheoNorris/the-odd-dog-blog).
 
-![git copy](/assets/readme-documents/git-clone-example.png)
+![git copy](/readme-files/readme-documents/git-clone-example.png)
 
 - then, pasting git clone https://github.com/TheoNorris/the-odd-dog-blog.git into your terminal.
 
-![git clone](/assets/readme-documents/git-clone.png)
+![git clone](/readme-files/readme-documents/git-clone.png)
 
 - To cut ties with this GitHub repository, type `git remote rm origin` into the terminal.
 
-![git remove](/assets/readme-documents/git-remove.png)
+![git remove](/readme-files/readme-documents/git-remove.png)
+
+- Upon using this project you will need to use your own environment variables. You can see an example
+of the variables I have used in my env_sample.py file. Before you host this project, ensure that you 
+have ignored these files before pushing them to the server.
+
+![env vars](/readme-files/readme-documents/env-vars.png)
 
 ## Credits
 
