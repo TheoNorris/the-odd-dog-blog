@@ -302,7 +302,7 @@ you need. I would highly recommend you store your environment variables in their
 
 - Upon using this project you will need to use your own environment variables. You can see an example
 of the variables I have used in my env_sample.py file. Before you host this project, ensure that you 
-have ignored these files before pushing them to the server.
+have ignored this file before pushing your project to the server.
 
 ![env vars](/readme-files/readme-documents/env-vars.png)
 
