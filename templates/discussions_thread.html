@@ -21,7 +21,6 @@
         <p class="comments">{{comment.comment}}</p>
     </div>
 </div>
-
 {% for reply in reply_comment %}
 <!-- Reply comments bubble/div -->
 <div class="reply-comments-div">
@@ -61,8 +60,8 @@
                         </div>
                         <form action="{{ url_for('delete_reply', reply_id=reply._id)}}">
                             <div class="modal-footer buttons">
-                                <button type="button" class="btn btn-secondary no-button-modal" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary yes-button-modal">Remove</button>
+                                <button type="button" class="btn no-button-modal" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn yes-button-modal">Remove</button>
                             </div>
                         </form>
                     </div>
@@ -71,9 +70,7 @@
         </div>
     </div>
 </div>
-
 {% endfor %}
-
 <!-- Reply to discussion comment form taken from stack overflow the form has validation verifiers -->
 <form class="needs-validation form-group discussions-thread-form" action="{{ url_for('reply', comment_id=comment._id) }}" method="POST" novalidate>
     <textarea name="date_time" hidden>{{ now }}</textarea>
@@ -90,11 +87,10 @@
         </div>
     </div>
     <div class="buttons">
-        <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
-        <button class="btn btn-primary yes-button" type="submit">
+        <input type="button" class="btn no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+        <button class="btn yes-button" type="submit">
             Reply
         </button>
     </div>
 </form>
-
 {% endblock %}

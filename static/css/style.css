@@ -46,6 +46,7 @@ a:hover {
   letter-spacing: 2px;
   background-color: #000;
   border: black;
+  color: white;
 }
 
 .no-button:hover {
@@ -60,6 +61,7 @@ a:hover {
   letter-spacing: 2px;
   background-color: #000;
   border: black;
+  color: white;
 }
 
 .yes-button:hover {
@@ -74,6 +76,7 @@ a:hover {
   letter-spacing: 2px;
   background-color: #000;
   border: black;
+  color: white;
 }
 
 .no-button-modal:hover {
@@ -87,6 +90,7 @@ a:hover {
   letter-spacing: 2px;
   background-color: rgba(255, 59, 59, 0.911);
   border: black;
+  color: white;
 }
 
 .yes-button-modal:hover {
@@ -615,8 +619,9 @@ footer {
   }
 
   div.picture-div {
-    padding: 20px 20px 0px;
+    padding: 30px 20px 20px;
   }
+
   h1.head-text {
     font-size: 25px;
     margin-left: 0;
@@ -750,12 +755,20 @@ footer {
     font-size: 13px;
   }
 
-  .four-image{
-  width: 300px;
+  .four-image {
+    width: 300px;
   }
 
-  .four-head-text{
+  .four-head-text {
     font-size: 30px;
+  }
+
+  div.picture-div {
+    padding: 20px 20px 0;
+  }
+
+  .discussions-image {
+    margin: 20px 0 0;
   }
 
   /* Discussions_thread*/
@@ -790,15 +803,27 @@ footer {
   .discussions-thread-form {
     width: 90%;
   }
-
 }
 
 @media (max-width: 322px) {
   h1.head-text {
     font-size: 16px;
   }
+
+  div.picture-div {
+    padding: 10px 20px 30px;
+  }
+
   .edit-discussion-header {
     font-size: 20px;
+  }
+
+  .discussions-image {
+    margin: 10px 0 0;
+  }
+
+  .blog-div {
+    margin: 0 0 25px;
   }
 
   .link-news-title {

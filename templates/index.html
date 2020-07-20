@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block homepage %}
+{% extends 'base.html' %} {% set active_page = "menu1" %} {% block homepage %}
 <div class="picture-div">
     <!-- Index page image -->
     <img class="hero-image" src="{{url_for('static', filename='images/smiling-woman.jpg')}}" alt="Smiling woman with dog" />

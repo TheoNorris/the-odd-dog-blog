@@ -1,4 +1,4 @@
-![The Odd Blog](/readme-documents/odd-dog-header.png)
+![The Odd Blog](/assets/readme-documents/odd-dog-header.png)
 
 The Odd Dog Blog is a project for enthusiasts of all things dog shaped. Through the use of the MongoDB atlas database users will be able to start discussions of varying categories.
 They will also be able to like, comment on, edit and delete said discussions. The database will also contain varying articles which the user can access from the home
@@ -11,30 +11,52 @@ This website will be created for lovers of dogs and all things furry. The site u
 dog owners looking for tips or advice or those who just want to brighten their day!
 
 - As a user I can see what the main focus of the website is.
-- As a user I can navigate through the website efficiently without questioning how to return.
-![Navbar](/readme-documents/navbar.png)
-- As a user I will be able to view an array of different blogs and articles.
-![Article](/readme-documents/doggin-you.png)
-- As a user I will be able to view any social media the company has.
-![Socials](/readme-documents/socials.png)
-- As a user I will be able to start a discussion of varying categories.
-![Discussions](/readme-documents/discussions.png)
-- As a user I will be able to search individual categories.
-![Select Discussion](/readme-documents/select-discussion.png)
-- As a user I will be able to like, edit, and delete discussions.
-![Like, Edit, Delete](/readme-documents/like-edit.png)
-- As a user I will be able to view the discussions thread.
-![Discussion Thread](/readme-documents/d-thread.png)
-- As a user I will be able to comment on a discussion.
-![Comment, Like, Edit, Delete](/readme-documents/like-edit.png)
-- As a user I will be able to like, edit and delete comments.
-![Comments Like, Edit, Delete](/readme-documents/comment-like-edit.png)
-- As a user I will be able to view news stories on the news page.
-![Comments Like, Edit, Delete](/readme-documents/news.png)
-- As a user I will able to view the website in a range of screen sizes.
-![Responsive Sizes](/readme-documents/responsive-sizes.png)
 
-My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/wireframes/the-odd-dog-blog-wires.pdf)
+- As a user I can navigate through the website efficiently without questioning how to return.
+
+![Navbar](/assets/readme-documents/navbar.png)
+
+- As a user I will be able to view an array of different blogs and articles.
+
+![Article](/assets/readme-documents/doggin-you.png)
+
+- As a user I will be able to view any social media the company has.
+
+![Socials](/assets/readme-documents/socials.png)
+
+- As a user I will be able to start a discussion of varying categories.
+
+![Discussions](/assets/readme-documents/discussions.png)
+
+- As a user I will be able to search individual categories.
+
+![Select Discussion](/assets/readme-documents/select-discussion.png)
+
+- As a user I will be able to like, edit, and delete discussions.
+
+![Like, Edit, Delete](/assets/readme-documents/like-edit.png)
+
+- As a user I will be able to view the discussions thread.
+
+![Discussion Thread](/assets/readme-documents/d-thread.png)
+
+- As a user I will be able to comment on a discussion.
+
+![Comment, Like, Edit, Delete](/assets/readme-documents/like-edit.png)
+
+- As a user I will be able to like, edit and delete comments.
+
+![Comments Like, Edit, Delete](/assets/readme-documents/comment-like-edit.png)
+
+- As a user I will be able to view news stories on the news page.
+
+![Comments Like, Edit, Delete](/assets/readme-documents/news.png)
+
+- As a user I will able to view the website in a range of screen sizes.
+
+![Responsive Sizes](/assets/readme-documents/responsive-sizes.png)
+
+My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/assets/wireframes/the-odd-dog-blog-wires.pdf)
 
 ## Schema
 
@@ -43,22 +65,22 @@ My Database is divided into four sections.
 - The first and most simple is categories. This is just the four categories that users can select to
 start a discussion.
 
-![Schema Categories](/readme-documents/schema-categories.png)
+![Schema Categories](/assets/readme-documents/schema-categories.png)
 
 - The second manages articles and blog posts on the main page.
 
-![Schema Articles](/readme-documents/schema-articles.png)
+![Schema Articles](/assets/readme-documents/schema-articles.png)
 
 - The third database contains users discussions accompanied by the category, date, time, user and the amount of likes they have on their comment. I have also added a 
 can't delete boolean to some of the articles as there is no user authentication this way all the discussions will not to be deleted.
 
-![Schema Articles](/readme-documents/schema-discussions.png)
+![Schema Articles](/assets/readme-documents/schema-discussions.png)
 
 - The fourth database contains discussions thread comments. Comments that a user has added to a discussion. This database contains a comment_id which is an
 id that matches the object_id of the particular comment the user has commented on in the discussion database. It also contains the user, date, time and if anyone has liked this
 comment.
 
-![Schema Articles](/readme-documents/schema-discussions-thread.png)
+![Schema Articles](/assets/readme-documents/schema-discussions-thread.png)
 
 ## Existing Features
 
@@ -119,9 +141,9 @@ Python's design philosophy emphasizes code readability with its notable use of s
 Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. 
 It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. 
 
-- [Flask](https://www.mongodb.com/)
+- [MongoDB](https://www.mongodb.com/)
 
-https://en.wikipedia.org/wiki/MongoDB
+MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License (SSPL).
 
 ## Testing
 
@@ -143,7 +165,7 @@ This is apparent in the name in the navbar.
 - As a user I can navigate through the website efficiently without questioning how to return.
 
 I have been through every link on the website, always being able to return to the home page if necessary. The navbar is also fixed so there is an option
-to return whenever seen fit.
+to return whenever seen fit. The website also has a personalised 404 page with a home link so the user should never get lost.
 
 - As a user I will be able to view an array of different blogs and articles.
 
@@ -155,16 +177,16 @@ These are always visible in the footer of each page. I have clicked on each link
 
 - As a user I will be able to start a discussion of varying categories.
 
-There are four different categories on the discussions page, in the start a discussion modal. These are all apparent in the select bar. I have been through each category
+There are four different categories on the discussions page, in the 'start a discussion' modal. These are all apparent in the select bar. I have been through each category
 and checked they work correctly. 
-If a user has selected a category from the search discussions select bar, they are only able to start a discussion in the selected category, from the start a discussion modal in that category.
+If a user has selected a category from the search discussions select bar, they are only able to start a discussion in the selected category, from the 'start a discussion modal' in that category.
 I have been to the different categories and tested this. 
 Either way of starting a discussion I have added validation. I have been throught each input area and tested whether or not these areas need validation. I have started discussions and
 ensured these discussions are posted correctly.
 
 - As a user I will be able to search individual categories.
 
-I have tested that the select discussion category goes to the correct category each choice by clicking on each individual category. 
+I have tested that the select discussion category goes to the correct category for each selection by clicking on each individual category. 
 
 - As a user I will be able to like, edit, and delete discussions.
 
@@ -177,7 +199,7 @@ I been to the discussions thread by clicking on comments. I have checked that th
 
 - As a user I will be able to comment on a discussion.
 
-On the discussions thread there is a form to add comments I have been through the form, checked that the validation is working correctly and submitted the form.
+On the discussions thread there is a form to add comments, I have been through the form, checked that the validation is working correctly and submitted the form.
 On submission the comment pops up above the form. This displays the form is working correctly.
 
 - As a user I will be able to like, edit and delete comments.
@@ -213,7 +235,7 @@ correctly.
 I overcame this issue by seperating my discussion_thread comments to a different database. This was a great lesson in database structure because once I had done this
 I could make the function work almost instantaneously.
 
-- The next issue I had difficulty with was pagination. My tutor helped me with this and this was very important to learn. Once you understand the structure it is very straight
+- The next issue I had difficulty with was pagination. My tutor, Cormac helped me with this and this was very important to learn. Once you understand the structure it is very straight
 forward.
 
 - I currently have one existing problem which is the submit button in edit_reply.
@@ -224,67 +246,69 @@ back to the the discussions thread from the update_reply route.
 
 ## Deployment
 
-This site is hosted by Heroku deployed directly from the master branch. To deploy the website you must first create a Heroku account.
+This site is hosted on Heroku deployed directly from the master branch. To deploy the website you must first create a Heroku account.
 
 - Next you will create an app on Heroku
 
-![Creat Heroku App](/readme-documents/heroku-create-app.png)
+![Creat Heroku App](/assets/readme-documents/heroku-create-app.png)
 
 -After this you will want to add your configuration variables. You can do this inside settings of your Heroku app. You want to add IP address, Port, and your 
 environment variables of the application. In this case my variable examples are stored in my env_sample.py file. You will have to create your own based on the examples of what
 you need. I would highly recommend you store your environment variables in their own file which is ignored when being push to a server.
 
-![Configuration variables](/readme-documents/environment-variables.png)
+![Configuration variables](/assets/readme-documents/environment-variables.png)
 
-- You will need to ensure you have a Procfile. You do this by entering by entering the following into the bash terminal.
+- You will need to ensure you have a Procfile. You do this by entering the following into the bash terminal.
 
-![Procfile](/readme-documents/procfile.png)
+![Procfile](/assets/readme-documents/procfile.png)
 
 - You will also need a requirements.txt file.
 
-![Requirements.txt](/readme-documents/requirements.png)
+![Requirements.txt](/assets/readme-documents/requirements.png)
 
 - git add . and git commit with a meaningful commit
 
-![Git Commit](/readme-documents/git-commit.png)
+![Git Commit](/assets/readme-documents/git-commit.png)
 
 - Once these requirements are done you can login to your Heroku in the bash terminal.
 
-![Heroku Login](/readme-documents/heroku-login.png)
+![Heroku Login](/assets/readme-documents/heroku-login.png)
 
 - Next push the application to heroku using.
 
-![Heroku push](/readme-documents/git-push.png)
+![Heroku push](/assets/readme-documents/git-push.png)
 
 - Finally command Heroku to start running the application 
 
-![Heroku Run](/readme-documents/heroku-run.png)
+![Heroku Run](/assets/readme-documents/heroku-run.png)
 
 - Now, inside Your Heroku dashboard in the top right of the window you can now open the the application.
 
-![Open App](/readme-documents/open-app.png)
+![Open App](/assets/readme-documents/open-app.png)
 
 **To run locally you can clone this repository directly into the editor of your choice by firstly,**
 
 - copying the link from clone or download on my GitHub page.
 
-![git copy](/readme-documents/git-clone-example.png)
+![git copy](/assets/readme-documents/git-clone-example.png)
 
-- then, pasting git clone https://github.com/TheoNorris/UK-Stand-Up.git into your terminal.
+- then, pasting git clone https://github.com/TheoNorris/the-odd-dog-blog.git into your terminal.
 
-![git clone](/readme-documents/git-clone.png)
+![git clone](/assets/readme-documents/git-clone.png)
 
-- To cut ties with this GitHub repository, type `git remote rm origin`into the terminal.
+- To cut ties with this GitHub repository, type `git remote rm origin` into the terminal.
 
-![git remove](/readme-documents/git-remove.png)
+![git remove](/assets/readme-documents/git-remove.png)
 
 ## Credits
 
 ### content and media
 
-Most of the Rap history was taken from [wikipedia](https://en.wikipedia.org/wiki/British_hip_hop#:~:text=The%20first%20UK%20record%20label,acts%20was%20founded%20in%201986.&text=Music%20of%20Life%20was%20swiftly,through%20in%20his%20vocal%20style.),
-besides small parts being written by me. The Photo of London on the main page is by [Pierre Blaché](https://www.instagram.com/pierre9x6/) taken from [pexels](https://www.pexels.com/).
-The artists bio's are taken from the [last.fm API](https://www.last.fm/api/). While the artists photos, album covers, names and social links are taken from the [happi API](https://happi.dev/docs/music).
+The news articles I have used on this website are copyright free and have been taken from [News USA](https://www.copyrightfreecontent.com/?s=dog+couch).
+The photos were taken from [Pexels](https://www.pexels.com/) and a whole variation of photographers. [Jayson Lorenzo](https://www.instagram.com/iamjaysonlorenzo/), [Sergio Souza](https://www.pexels.com/@serjosoza), [Dominika Roseclay](https://www.instagram.com/dominika_roseclay/),
+[Spencer Gurley](https://www.instagram.com/spencergurley/), [The Missin Lovers](https://www.instagram.com/missinlovers/), [Tom Verdoot](https://www.instagram.com/verdoottom/), [Dominic Buccilli](https://www.instagram.com/dombuccilli/), [Julissa Helmuth](https://www.instagram.com/httpx.jh/),
+[Prime Photo](https://www.instagram.com/primephotos__/), [Nishizuka](https://www.pexels.com/@nishizuka-25426?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels), [Melchor Gama](https://www.instagram.com/MELCHOR_GAMA/), [Noelle Otto](https://www.instagram.com/noelle.grace/),
+[Free stock photos](https://www.instagram.com/freestocks/), [Lisa Fotios](https://www.instagram.com/lisafotios/)
 
 ### Acknowledgements
 

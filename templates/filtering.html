@@ -2,7 +2,6 @@
 <!-- Discussions image -->
 <div class="image-plus-button-cont">
     <img class="discussions-image" src="{{ image }}" alt="Dog" />
-
     <label id="discussion-label">Start a discussion here</label>
     <!-- Modal button for starting a conversation relating to the category you have chosen -->
     <button type="button" class="btn btn-primary discussion-button" data-toggle="modal" data-target="#exampleModal">
@@ -32,7 +31,6 @@
                             <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                             {% endfor %}
                         </select>
-
                         <div class="col">
                             <label class="general-label" for="validationCustom01">Title</label>
                             <input type="text" class="form-control" id="validationCustom01" placeholder="Enter a Title..." name="title" minlength="3" maxlength="50" pattern="\S(.*\S)?" required />
@@ -57,10 +55,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="buttons">
-                        <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
-                        <button class="btn btn-primary yes-button" type="submit">
+                        <input type="button" class="btn no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+                        <button class="btn yes-button" type="submit">
                             Comment
                         </button>
                     </div>
@@ -69,7 +66,6 @@
         </div>
     </div>
 </div>
-
 <hr class="comment-break" />
 <!-- For loop to display all the comments in divs relating to the category chosen -->
 {% for comment in comments %}
@@ -79,7 +75,6 @@
         <p class="author-text">User: {{comment.username}}</p>
         <p class="comment-date">{{comment.date_time}}</p>
     </div>
-
     <div class="col-8 comments-box">
         <p class="comment-title">
             <strong>{{comment.title}}</strong>
@@ -92,14 +87,11 @@
                 <i class="fas fa-heart heart"></i>
             </button>
         </form>
-
         <label class="interactive-buttons">{{comment.likes}}</label>
         <!-- If statement saying that if the comment has cant delete = true value and key in database,
-    then to remove the delete and edit buttons -->
+        then to remove the delete and edit buttons -->
         {% if comment.cant_delete %}
-
         <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
-
         {% else %}
         <!-- comment edit and remove buttons for the discussion comments -->
         <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>

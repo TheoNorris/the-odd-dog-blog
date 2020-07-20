@@ -1,5 +1,4 @@
-{% extends 'base.html' %}{% block content %}
-
+{% extends 'base.html' %} {% set active_page = "menu2" %} {% block content %}
 <div class="image-plus-button-cont">
     <img class="discussions-image" src="{{url_for('static', filename='images/frenchy.jpg')}}" alt="French Bulldog" />
     <label id="discussion-label">Start a discussion here</label>
@@ -31,7 +30,6 @@
                             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                             {% endfor %}
                         </select>
-
                         <div class="col">
                             <label class="general-label" for="validationCustom01">Title</label>
                             <input type="text" class="form-control" id="validationCustom01" placeholder="Enter a Title..." name="title" minlength="3" maxlength="50" pattern="\S(.*\S)?" required />
@@ -47,7 +45,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label class="general-label" for="validationCustomUsername">Thought's</label>
+                            <label class="general-label">Thought's</label>
                             <div class="input-group">
                                 <textarea class="form-control"  name="comment" rows="3" placeholder="What's on your mind...?" maxlength="254" required></textarea>
                                 <div class="invalid-feedback">
@@ -56,10 +54,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="buttons">
-                        <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
-                        <button class="btn btn-primary yes-button" type="submit">
+                        <input type="button" class="btn no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+                        <button class="btn yes-button" type="submit">
                             Comment
                         </button>
                     </div>
@@ -68,9 +65,7 @@
         </div>
     </div>
 </div>
-
 <hr class="comment-break" />
-
 <!-- For loop to display all Discussion comments in seperate divs -->
 {{ pagination.info}}
 {% for comment in comments %}
@@ -95,20 +90,16 @@
         </form>
         <!-- Discussion comment like counter -->
         <label class="interactive-buttons">{{comment.likes}}</label>
-
         <!-- If statement saying that if the comment has cant delete = true value and key in database,
-    then to remove the delete and edit buttons -->
+        then to remove the delete and edit buttons -->
         {% if comment.cant_delete %}
-
-        <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
-
+         <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
         {% else %}
         <!-- comment edit and remove buttons for for the discussion comments -->
         <div>
             <a href="{{ url_for('discussions_thread', comment_id=comment._id )}}" class="interactive-buttons"><i class="far fa-comment-dots"></i> Comments</a>
             <a href="{{ url_for('edit_discussion', comment_id=comment._id )}}" class="interactive-buttons">Edit</a>
-
-            <a href="#" class="interactive-buttons" data-toggle="modal" data-target="#modal2">Remove</a>
+        <a href="#" class="interactive-buttons" data-toggle="modal" data-target="#modal2">Remove</a>
         </div>
         <!--Modal taken from bootstrap-->
         <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -125,19 +116,17 @@
                     </div>
                     <form action="{{ url_for('delete_discussion', comment_id=comment._id )}}">
                         <div class="modal-footer buttons">
-                            <button type="button" class="btn btn-secondary no-button-modal" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary yes-button-modal">Remove</button>
+                            <button type="button" class="btn no-button-modal" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn yes-button-modal">Remove</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
         {% endif %}
     </div>
 </div>
 <hr class="comment-break" />
-
 {% endfor %} 
 {{ pagination.links }}
 {% endblock %}

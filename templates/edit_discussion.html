@@ -13,19 +13,14 @@
                 <option value="" disabled>Choose Category</option>
                 <!-- For and if statements in relation to having the correct category chosen in the edit_discussion form -->
                 {% for cat in categories %} {% if cat.category_name == comment.category_name %}
-
-                <option value="{{cat.category_name}}" selected> {{cat.category_name}}</option>
-
+                <option value="{{cat.category_name}}" selected> {{cat.category_name}}</option>  
                 {% else %}
-
                 <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-
                 {% endif %} {% endfor %}
             </select>
             <div class="col">
                 <label class="general-label" for="validationCustom01">Title</label>
                 <input type="text" class="form-control" id="validationCustom01" placeholder="Enter a Title..." value="{{ comment.title }}" name="title" minlength="3" maxlength="50" pattern="\S(.*\S)?" required />
-
                 <div class="invalid-feedback">
                     The title must be 3-50 characters long.
                 </div>
@@ -49,13 +44,12 @@
         </div>
         <div class="buttons">
             <!-- Cancel button returning to discussions form -->
-            <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
+            <input type="button" class="btn no-button" onclick="window.location.href='{{ url_for('discussions') }}';" value="Cancel" />
             <!-- Edit button -->
-            <button class="btn btn-primary yes-button" type="submit">
+            <button class="btn yes-button" type="submit">
                 Edit
             </button>
         </div>
     </form>
 </div>
-
 {% endblock %}

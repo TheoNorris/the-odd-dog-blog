@@ -19,11 +19,10 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto" id="nav-jquery">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {{ 'active' if active_page == 'menu1' else '' }}" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown mobile-nav-options">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +39,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('discussions') }}">Discussions</a>
+                            <a class="nav-link {{ 'active' if active_page == 'menu2' else '' }}" href="{{ url_for('discussions') }}">Discussions</a>
                         </li>
                         <li class="nav-item dropdown mobile-nav-options">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +56,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('news') }}">News</a>
+                            <a class="nav-link {{ 'active' if active_page == 'menu3' else '' }}" href="{{ url_for('news') }}">News</a>
                         </li>
                     </ul>
                     <!--Select bar for filtering specific discussions-->
@@ -76,7 +75,6 @@
         <!--Main section-->
         <section>
             <!--Block for injecting image specific for blogpost, articles and index.html-->
-
             <div class="content-container">
                 {% block homepage %}{% endblock %}
                 <div class="row content-row">
@@ -135,10 +133,8 @@
         <!--Footer containing social links, copyright text-->
         <footer>
             <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram social-links"></i></a>
-
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square social-links"></i></a>
-
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square social-links"></i></a>
+<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square social-links"></i></a>
+<a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square social-links"></i></a>
             <p class="copyright-text">
                 © The Odd Dog Blog. All rights reserved. Website designed by
                 <a target="_blank" class="theo-tag" href="https://github.com/TheoNorris">Theo Norris</a>
@@ -175,7 +171,6 @@
                 );
             })();
         </script>
-
         <script>
             // Javascript taken from stack overflow to enable modal form submission
             function form_submit() {

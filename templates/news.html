@@ -1,21 +1,17 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'base.html' %} {% set active_page = "menu3" %} {% block content %}
 <!-- Article image -->
-
 <div class="blog-div">
     <h2 class="news-title">Doggy News <i class="far fa-newspaper"></i></h2>
-
     <a class="link-news-title" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
         <div class="image-and-news-title">
             <img class="news-image" src="{{url_for('static', filename='images/siberian-husky-outdoor.jpg')}}" alt="Siberian Husky" />
             <!-- Collapsible article. Collapse function taken from bootstrap  -->
-
             <h2 class="news-article-title">
                 <i class="fas fa-bone"></i> Dogsled Racer Blazes Trail
                 <i class="fas fa-bone"></i>
             </h2>
         </div>
     </a>
-
     <div class="collapse" id="collapse">
         <div class="card card-body">
             <p class="article-text">
@@ -46,7 +42,6 @@
             </h2>
         </div>
     </a>
-
     <div class="collapse" id="collapse2">
         <div class="card card-body">
             <p class="article-text">
@@ -72,7 +67,6 @@
             </h2>
         </div>
     </a>
-
     <div class="collapse" id="collapse3">
         <div class="card card-body">
             <p class="article-text">

@@ -3,7 +3,6 @@
 <div class="image-plus-button-cont">
     <img class="discussions-image" src="{{url_for('static', filename='images/dog-inside-mailbox.jpg')}}" alt="French Bulldog" />
 </div>
-
 <div class="edit-discussion-div">
     <h3 class="edit-discussion-header">Edit Reply</h3>
     <!-- Edit reply form taken from stack overflow the form has validation verifiers -->
@@ -13,7 +12,8 @@
         <div class="form-group">
             <div class="col">
                 <label class="general-label" for="validationCustom01">Username</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="Username" value="{{ reply.username }}" name="username" minlength="3" maxlength="10" pattern="\S(.*\S)?" required />
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Username" value="{{ reply.username }}" 
+                name="username" minlength="3" maxlength="10" pattern="\S(.*\S)?" required />
                 <div class="invalid-feedback">
                     Your username must be 3-10 characters long.
                 </div>
@@ -21,7 +21,8 @@
             <div class="col">
                 <label class="general-label" for="validationCustomUsername">Comment</label>
                 <div class="input-group">
-                    <textarea class="form-control" id="validationCustomUsername" name="comment" rows="3" placeholder="" maxlength="254" required>{{ reply.comment }}</textarea>
+                    <textarea class="form-control" id="validationCustomUsername" name="comment" rows="3" placeholder="" maxlength="254" 
+                    required>{{ reply.comment }}</textarea>
                     <div class="invalid-feedback">
                         Enter Comment
                     </div>
@@ -30,13 +31,12 @@
         </div>
         <div class="buttons">
             <!-- Cancel button returns user to discussions_thread -->
-            <input type="button" class="btn btn-primary no-button" onclick="window.location.href='{{ request.referrer }}';" value="Cancel" />
+            <input type="button" class="btn no-button" onclick="window.location.href='{{ request.referrer }}';" value="Cancel" />
             <!-- Buttons edits reply -->
-            <button class="btn btn-primary yes-button" type="submit">
+            <button class="btn yes-button" type="submit">
                 Edit
             </button>
         </div>
     </form>
 </div>
-
 {% endblock %}
