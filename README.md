@@ -56,7 +56,7 @@ dog owners looking for tips or advice or those who just want to brighten their d
 
 ![Responsive Sizes](/readme-files/readme-documents/responsive-sizes.png)
 
-My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/assets/wireframes/the-odd-dog-blog-wires.pdf)
+My wireframes were made using [Balsamic](https://balsamiq.com/). You can view them [here](/readme-files/wireframes/the-odd-dog-blog-wires.pdf)
 
 ## Schema
 
