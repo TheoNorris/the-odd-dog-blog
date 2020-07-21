@@ -246,7 +246,7 @@ forward.
 
 - A small issue I currently have is that I could not implement a validation modal on the comment remove button in the discussions thread.
 
-    - When I implemented one, it removed the first comment instead of the selected one. I believe this is because it was not registering to the loop I had in place to display and
+    - When I implemented one and selected remove, it removed the first comment instead of the selected one. I believe this is because it was not registering to the loop I had in place to display and
     alter the comments. The modal worked perfectly well on the discussions page and I even attempted to clone the same piece of code. I was very pushed for time as I had already started the next module of the course
     so in the future I believe this issue will be solvable.
 
