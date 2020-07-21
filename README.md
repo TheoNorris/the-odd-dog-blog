@@ -244,11 +244,11 @@ forward.
       discussions_thread. I had a lot of difficulty with this because the discussions thread also has an object id in it's address. I found it challenging to formulate a way to redirect the page
       back to the the discussions thread from the update_reply route.
 
-- A small issue I currently have is that I could not implement a validation modal on the comment remove button in the discussions thread.
+- A small issue I currently have is that I could not implement a validation modal of my choice on the comment remove button in the discussions thread.
 
     - When I implemented one and selected remove, it removed the first comment instead of the selected one. I believe this is because it was not registering to the loop I had in place to display and
-    alter the comments. The modal worked perfectly well on the discussions page and I even attempted to clone the same piece of code. I was very pushed for time as I had already started the next module of the course
-    so in the future I believe this issue will be solvable.
+    alter the comments. The modal worked perfectly well on the discussions page and I even attempted to clone the same piece of code. I was very pushed for time so I have added a javascript validation
+    modal for the time being. This is obviously not ideal because it is not styled or written in the way I would be pleased with but I can implement the correct modal in the future.
 
 ## Deployment
 
